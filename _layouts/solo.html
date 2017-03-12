@@ -42,7 +42,7 @@ author_profile: false
     {% include post_pagination.html %}
 
     {% if site.comments.provider and page.comments != false %}
-      {% include comments-providers/disqus.html %}
+      {% include comments.html %}
     {% endif %}
   </div>
 </article>

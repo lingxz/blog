@@ -19,14 +19,14 @@ description              : "和光同尘，与时舒卷"
 # description              : "一抹明媚，一瓣馨香。一片盎然，一望回眸。在清丽透彻的阳光下，便是一番风景。一盏香茗，一卷书墨，一落窗明，一艾心情。在思绪幽然的专注中，便是一回自得。"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/blog" # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "lingxz/blog" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : "staticmanv2" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
-    shortname            : theconfusedme # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : # theconfusedme # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -34,6 +34,7 @@ comments:
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
+# Staticman comments (full configuration in staticman.yml)
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "master"
@@ -41,7 +42,7 @@ staticman:
   filename               : comment-{@timestamp}
   format                 : "yml"
   moderation             : true
-  path                   : "docs/_data/comments/{options.slug}" # "/_data/comments/{options.slug}" (default)
+  path                   : "_data/comments/{options.slug}" # "/_data/comments/{options.slug}" (default)
   requiredFields         : ['name', 'email', 'message']
   transforms:
     email                : "md5"
@@ -67,6 +68,8 @@ facebook:
   app_id                 :
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
+github:
+  username               : "lingxz"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -125,7 +128,7 @@ exclude:
   - .bundle
   - .jekyll-assets-cache
   - .sass-cache
-  - assets/js/plugins
+  # - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
   - Capfile
