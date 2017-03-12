@@ -7,6 +7,7 @@ comments:
   moderation        : false
   path              : "_data/comments/{options.slug}"
   requiredFields    : ['name', 'email', 'message']
+  allowedOrigins:   : ['localhost']
   transforms:
     email           : md5
   generatedFields:
