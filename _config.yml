@@ -26,7 +26,7 @@ words_per_minute         : 200
 comments:
   provider               : "staticmanv2" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
-    shortname            : theconfusedme # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : # theconfusedme # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -37,7 +37,7 @@ comments:
 # Staticman comments (full configuration in staticman.yml)
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "staticmanv2"
+  branch                 : "master"
   commitMessage          : "New comment."
   filename               : comment-{@timestamp}
   format                 : "yml"
