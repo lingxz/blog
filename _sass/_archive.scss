@@ -4,15 +4,24 @@
 
 .archive {
   margin-bottom: 2em;
-
-  @include breakpoint($medium) {
-    @include span(12 of 12);
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 625px;
+  @include breakpoint($small) {
+    padding: 0 0.75rem;
   }
 
-  @include breakpoint($large) {
-    @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
-  }
+  // @include breakpoint($medium) {
+  //   float: none;
+  //   @include span(12 of 12);
+  // }
+
+  // @include breakpoint($large) {
+  //   @include span(10 of 12 last);
+  //   @include prefix(0.5 of 12);
+  //   float: none;
+  // }
 
   a {
     // color: inherit;
@@ -86,15 +95,15 @@
 
 .list__item {
   @include breakpoint($medium) {
-    padding-right: $right-sidebar-width-narrow;
+    // padding-right: $right-sidebar-width-narrow;
   }
 
   @include breakpoint($large) {
-    padding-right: $right-sidebar-width;
+    // padding-right: $right-sidebar-width;
   }
 
   @include breakpoint($x-large) {
-    padding-right: $right-sidebar-width-wide;
+    // padding-right: $right-sidebar-width-wide;
   }
 
   .page__meta {
