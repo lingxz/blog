@@ -34,7 +34,6 @@
   margin: 0 auto;
   padding: 0;
   max-width: 625px;
-  overflow: hidden;
   @include breakpoint($small) {
     padding: 0 0.75rem;
   }
@@ -45,15 +44,15 @@
   //   @include suffix(2 of 12);
   // }
 
-  .page__inner-wrap {
-    @include full();
+  // .page__inner-wrap {
+  //   @include full();
 
-    .page__content,
-    .page__meta,
-    .page__share {
-      @include full();
-    }
-  }
+  //   .page__content,
+  //   .page__meta,
+  //   .page__share {
+  //     @include full();
+  //   }
+  // }
 }
 
 .page__title {
@@ -423,11 +422,11 @@
   padding-top: 1em;
   border-top: 1px solid $border-color;
   @include clearfix();
-  float: left;
+  // float: left;
 
-  @include breakpoint($large) {
-    @include pre(2.5 of 12);
-  }
+  // @include breakpoint($large) {
+  //   @include pre(2.5 of 12);
+  // }
 
   a {
     color: inherit;
