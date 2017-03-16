@@ -58,20 +58,9 @@
 .page__title {
   margin-top: 0;
   line-height: 1;
-  border-bottom: 2px dashed #ddd;
   padding-bottom: 0.2em;
   font-size: $type-size-1;
-
-  & + .page__meta {
-    margin-top: -0.5em;
-  }
-}
-
-.collection__title {
-  margin-top: 0;
-  line-height: 1;
-  border-bottom: 2px dashed #ddd;
-  padding-bottom: 0.2em;
+  margin-bottom: 0;
 
   & + .page__meta {
     margin-top: -0.5em;
@@ -438,8 +427,4 @@
   margin-bottom: 10px;
   font-size: $type-size-6;
   text-transform: uppercase;
-}
-
-.collection__container {
-  margin-bottom: 1.5em;
 }

@@ -1,11 +1,13 @@
 poetry:
-  en: "poetry"
+  en: "Poetry"
   ch: "诗歌"
+  description: some of my poetry dating back to 2012. Dates preserved as closely to orignal writing as possible.
 
 essays:
-  en: "essays"
+  en: "Essays"
   ch: "随笔"
+  description: random thoughts about life and everything under the sun
 
 shortstories:
-  en: "short stories"
+  en: "Short Stories"
   ch: "短篇小说"

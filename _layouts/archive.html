@@ -20,7 +20,10 @@ layout: default
   <div class="archive">
     {% unless page.header.overlay_color or page.header.overlay_image %}
       {% if page.title %}
-      <h1 class="page__title">{{ page.title }}</h1>
+        <h1 class="archive__title">{{ page.title }}</h1>
+      {% endif %}
+      {% if page.subtitle %}
+        <p class="page__subtitle">{{ page.subtitle }}</p>
       {% endif %}
     {% endunless %}
     {{ content }}

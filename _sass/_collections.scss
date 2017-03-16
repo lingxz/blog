@@ -1,0 +1,42 @@
+.collection__title {
+  margin-top: 0;
+  line-height: 1;
+  padding-bottom: 0.2em;
+  // font-family: $fancy-font;
+  color: $theme-color;
+  font-size: $type-size-2;
+
+  a{
+  	color: $theme-color;
+
+  	&:hover {
+  		color: $link-color-hover;
+  	}
+  }
+
+  & + .page__meta {
+    margin-top: -0.5em;
+  }
+}
+
+.archive__title {
+  margin-top: 0;
+  line-height: 1;
+  padding-bottom: 0.2em;
+  font-size: $type-size-1;
+  margin-bottom: 0;
+  color: $theme-color;
+
+  & + .page__meta {
+    margin-top: -0.5em;
+  }
+}
+
+.page__subtitle {
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+.collection__container {
+  margin-bottom: 1.5em;
+}
