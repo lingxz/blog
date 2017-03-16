@@ -36,7 +36,13 @@ $(document).ready(function(){
 
   // add lightbox class to all image links
   $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
-
+  
+  // style the markdown popup
+  $("#comment-form-message").focus(function(){
+    $('.markdown').removeClass('hidden');
+    $('.markdown').addClass('fade');
+  });
+  
   // Magnific-Popup options
   $(".image-popup").magnificPopup({
     // disableOn: function() {

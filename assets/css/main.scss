@@ -52,6 +52,14 @@ $susy: (
 // hamburger menu
 @import "vendor/hamburgers/hamburgers";
 
+// mixins
+@import "vendor/compass/compass";
+@import "vendor/compass/lemonade";
+@import "vendor/compass/animate";
+
+// checkbox styling
+@import "vendor/pretty-checkbox/pretty";
+
 $hamburger-layer-height: 3px;
 $hamburger-layer-spacing: 3px;
 $hamburger-layer-width: 32px;

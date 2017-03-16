@@ -14,10 +14,9 @@ $indent-var                 : 1.3em !default;
 
 /* system typefaces */
 $serif                      : Georgia, Times, serif !default;
-$sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+// $sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
 $monospace                  : Monaco, Consolas, "Lucida Console", monospace !default;
 /* sans serif typefaces */
-// $sans-serif-narrow          : $sans-serif !default;
 $helvetica                  : Helvetica, "Helvetica Neue", Arial, sans-serif !default;
 $sans-serif-narrow          : $helvetica !default;
 
@@ -43,9 +42,8 @@ $solo-heading: Heebo, "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Mi
 $fancy-font: Pacifico, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei Light", sans-serif;
 
 $global-font-family         : $custom !default;
-// $header-font-family         : $sans-serif !default;
 $header-font-family         : $heading !default;
-$caption-font-family        : $sans-serif !default;
+$caption-font-family        : $custom !default;
 
 /* type scale */
 $type-size-1                : 2.441em !default;  // ~39.056px
@@ -63,7 +61,7 @@ $type-size-8                : 0.625em !default;  // ~10px
    ========================================================================== */
 
 $red                        : #FF3636;
-$theme-color                : $red;
+$theme-color                : mix(#fff, $red, 10%);
 // $text-color                 : #000;
 $gray                       : #7a8288 !default;
 $dark-gray                  : mix(#000, $gray, 40%) !default;
@@ -113,7 +111,7 @@ $xing-color                 : #006567 !default;
 /* links */
 // $link-color                 : $info-color !default;
 $link-color                 : $theme-color !default;
-$link-color-hover           : mix(#fff, $link-color, 25%) !default; 
+$link-color-hover           : mix(#fff, $link-color, 40%) !default; 
 $link-color-visited         : mix(#000, $link-color, 25%) !default;
 $archive-link-color         : $text-color;
 $archive-link-color-hover   : $theme-color !default;
@@ -147,7 +145,7 @@ $right-sidebar-width-wide   : 400px !default;
    Other
    ========================================================================== */
 
-$border-radius              : 4px !default;
+$border-radius              : 0px !default;
 $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125) !default;
 // $navicon-width              : 28px !default;
 $navicon-width              : 1.5rem !default;

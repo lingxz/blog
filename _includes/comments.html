@@ -116,16 +116,17 @@
           <h2 class="page__section-label">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="{{ page.url | absolute_url }}#respond" style="display:none;">Cancel reply</a></small></h2>
           <form id="comment-form" class="page__form js-form form" method="post" action="https://api.staticman.net/v2/entry/{{ site.repository }}/{{ site.staticman.branch }}/comments">
             <fieldset>
+              <!-- <label for="comment-form-name"><strong>Name</strong></label> -->
+              <input type="text" id="comment-form-name" name="fields[name]" spellcheck="false" placeholder="Name">
+            </fieldset>
+            <fieldset>
+              <input type="email" id="comment-form-email" name="fields[email]" spellcheck="false" placeholder="Email address (will not be public)">
+            </fieldset>
+
+            <fieldset>
               <label for="comment-form-message"><strong>Comment</strong> <small>(<a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> is allowed)</small></label>
+              <p class="markdown hidden">markdown supported.</p>
               <textarea type="text" rows="6" id="comment-form-message" name="fields[message]" spellcheck="true"></textarea>
-            </fieldset>
-            <fieldset>
-              <label for="comment-form-name"><strong>Name</strong></label>
-              <input type="text" id="comment-form-name" name="fields[name]" spellcheck="false">
-            </fieldset>
-            <fieldset>
-              <label for="comment-form-email"><strong>Email</strong> <small>(used for <a href="http://gravatar.com">Gravatar</a> image and reply notifications)</small></label>
-              <input type="email" id="comment-form-email" name="fields[email]" spellcheck="false">
             </fieldset>
             <fieldset class="hidden" style="display: none;">
               <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}">
@@ -139,10 +140,15 @@
               <span class="js-notice-text"></span>
             </p>
             <!-- End comment form alert messaging -->
+
             <fieldset>
-              <label for="comment-form-reply">
+              <div class="pretty smooth">
+                <input type="checkbox" id="comment-form-reply" name="options[subscribe]" value="email"> 
+                <label for="comment-form-reply"><i class="icon-checked-1"></i>Notify me of new comments by email.</label>
+              </div>
+              <!-- <label for="comment-form-reply">
                 <input type="checkbox" style="float: left; margin: 5px 0; margin-right: 0.5em" id="comment-form-reply" name="options[subscribe]" value="email">Notify me of new comments by email.
-              </label>
+              </label> -->
               <button type="submit" id="comment-form-submit" class="btn btn--large">Submit Comment</button>
             </fieldset>
           </form>

@@ -13,3 +13,30 @@
 	font-family: $fancy-font;
 	font-size: 4em;
 }
+
+// use of keyframes mixin
+@include keyframes(fade) {
+  0% {
+    @include transform2d(translateY(-1em));
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+    @include transform2d(translateY(-40px));  
+  }
+  100% {
+    @include transform2d(translateY(-1em));
+    opacity: 0;
+  } 
+}
+
+.fade {
+   @include animation(fade 2.5s);
+   display: inline-block;
+}
+
+#comment-form-submit {
+	margin-top: 1em;
+	@include span(12 of 12);
+}
+

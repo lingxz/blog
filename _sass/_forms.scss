@@ -77,13 +77,12 @@ textarea,
 select {
   display: inline-block;
   width: 100%;
-  padding: 0.25em;
+  padding: 0.5em;
   margin-bottom: 0.5em;
   color: $text-color;
   background-color: #fff;
   border: 1px solid mix(#fff, #000, 80%);
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  // border-radius: $border-radius;
 
   &:hover {
     border-color: mix(#fff, $primary-color, 50%);
@@ -224,6 +223,9 @@ textarea:focus {
   border-color: $primary-color;
   outline: 0;
   outline: thin dotted \9;
+  border: 1px solid darken($gray, 5);
+  box-shadow: -8px 0px 0 0 $theme-color;
+  outline: none;
 }
 
 input[type="file"]:focus,
@@ -354,6 +356,33 @@ select:focus {
   z-index: 11;
 }
 
+
+/* markdown button
+ */
+.markdown {
+  color: #fff;
+  background: $theme-color;
+  padding: .2em;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  font-size: .8em;
+  float: right;
+  opacity: 0;
+  
+  .hidden {
+    color: #fff;
+    background: $theme-color;
+    padding: .2em;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    font-size: .8em;
+    float: right;
+    opacity: 0;
+  }
+
+}
 
 
 /*

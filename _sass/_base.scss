@@ -158,9 +158,9 @@ a {
 
   &:hover,
   &:active {
-    color: $link-color-hover;
     outline: 0;
   }
+  &:hover { color: $link-color-hover; }
 }
 
 /* code */
@@ -350,7 +350,7 @@ nav {
    Global animation transition
    ========================================================================== */
 
-b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
+b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, textarea, input[type="submit"], .btn, .highlight, .archive__item-teaser {
   -webkit-transition: $global-transition;
   transition: $global-transition;
 }
