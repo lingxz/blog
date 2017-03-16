@@ -1,10 +1,10 @@
 ---
 layout: single
-author_profile: true
+author_profile: false
 comments: false
 ---
 
-<h1 id="Hello" style="font-size: 4em">Hello.</h1>
+<h1 id="Hello">Hello.</h1>
  
 <p id="intro-line">I am 
 <a id="name" href="http://theconfused.me">Lingyi Hu</a>.</p>

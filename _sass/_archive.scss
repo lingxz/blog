@@ -26,9 +26,13 @@
   a {
     // color: inherit;
     // color: $theme-color;
-    color: $text-color;
+    color: $archive-link-color;
     // font-size: $type-size-4;
     text-decoration: none;
+
+    &:hover {
+      color: $archive-link-color-hover;
+    }
   }
 }
 

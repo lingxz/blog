@@ -44,9 +44,8 @@
     margin-left: -2rem;
     margin-right: -2rem;
 
-    &.chinese{
-      font-family: $chinese-font-family;
-      font-weight: 700;
+    &.chinese {
+      font-family: $solo-heading;
     }
   }
 
@@ -70,11 +69,6 @@
     text-align: right;
     margin-right: -2rem;
     border-bottom: none;
-
-    &.chinese {
-      font-family: $chinese-font-family;
-      font-weight: 700;
-    }
   }
 
   // @media (min-width: 30rem) {

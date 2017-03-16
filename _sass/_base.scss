@@ -158,6 +158,7 @@ a {
 
   &:hover,
   &:active {
+    color: $link-color-hover;
     outline: 0;
   }
 }

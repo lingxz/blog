@@ -31,42 +31,16 @@ $garamond                   : Garamond, serif !default;
 // $global-font-family         : $sans-serif !default;
 // $custom: Helvetica, Arial, Tahoma, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,300italc,400,400italic,500,700);
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Nobile');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Unkempt');
 
-@font-face {
-    font-family: "ManYu";
-    src: url("MF-ManYu-Noncommercial-Regular.eot"); /* IE9 */
-    src: url("MF-ManYu-Noncommercial-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("MF-ManYu-Noncommercial-Regular.woff") format("woff"), /* chrome, firefox */
-    url("MF-ManYu-Noncommercial-Regular.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-    url("MF-ManYu-Noncommercial-Regular.svg#MF ManYu (Noncommercial) Regular") format("svg"); /* iOS 4.1- */
-    font-style: normal;
-    font-weight: normal;
-}
-
-// @import url(//fonts.googleapis.com/earlyaccess/notosanssc.css);
-
-@font-face {
-  font-family: 'Noto Sans SC Light';
-  font-style: normal;
-  font-weight: 300;
-  src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Light.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Light.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Light.otf) format('opentype');
-}
-@font-face {
-   font-family: 'Noto Sans SC';
-   font-style: normal;
-   font-weight: 400;
-   src: url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2) format('woff2'),
-        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff) format('woff'),
-        url(//fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.otf) format('opentype');
- }
-@import url('https://fonts.googleapis.com/css?family=Bitter');
-
-$custom: Bitter, "Helvetica Neue", Arial, 'Noto Sans SC Light', "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
-$heading: Bitter, "Helvetica Neue", Arial, 'Noto Sans SC', "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
-
-$chinese-font-family: "ManYu", 'Noto Sans SC Light', "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+$custom: Heebo, "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei Light", sans-serif;
+$heading: Heebo, "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+$solo-heading: Heebo, "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei Light", sans-serif;
+$fancy-font: Pacifico, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei Light", sans-serif;
 
 $global-font-family         : $custom !default;
 // $header-font-family         : $sans-serif !default;
@@ -139,8 +113,10 @@ $xing-color                 : #006567 !default;
 /* links */
 // $link-color                 : $info-color !default;
 $link-color                 : $theme-color !default;
-$link-color-hover           : mix(#000, $link-color, 25%) !default;
-$link-color-visited         : mix(#fff, $link-color, 25%) !default;
+$link-color-hover           : mix(#fff, $link-color, 25%) !default; 
+$link-color-visited         : mix(#000, $link-color, 25%) !default;
+$archive-link-color         : $text-color;
+$archive-link-color-hover   : $theme-color !default;
 $masthead-link-color        : $primary-color !default;
 // $masthead-link-color-hover  : mix(#000, $primary-color, 25%) !default;
 $masthead-link-color-hover  : $theme-color !default;
