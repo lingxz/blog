@@ -13,8 +13,8 @@ $(function(config) {
   // Input listening for queries
   var $searchInput = $('.js-algolia__input');
   var $searchForm = $('#search-form');
-  $searchForm.on('submit', onQueryChange);
-  $searchForm.on('keyup', checkEmpty)
+  $searchForm.on('input', onQueryChange);
+  $searchForm.on('input', checkEmpty)
 
 
 
