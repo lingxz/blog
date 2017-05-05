@@ -236,11 +236,36 @@ CONTACT PAGE STYLING
 	}
 }
 
-.page__comments hr {
-	margin-left: 12.5%;
-}
-
 #search-form {
 	width: 75%;
 	margin: 0 auto;
 }
+
+
+/***************
+COMMENTS STYLING
+***************/
+
+.page__comments hr {
+	margin-left: 12.5%;
+}
+
+#comments { 
+	width: 75%; 
+	margin: 0 auto;
+
+	.comment__timestamp, .comment__author-name, .comment__content, p {
+		width: 100%;
+	}
+	.comment__timestamp {
+		font-size: 0.8em;
+	}
+	.comment__author-name {
+		margin: 0 0 .25em;
+	}
+
+	#respond form, #respond .page__section-label {
+		width: 100%;
+	}
+}
+
