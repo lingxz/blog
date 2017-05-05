@@ -1,0 +1,28 @@
+language: ruby
+rvm:
+- 2.3.1
+
+# runs bundle install by default
+script:
+- bundle exec jekyll build
+- bundle exec htmlproofer ./_site --disable-external
+
+# branch whitelist
+branches:
+  only:
+  - source
+
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+
+# Deploy to GitHub pages
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: _site
+  target_branch: master
+  name: "Travis CI"
+  github_token: $GITHUB_API_KEY # Set in travis-ci.org dashboard
+  on:
+    branch: source

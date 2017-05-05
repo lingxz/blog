@@ -1,0 +1,94 @@
+title: The Confused Me
+description: Physics and code. Poetry and Fiction. I am Lingyi. 
+
+url: "https://theconfused.me"
+baseurl: ""
+paginate_path: "blog/page:num/"
+permalink: blog/:title/
+author: Lingyi Hu
+enforce_ssl: theconfused.me
+repository: "lingxz/lingxz.github.io"
+github:
+  username: lingxz
+
+markdown: kramdown
+gems: [jekyll-paginate, jekyll-feed, algoliasearch-jekyll]
+paginate: 8
+
+highlighter: rouge
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  math_engine: mathjax
+  # syntax_highlighter_opts:
+  #   disable: true
+
+comments:
+  provider: "staticmanv2"
+# Staticman comments (full configuration in staticman.yml)
+staticman:
+  branch                 : "source"
+atom_feed:
+  path                   : # blank (default) uses feed.xml
+
+navigation:
+  - title: Blog
+    url: /
+  - title: About
+    url: /about/
+  - title: Search
+    url: /search/
+
+google_analytics: "UA-96137027-1"
+
+include:
+  - _pages
+  - .travis.yml
+exclude:
+  - [vendor]
+  - README.md
+  - gulpfile.js
+  - node_modules
+  - package.json
+  - Gemfile
+  - package.json
+  - script
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+    # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: page
+      comments: false
+
+# algolia search
+algolia:
+  application_id         : 'VN9ANUNJHO'
+  index_name             : 'blog'
+  record_css_selector    : 'p,ul'
+  read_only_api_key      : '98fde2f0c592e7705c24e8ef80f9b655'
+  lazy_update            : true
+  excluded_files:
+    - 404.html
+    - poetry.html
+    - blog.html
+    - writing.html
+    - essays.html
+    - search.html
+    - index.md

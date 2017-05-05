@@ -1,0 +1,6 @@
+_site
+.sass-cache
+.DS_Store
+.ruby-version
+node_modules
+_algolia_api_key
