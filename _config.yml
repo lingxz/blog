@@ -10,6 +10,8 @@ enforce_ssl: theconfused.me
 repository: "lingxz/lingxz.github.io"
 github:
   username: lingxz
+title_separator: '-'
+og_image: '/assets/scribble.png'
 
 markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, algoliasearch-jekyll]
