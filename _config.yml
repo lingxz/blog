@@ -17,7 +17,7 @@ markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, algoliasearch-jekyll]
 paginate: 8
 
-highlighter: rouge
+# highlighter: rouge
 # Markdown Processing
 kramdown:
   input: GFM
@@ -28,8 +28,8 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   math_engine: mathjax
-  # syntax_highlighter_opts:
-  #   disable: true
+  syntax_highlighter_opts:
+    disable: true
 
 comments:
   provider: "staticmanv2"

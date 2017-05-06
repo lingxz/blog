@@ -12,12 +12,8 @@ layout: default
   
   {{ content }}
 
-  {% if site.comments and page.comments != false %}
-    {% include comments.html %}
-  {% endif %}
-
   <!-- POST NAVIGATION -->
-  <!-- <div class="postNav clearfix">
+  <div class="postNav clearfix">
     {% if page.previous.url %} 
       <a class="prev{% if page.previous.image %} image{% endif %}" href="{{ page.previous.url | prepend: site.baseurl }}"><span>&laquo;&nbsp;{{ page.previous.title }}</span>
       {% if page.previous.image %} 
@@ -32,6 +28,10 @@ layout: default
       {% endif %} 
       </a>
     {% endif %} 
-  </div> -->
+  </div>
+
+  {% if site.comments and page.comments != false %}
+    {% include comments.html %}
+  {% endif %}
 </div>
 

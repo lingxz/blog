@@ -10,6 +10,10 @@ This is my attempt at making a git tutorial out of the countless git tutorials o
 
 So here is git for the absolute noobs---a challenge to myself to make things simple but not simplistic, a test of my own understanding, and also hopefully a helpful starting point for someone who, perhaps, is thinking of contributing to open source projects but is struggling to get to grips with git. 
 
+Before anything, here's a relevant xkcd:
+
+{% xkcd 1597 %}
+
 * TOC
 {:toc}
 

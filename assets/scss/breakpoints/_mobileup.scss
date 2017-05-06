@@ -11,8 +11,8 @@ html {
 
 body {
 	font-family: $sans-serif;
-	line-height: 1.75;
-	font-size: 112.5%; // 18px base font size
+	line-height: 1.5;
+	font-size: 100%;
 	color: $black;
 	overflow-x: hidden;
   	margin: 0;
@@ -456,6 +456,10 @@ POST LIST STYLING
 ***************/
 
 .posts {
+	p.description a {
+		border-bottom: solid 1px;
+	}
+
 	li {
 		margin-bottom: 4rem;
 		position: relative;
@@ -492,15 +496,19 @@ POST LIST STYLING
 COMMENTS STYLING
 ***************/
 
-.page__comments hr {
-	border: none;
-	height: 2px;
-	width: 100px;
-	background-color: #e6e6e6;
-	color: #e6e6e6;
-	text-align: left;
-	margin-left: 0;
+.page__comments {
+	margin-top: 3em;
 }
+
+// .page__comments hr {
+// 	border: none;
+// 	height: 2px;
+// 	width: 100px;
+// 	background-color: #e6e6e6;
+// 	color: #e6e6e6;
+// 	text-align: left;
+// 	margin-left: 0;
+// }
 
 #comments {
 	a {
