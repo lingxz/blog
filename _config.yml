@@ -11,7 +11,7 @@ repository: "lingxz/lingxz.github.io"
 github:
   username: lingxz
 title_separator: '-'
-og_image: '/assets/scribble.png'
+og_image: '/assets/img/scribble.png'
 
 markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, algoliasearch-jekyll]
