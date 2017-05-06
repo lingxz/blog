@@ -12,6 +12,10 @@ module Jekyll
 		end
 		
 		def render(context)
+			@env = Jekyll::env
+			if @env != "production"
+				return
+			end
 			url = "\"https://xkcd.com/" + @number + "\""
 			jsonUrl = "https://xkcd.com/" + @number + "/info.0.json"
 			resp = Net::HTTP.get_response(URI.parse(jsonUrl))			
