@@ -40,7 +40,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
+gulp.task('browser-sync', ['sass', 'js', 'jekyll-build'], function() {
     browserSync({
         port: 4000,
         server: {
@@ -68,9 +68,10 @@ gulp.task('sass', function () {
 /**
  * Compile js into both _site/js (for live injecting) and site (for future jekyll builds)
  */
-gulp.task('js', function () {
+gulp.task('footer-js', function () {
     return gulp.src([
         paths.js + '/plugins/*.js',
+        '!' + paths.js + '/plugins/modernizr.custom.15390.js',
         paths.js + '/algoliasearch.js',
         paths.js + '/scripts.js'
     ])
@@ -80,6 +81,17 @@ gulp.task('js', function () {
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('assets/js'));
 })
+
+gulp.task('head-js', function() {
+    return gulp.src(paths.js + '/plugins/modernizr.custom.15390.js')
+        .pipe(concat('modernizr.custom.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('_site/assets/js'))
+        .pipe(browserSync.reload({stream:true}))
+        .pipe(gulp.dest('assets/js'));
+})
+
+gulp.task('js', ['head-js', 'footer-js']);
 
 
 /**

@@ -62,6 +62,7 @@ exclude:
   - package.json
   - script
   - _sass
+  - assets/js/plugins
 
 # Defaults
 defaults:
