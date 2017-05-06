@@ -163,7 +163,7 @@ This can all be done on the command line, but a graphical user interface (GUI) c
 
 ### Contributing to open source: fork and pull requests
 
-If you're looking to contribute to an open source project on Github, there are a few more steps to follow. When you are not a collaborator of the project, that is, you don't have push access, you have to first fork the project. That is easily done by pressing the fork button on Github. 
+If you're looking to contribute to an open source project on Github, there are a few more steps to follow. When you are not a collaborator of the project, that is, you don't have push access, you have to first fork the project. That is easily done by pressing the fork button on Github. Take note that unlike previous operations, **forking is a github concept and not a git concept**. 
 
 After forking, the repo now lives remotely on your own Github account. To get a local copy of the remote repo, you would have to clone it. For example, if you want to contribute to [astropy](http://www.astropy.org/), you would first fork the repo from the astropy Github page, then do: 
 
