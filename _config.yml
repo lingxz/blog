@@ -61,6 +61,7 @@ exclude:
   - Gemfile
   - package.json
   - script
+  - _sass
 
 # Defaults
 defaults:

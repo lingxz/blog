@@ -1,3 +1,10 @@
+window.ALGOLIA_CONFIG = {
+  'applicationID': 'VN9ANUNJHO',
+  'indexName': 'blog',
+  'apiKey': '98fde2f0c592e7705c24e8ef80f9b655',
+  'baseurl': ''
+}
+
 $(function(config) {
   'use strict';
 
