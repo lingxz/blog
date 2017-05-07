@@ -12,6 +12,9 @@ $( document ).ready(function() {
     $(".time").text(function (index, value) {
       return Math.round(parseFloat(value));
     });
+
+  // init smooth scroll
+  $("a").smoothScroll({offset: -20});
 });
 
 

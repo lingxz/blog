@@ -68,7 +68,7 @@ gulp.task('sass', function () {
 /**
  * Compile js into both _site/js (for live injecting) and site (for future jekyll builds)
  */
-gulp.task('footer-js', function () {
+gulp.task('js', function () {
     return gulp.src([
         paths.js + '/plugins/*.js',
         '!' + paths.js + '/plugins/modernizr.custom.15390.js',
@@ -91,7 +91,7 @@ gulp.task('head-js', function() {
         .pipe(gulp.dest('assets/js'));
 })
 
-gulp.task('js', ['head-js', 'footer-js']);
+gulp.task('all-js', ['head-js', 'footer-js']);
 
 
 /**
