@@ -18,7 +18,7 @@ const paths = {
     jsFiles: ['assets/js/*.js', 'assets/js/*/*.js'],
     scssFiles: ['_sass/*.scss', '_sass/*/*.scss'], 
     scss: ['_sass/style.scss'],
-    jekyll: ['index.html', '_config.yml', '_config.dev.yml', '_posts/*', '_layouts/*', '_includes/*', 'assets/img/*']
+    jekyll: ['index.html', '_config.yml', '_config.dev.yml', '_posts/*','_pages/*', '_layouts/*', '_includes/*', 'assets/img/*']
 };
 
 /**
