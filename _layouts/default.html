@@ -1,38 +1,54 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
 
 {% include head.html %}
 
 <body>
-	{% include header.html %}
 
-   <div class="content">
-      <div class="container">
-         {{ content }}
-      </div>
-   </div><!-- end .content -->
+  <header class="site-header">
+    <div class="container">
+      {% include site-nav.html %}
 
-   {% include footer.html %}
-   {% include scripts.html %}
-	{% if page.math %}
-		<!-- Load KaTeX -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
-		<script>
-			$("script[type='math/tex']").replaceWith(function() {
-			    var tex = $(this).text();
-			    return katex.renderToString(tex, {displayMode: false});
-			});
-			$("script[type='math/tex; mode=display']").replaceWith(function() {
-			    var tex = $(this).html();
-			    return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
-			});
-		</script>
-	{% endif %}
+      <h1 class="site-title">
+        <a href="{{ '/' | absolute_url }}">theconfused.me</a>
+      </h1>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      {% include footer-links.html %}
+      &copy; {{ site.time | date: "%Y" }}
+      {{ site.author.name }}
+    </div>
+  </footer>
+
+  <!-- Add jQuery and other scripts -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{ \'/assets/js/jquery-1.11.2.min.js\' | absolute_url }}"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js"></script>
+  {% include staticmanv2.html %}
+  {% include algoliasearch.html %}
+  <script src="{{ '/assets/js/main.min.js' | absolute_url }}"></script>
+  {% if page.math %}
+    <!-- Load KaTeX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+    <script>
+      $("script[type='math/tex']").replaceWith(function() {
+          var tex = $(this).text();
+          return katex.renderToString(tex, {displayMode: false});
+      });
+      $("script[type='math/tex; mode=display']").replaceWith(function() {
+          var tex = $(this).html();
+          return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+      });
+    </script>
+  {% endif %}
 
 </body>
-
 </html>

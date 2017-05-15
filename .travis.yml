@@ -11,6 +11,7 @@ script:
 branches:
   only:
   - source
+  - crossing-theme
 
 env:
   global:
@@ -25,4 +26,4 @@ deploy:
   name: "Travis CI"
   github_token: $GITHUB_API_KEY # Set in travis-ci.org dashboard
   on:
-    branch: source
+    branch: crossing-theme

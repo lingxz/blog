@@ -1,9 +1,11 @@
 <script id="algolia__template" type="text/template">
 {% raw %}
   <div class="algolia__result">
-    <h4><a class="post-link algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}</a></h4>
-    <span class="algolia__result-date date">{{ posted_at_readable }}</span>
-    <p class="description algolia__result-text">{{{ _highlightResult.text.value }}}</p>
+    <a class="algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}</a>
+    {{#posted_at}}
+    <div class="algolia__result-date">{{ posted_at_readable }}</div>
+    {{/posted_at}}
+    <div class="algolia__result-text">{{{ _highlightResult.text.value }}}</div>
   </div>
 {% endraw %}
 </script>

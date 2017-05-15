@@ -2,10 +2,16 @@
 layout: default
 ---
 
-<div class="post">
-	<h1 class="pageTitle">{{ page.title }}</h1>
-  {% if page.header_image %}
-	 <img src="{{ page.header_image | absolute_url }}" alt="">
-  {% endif %}
-  {{ content }}
-</div>
+<article class="post">
+  <header class="post-header">
+    {% if page.image %}
+      <div class="cover-image">
+        <img src="{{ page.image }}" alt="" />
+      </div>
+    {% endif %}
+    <h1 class="post-title">{{ page.title | xml_escape }}</h1>
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>

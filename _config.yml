@@ -17,6 +17,11 @@ markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, algoliasearch-jekyll]
 paginate: 8
 
+author:
+  name: Lingyi Hu
+  bio: Physics student at Imperial College London. 
+  avatar: /assets/img/scribble.png
+
 # highlighter: rouge
 # Markdown Processing
 kramdown:
@@ -47,7 +52,7 @@ navigation:
   - title: Search
     url: /search/
 
-google_analytics: "UA-96137027-1"
+google_analytics_tracking_id: "UA-96137027-1"
 
 include:
   - _pages
@@ -80,6 +85,20 @@ defaults:
     values:
       layout: page
       comments: false
+
+# The links in the site footer
+footer_links:
+  - title: "Subscribe"
+    url:   "/feed.xml"
+  - title: "GitHub"
+    url:   "https://github.com/lingxz/"
+
+# Site navigation
+nav:
+  - title: "Home"
+    url:   "/"
+  - title: "About"
+    url:   "/about/"
 
 # algolia search
 algolia:

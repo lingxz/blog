@@ -70,8 +70,6 @@ gulp.task('sass', function () {
  */
 gulp.task('js', function () {
     return gulp.src([
-        paths.js + '/plugins/*.js',
-        '!' + paths.js + '/plugins/modernizr.custom.15390.js',
         paths.js + '/algoliasearch.js',
         paths.js + '/scripts.js'
     ])
@@ -81,18 +79,6 @@ gulp.task('js', function () {
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('assets/js'));
 })
-
-gulp.task('head-js', function() {
-    return gulp.src(paths.js + '/plugins/modernizr.custom.15390.js')
-        .pipe(concat('modernizr.custom.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('_site/assets/js'))
-        .pipe(browserSync.reload({stream:true}))
-        .pipe(gulp.dest('assets/js'));
-})
-
-gulp.task('all-js', ['head-js', 'footer-js']);
-
 
 /**
  * Watch scss files for changes & recompile
