@@ -6,6 +6,7 @@ var cp          = require('child_process');
 var cssnano 	= require('gulp-cssnano');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
+var favicons    = require("gulp-favicons");
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -79,6 +80,18 @@ gulp.task('js', function () {
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('assets/js'));
 })
+
+gulp.task('plugins-js', function () {
+    return gulp.src([
+        paths.js + '/plugins/*.js'
+    ])
+        .pipe(concat('plugins.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('_site/assets/js'))
+        .pipe(browserSync.reload({stream:true}))
+        .pipe(gulp.dest('assets/js'));
+})
+
 
 /**
  * Watch scss files for changes & recompile
