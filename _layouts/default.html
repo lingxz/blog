@@ -12,6 +12,12 @@
       <h1 class="site-title">
         <a href="{{ '/' | absolute_url }}">theconfused.me</a>
       </h1>
+
+      {% if site.tagline and page.url == '/' %}
+        <div class="site-tagline">
+          {{ site.tagline }}
+        </div>
+      {% endif %}
     </div>
   </header>
 
@@ -29,7 +35,12 @@
 
   <!-- Add jQuery and other scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{{ \'/assets/js/jquery-1.11.2.min.js\' | absolute_url }}"><\/script>')</script>
+  <script>
+    if (typeof jQuery == 'undefined') {
+      {% assign jquery_fallback = '/assets/js/jquery-1.11.2.min.js' %}
+      document.write('<script src="{{ jquery_fallback | absolute_url }}"></scr' + 'ipt>');
+    }
+  </script>
   {% include algoliasearch.html %}
   <script src="{{ '/assets/js/plugins.min.js' | absolute_url }}"></script>
   <script src="{{ '/assets/js/main.min.js' | absolute_url }}"></script>

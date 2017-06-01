@@ -96,7 +96,7 @@ The following section talk about how to work with remote repositories hosted on 
 
 Now that there is a remote repository, there are many more things you can do, most notably: push and pull. 
 
-Before you can do that, you have to set up authentication with the remote server. First, you would need a GitHub account. Then, you can follow the instructions at [Set up Git at GitHub](https://help.GitHub.com/articles/set-up-git/#next-steps-authenticating-with-GitHub-from-git) to set up authentication. After setting up authentication properly, you wouldn't have to type your GitHub password every time you need to access GitHub locally. 
+Before you can do that, you have to set up authentication with the remote server. First, you would need a GitHub account. Then, you can follow the instructions at [Set up Git at GitHub](https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git) to set up authentication. After setting up authentication properly, you wouldn't have to type your GitHub password every time you need to access GitHub locally. 
 
 After committing your changes locally, you have to inform your remote repository (e.g your GitHub repository) of the changes. This is known as pushing your changes. 
 
@@ -106,7 +106,7 @@ Before you can push, you have to tell your local folder about the remote:
 git remote add <remote name> <remote url>
 ```
 
-On GitHub, the remote url can be found at the clone and download button, and should look something like `https://GitHub.com/user/repo.git` (https) or `git@GitHub.com:user/repo.git` (ssh). 
+On GitHub, the remote url can be found at the clone and download button, and should look something like `https://github.com/user/repo.git` (https) or `git@github.com:user/repo.git` (ssh). 
 
 The remote name can be anything you like. In many tutorials, you'll see it named as `origin`. But it can absolutely be anything you like to call it. 
 
@@ -168,7 +168,7 @@ If you're looking to contribute to an open source project on GitHub, there are a
 After forking, the repo now lives remotely on your own GitHub account. To get a local copy of the remote repo, you would have to clone it. For example, if you want to contribute to [astropy](http://www.astropy.org/), you would first fork the repo from the astropy GitHub page, then do: 
 
 ```shell
-git clone git@GitHub.com:<your-username>/astropy.git 
+git clone git@github.com:<your-username>/astropy.git 
 ```
 
 Now, create a new branch, checkout that branch, and make some edits, commit them, push to GitHub, and now the edits live on your fork of the project. However, as you don't have push access to the project, you would have to create a pull request (PR) from your branch to the original project. 
@@ -192,7 +192,7 @@ There are a great many things git can do and this tutorial (if you even call it 
 
 ## Resources and further reading
 - [Git Tower - Understanding branches in Git](https://www.git-tower.com/blog/understanding-branches-in-git/)
-- [Try git: An interactive git tutorial](https://try.GitHub.io/)
+- [Try git: An interactive git tutorial](https://try.github.io/)
 - [Astropy's developer documentation](http://docs.astropy.org/en/latest/development/workflow/development_workflow.html#pull-request)
 - [Gitmagic](http://www-cs-students.stanford.edu/~blynn/gitmagic/)
 - [Deeper inside git](https://matthew-brett.GitHub.io/curious-git/curious_details.html)

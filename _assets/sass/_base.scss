@@ -103,6 +103,7 @@ blockquote {
   margin-right: 0;
   padding-left: 1em;
   border-left: .3rem solid $primary-color; 
+  color: #696969;
   // *:last-child { margin-bottom: 0; }
   cite {
     font-style: italic;
@@ -114,6 +115,49 @@ blockquote {
     }
   }
 }
+
+// blockquote {
+//   clear: both;
+//   margin: 2.5em 0;
+//   padding: 0;
+//   line-height: 1.8;
+//   position: relative;
+//   font-size: 1.2em;
+//   text-align: center;
+//   // color: #888;
+
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     top: -1.25em;
+//     background: $primary-color;
+//     display: block;
+//     height: 2px;
+//     width: 150px;
+//     left: calc(50% - 75px);
+//   }
+
+//   &:after {
+//     content: "";
+//     position: absolute;
+//     bottom: -1.25em;
+//     background: $primary-color;
+//     display: block;
+//     height: 2px;
+//     width: 150px;
+//     left: calc(50% - 75px);
+//   }
+
+//   cite {
+//     font-style: italic;
+//     display: block;
+
+//     &:before {
+//       content: "\2014";
+//       padding-right: 5px;
+//     }
+//   }
+// }
 
 // pre {
 //   font-size: 14px;

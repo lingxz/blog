@@ -2,10 +2,6 @@ language: ruby
 rvm:
 - 2.3.1
 
-# runs bundle install by default
-script:
-- JEKYLL_ENV=production bundle exec jekyll build
-- bundle exec htmlproofer ./_site --disable-external
 
 # branch whitelist
 branches:
@@ -13,9 +9,23 @@ branches:
   - source
   - crossing-theme
 
+cache:
+  bundler: true
+  directories:
+    - node_modules # NPM packages
+
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+
+before_install:
+  - nvm install stable
+  - npm install
+
+# runs bundle install by default
+script:
+- gulp build --prod
+- bundle exec htmlproofer ./_site --disable-external
 
 # Deploy to GitHub pages
 deploy:
