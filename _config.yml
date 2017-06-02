@@ -1,5 +1,6 @@
 title: The Confused Me
-description: Physics and code. Poetry and Fiction. I am Lingyi. 
+description: Mostly physics and code. 
+# tagline: In the beginning there was nothing, which exploded.
 
 url: "https://theconfused.me"
 baseurl: ""
@@ -16,6 +17,11 @@ og_image: '/assets/img/scribble.png'
 markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, algoliasearch-jekyll]
 paginate: 8
+
+author:
+  name: Lingyi Hu
+  bio: I like to think about things. 
+  avatar: /assets/img/scribble.png
 
 # highlighter: rouge
 # Markdown Processing
@@ -39,21 +45,13 @@ staticman:
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
-navigation:
-  - title: Blog
-    url: /
-  - title: About
-    url: /about/
-  - title: Search
-    url: /search/
-
-google_analytics: "UA-96137027-1"
+google_analytics_tracking_id: "UA-96137027-1"
 
 include:
   - _pages
   - .travis.yml
 exclude:
-  - [vendor]
+  - vendor
   - README.md
   - gulpfile.js
   - node_modules
@@ -61,8 +59,7 @@ exclude:
   - Gemfile
   - package.json
   - script
-  - _sass
-  - assets/js/plugins
+  - _assets
 
 # Defaults
 defaults:
@@ -81,6 +78,22 @@ defaults:
       layout: page
       comments: false
 
+# The links in the site footer
+footer_links:
+  - title: "Subscribe"
+    url:   "/feed.xml"
+  - title: "GitHub"
+    url:   "https://github.com/lingxz/"
+
+# Site navigation
+nav:
+  - title: "Home"
+    url:   "/"
+  - title: "About"
+    url:   "/about/"
+  - title: "Search"
+    url: "/search/"
+
 # algolia search
 algolia:
   application_id         : 'VN9ANUNJHO'
@@ -89,10 +102,5 @@ algolia:
   read_only_api_key      : '98fde2f0c592e7705c24e8ef80f9b655'
   lazy_update            : true
   excluded_files:
-    - 404.html
-    - poetry.html
-    - blog.html
-    - writing.html
-    - essays.html
-    - search.html
-    - index.md
+    - _pages/
+    - index.html

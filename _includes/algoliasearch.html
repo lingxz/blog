@@ -1,16 +1,33 @@
 <script id="algolia__template" type="text/template">
 {% raw %}
-  <div class="algolia__result">
-    <h4><a class="post-link algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}</a></h4>
-    <span class="algolia__result-date date">{{ posted_at_readable }}</span>
-    <p class="description algolia__result-text">{{{ _highlightResult.text.value }}}</p>
+<!--   <div class="algolia__result">
+  	<h4>
+    	<a class="algolia__result-link" href="{{ full_url }}#algolia:{{ css_selector }}">{{{ _highlightResult.title.value }}}</a>
+    </h4>
+    {{#posted_at}}
+    <div class="algolia__result-date post-date">{{ posted_at_readable }}</div>
+    {{/posted_at}}
+    <div class="algolia__result-text">{{{ _highlightResult.text.value }}}</div>
+  </div> -->
+  <header class="post-header">
+    <h2 class="post-title">
+      <a href="{{ full_url }}#algolia:{{ css_selector }}">
+        {{{ _highlightResult.title.value }}}
+      </a>
+    </h2>
+  </header>
+  <div class="post-excerpt">
+    {{{ _highlightResult.text.value }}}
+  </div>
+  <div class="post-footer">
+    <ul class="x-separated-list x-separated-list-meta x-separated-list-small">
+      {{#posted_at}}
+      <li class="post-date"><time>{{ posted_at_readable }}</time></li>
+      {{/posted_at}}
+    </ul>
   </div>
 {% endraw %}
 </script>
 <script id="algolia__template--no-results" type="text/template">
-  <div class="algolia__no-result">No results, my dear Watson. </div>
+  <div class="algolia__no-result">No results, my dear Watson.</div>
 </script>
-<script src="https://cdn.jsdelivr.net/algoliasearch/3.22.1/algoliasearch.min.js"></script>
-<script src="//cdn.jsdelivr.net/algoliasearch.helper/2.1.0/algoliasearch.helper.min.js"></script>
-<script src="//cdn.jsdelivr.net/hogan.js/3.0.2/hogan.min.js"></script>
-<script src="//cdn.jsdelivr.net/momentjs/2.10.3/moment.min.js"></script>

@@ -1,37 +1,71 @@
 ---
 layout: default
 ---
-<div class="post">
-  {% if page.image %}
-    <div class="featuredImage">
-        <img src="{{ '/assets/img/' | prepend: site.baseurl | append: page.image }}" alt="" />
-      </div>
-  {% endif %}
-  <h1 class="postTitle">{{ page.title }}</h1>
-  <p class="meta">{{ page.date | date: '%B %d, %Y' }} | <span class="time">{{ page.content | number_of_words | divided_by:180 }}</span> Minute Read</p>
-  
-  {{ content }}
 
-  <!-- POST NAVIGATION -->
-  <div class="postNav clearfix">
-    {% if page.previous.url %} 
-      <a class="prev{% if page.previous.image %} image{% endif %}" href="{{ page.previous.url | prepend: site.baseurl }}"><span>&laquo;&nbsp;{{ page.previous.title }}</span>
-      {% if page.previous.image %} 
-        <img src="{{ '/assets/img/' | prepend: site.baseurl | append: page.previous.image }}" alt="">
-      {% endif %}
-    </a>
-    {% endif %}  
-    {% if page.next.url %}  
-      <a class="next{% if page.next.image %} image{% endif %}" href="{{ page.next.url | prepend: site.baseurl }}"><span>{{ page.next.title }}&nbsp;&raquo;</span>
-      {% if page.next.image %} 
-        <img src="{{ '/assets/img/' | prepend: site.baseurl | append: page.next.image }}" alt="">
-      {% endif %} 
-      </a>
-    {% endif %} 
+{% assign author = site.author %}
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    {% if page.image %}
+      <div class="cover-image">
+        <img src="{{ page.image }}" alt="" itemprop="image" />
+      </div>
+    {% endif %}
+    <h1 class="post-title" itemprop="headline">{{ page.title | xml_escape }}</h1>
+    <ul class="x-separated-list x-separated-list-meta">
+      <li class="post-date">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: "%B %-d, %Y" }}
+        </time>
+      </li>
+    </ul>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
   </div>
 
-  {% if site.comments and page.comments != false %}
-    {% include comments.html %}
-  {% endif %}
-</div>
+  <div class="share">
+    <span class="share-title">Share this on:</span>
+    {% assign url = page.url | prepend: site.baseurl | prepend: site.url %}
+    <ul class="x-separated-list">
+      <li>
+        <a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}&amp;url={{ url }}"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">Twitter</a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url }}"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">Facebook</a>
+      </li>
+      <li>
+        <a href="https://plus.google.com/share?url={{ url }}"
+            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">Google+</a>
+      </li>
+  </div>
 
+</article>
+
+{% if author.bio %}
+  <div class="post-author {% if author.avatar %}has-avatar{% endif %}">
+    {% if author.avatar %}
+      <div class="post-author-avatar" style="background-image: url({{ author.avatar }})"></div>
+    {% endif %}
+    <div class="post-author-name">
+      {{ author.name }}
+    </div>
+    <p class="post-author-bio">{{ author.bio }}</p>
+  </div>
+{% endif %}
+
+{% if site.comments and page.comments != false %}
+  {% include comments.html %}
+{% endif %}
+
+<nav class="read-next">
+  <h3 class="read-next-label">Other posts you might enjoy</h3>
+  <ul>
+    {% for post in site.related_posts %}
+        <li><a class="read-next-title" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title | xml_escape }}">{{ post.title | xml_escape }}</a>
+    {% endfor %}
+  </ul>
+</nav>
