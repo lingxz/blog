@@ -7,7 +7,6 @@ rvm:
 branches:
   only:
   - source
-  - crossing-theme
 
 cache:
   bundler: true
@@ -36,4 +35,4 @@ deploy:
   name: "Travis CI"
   github_token: $GITHUB_API_KEY # Set in travis-ci.org dashboard
   on:
-    branch: crossing-theme
+    branch: source
