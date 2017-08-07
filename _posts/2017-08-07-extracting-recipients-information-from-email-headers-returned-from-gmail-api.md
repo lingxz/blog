@@ -1,9 +1,9 @@
 ---
 title: Extracting recipients information from email headers returned from Gmail API
-excerpt: In this post I explain one can properly extract the recipients list from the Gmail API response with some regex.
+excerpt: In this post I explain how we can properly extract the recipients list from the Gmail API response with some regex.
 ---
 
-In this post I explain one can properly extract the recipients list from the Gmail API response with some regex.
+In this post I explain how we can properly extract the recipients list from the Gmail API response with some regex.
 
 From the [Gmail API documentation](https://developers.google.com/gmail/api/v1/reference/), when you send a get request to the Gmail API at https://www.googleapis.com/gmail/v1/users/userId/messages/messageId with the appropriate userId and messageId, it returns a [Users.message resource](https://developers.google.com/gmail/api/v1/reference/users/messages#resource) which looks something like this:
 
