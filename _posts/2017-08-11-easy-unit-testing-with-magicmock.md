@@ -9,7 +9,7 @@ Let's say we have a function `dosomething` whose argument is an instance of clas
 
 ```python
 def dosomething(objA):
-	alist = objA.objB.some_attribute
+    alist = objA.objB.some_attribute
 	for objC in alist:
 		print objC.name
 		print objC.value
