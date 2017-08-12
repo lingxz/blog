@@ -1,38 +1,38 @@
 language: ruby
 rvm:
 - 2.3.1
-
-
-# branch whitelist
 branches:
   only:
   - source
-
 cache:
   bundler: true
   directories:
-    - node_modules # NPM packages
-
+  - node_modules
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
-
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+addons:
+  ssh_known_hosts: "$SERVER_IP"
 before_install:
-  - nvm install stable
-  - npm install
-
-# runs bundle install by default
+- openssl aes-256-cbc -K $encrypted_60d40ac73f83_key -iv $encrypted_60d40ac73f83_iv
+  -in deploy-key.enc -out deploy-key -d
+- rm deploy-key.enc # Don't need it anymore
+- chmod 600 deploy-key
+- mv deploy-key ~/.ssh/id_rsa
+- nvm install stable
+- npm install
 script:
 - gulp build --prod
 - bundle exec htmlproofer ./_site --disable-external
+after_success:
+  - bash deploy.sh
 
-# Deploy to GitHub pages
 deploy:
   provider: pages
   skip_cleanup: true
   local_dir: _site
   target_branch: master
-  name: "Travis CI"
-  github_token: $GITHUB_API_KEY # Set in travis-ci.org dashboard
+  name: Travis CI
+  github_token: "$GITHUB_API_KEY"
   on:
     branch: source
