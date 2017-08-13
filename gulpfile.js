@@ -45,7 +45,7 @@ paths.imageFilesGlob     = paths.imageFiles + paths.imagePattern
 paths.jsFilesGlob        = paths.jsFiles + paths.jsPattern
 paths.sassFilesGlob      = paths.sassFiles + paths.sassPattern
 
-paths.jekyll =  ['index.html', '_config.yml', '_config.dev.yml', '_posts/*','_pages/*', '_layouts/*', '_includes/*']
+paths.jekyll =  ['index.html', '_config.yml', '_config.dev.yml', '_posts/*', '_drafts/*', '_pages/*', '_layouts/*', '_includes/*']
 
 
 /**
@@ -54,7 +54,7 @@ paths.jekyll =  ['index.html', '_config.yml', '_config.dev.yml', '_posts/*','_pa
 gulp.task('jekyll-build', function (done) {
     if (!argv.prod) {
         browserSync.notify(messages.jekyllBuild);
-        shell.exec('bundle exec jekyll build --config _config.yml,_config.dev.yml')
+        shell.exec('bundle exec jekyll build --drafts --config _config.yml,_config.dev.yml')
         done();
         // return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config.dev.yml'], {stdio: 'inherit'})
         //     .on('close', done);
@@ -71,7 +71,7 @@ gulp.task('html', ['jekyll-build'], function() {
         return gulp.src('_site/' + paths.htmlPattern)
             .pipe(htmlmin({
               removeComments: true,
-              collapseWhitespace: true,
+              collapseWhitespace: false,
               collapseBooleanAttributes: false,
               removeAttributeQuotes: false,
               removeRedundantAttributes: false,
