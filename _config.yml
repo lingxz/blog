@@ -37,13 +37,16 @@ kramdown:
   syntax_highlighter_opts:
     disable: true
 
-comments:
-  provider: "staticmanv2"
-# Staticman comments (full configuration in staticman.yml)
-staticman:
-  branch                 : "source"
-atom_feed:
-  path                   : # blank (default) uses feed.xml
+comments: true
+isso: https://comments.theconfused.me
+
+# comments:
+#   provider: "staticmanv2"
+# # Staticman comments (full configuration in staticman.yml)
+# staticman:
+#   branch                 : "source"
+# atom_feed:
+#   path                   : # blank (default) uses feed.xml
 
 google_analytics_tracking_id: "UA-96137027-1"
 
