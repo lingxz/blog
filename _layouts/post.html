@@ -59,7 +59,10 @@ layout: default
 
 
 {% if site.comments and site.isso != '' and page.comments != false %}
-<script data-isso="{{ site.isso }}" src="{{ site.isso }}/js/embed.min.js"></script>
+<script 
+  data-isso="{{ site.isso }}" 
+  src="{{ site.isso }}/js/embed.min.js"
+  data-isso-reply-to-self="true"></script>
 <section id="isso-thread" data-title="{{ page.title }}"></section>
 {% endif %}
 
