@@ -69,7 +69,7 @@ layout: default
 <nav class="read-next">
   <h3 class="read-next-label">Other posts you might enjoy</h3>
   <ul>
-    {% for post in site.related_posts %}
+    {% for post in site.related_posts limit:5 %}
         <li><a class="read-next-title" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title | xml_escape }}">{{ post.title | xml_escape }}</a>
     {% endfor %}
   </ul>
