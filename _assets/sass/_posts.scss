@@ -322,3 +322,25 @@ iframe,
 .isso-postbox > .form-wrapper > .auth-section .post-action > input {
   color: inherit;
 }
+
+.page-title {
+  margin-top: 0;
+}
+
+.page-content {
+  a {
+    border-bottom: 2px solid #ddd;
+    color: #000;
+
+    &:hover {
+      border-bottom-color: #bbb;
+    }
+  }
+}
+
+.project-entry {
+  margin-bottom: 1em;
+  .project-title {
+    font-weight: bold;
+  }
+}
