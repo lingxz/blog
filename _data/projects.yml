@@ -1,0 +1,21 @@
+- name: draggymail
+  description: A kanban tool for Gmail
+  website: https://draggymail.theconfused.me
+  source: https://github.com/lingxz/draggymail
+- name: drifter
+  description: Interactive fiction written with ink
+  website: https://theconfused.me/drifter
+  source: https://github.com/lingxz/drifter
+  blogpost: drifter-writing-interactive-fiction-with-ink
+- name: get24
+  description: 24 solver generalized for any target and numbers
+  website: https://theconfused.me/get24
+  source: https://github.com/lingxz/get24
+- name: sparrow
+  description: A clean Jekyll theme for writers
+  website: https://theconfused.me/sparrow
+  source: https://github.com/lingxz/sparrow
+- name: lonelywriter
+  description: A minimalistic Jekyll theme without any bells and whistles. 
+  website: https://theconfused.me/lonelywriter
+  source: https://github.com/lingxz/lonelywriter

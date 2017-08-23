@@ -17,7 +17,6 @@ You can find me on [Github](https://github.com/lingxz/) or say hello at <mailto:
 
 - Built with [Jekyll](https://jekyllrb.com/), hosted on [Digital Ocean](https://www.digitalocean.com/)
 - Using the [crossing-jekyll theme](https://github.com/barepants/crossing-jekyll) with some custom modifications
-- Typeset using [system fonts](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/)
 - Comments via a custom fork of [Isso](https://posativ.org/isso/)
 - Search powered by [Algolia](https://www.algolia.com/)
 - Source code available on [GitHub](https://github.com/lingxz/lingxz.github.io) 

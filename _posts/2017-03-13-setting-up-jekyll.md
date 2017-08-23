@@ -5,11 +5,7 @@ excerpt: This is the obligatory Hello World post.
 
 This is the obligatory Hello World post. 
 
-So, I decided to set up a Jekyll blog. 
-
-Why? Mostly because Github's student developer pack includes a free .me domain from Namecheap, and I felt I had to do something with it to make it worthwhile. 
-
-What better to do with it than to properly design and customize my personal corner of the internet?  
+So, I decided to set up a Jekyll blog. Why? Mostly because Github's student developer pack includes a free .me domain from Namecheap, and I felt I had to do something with it to make it worthwhile. What better to do with it than to properly design and customize my personal corner of the internet?  
 
 Then the next question is: dynamic or static?
 
