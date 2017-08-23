@@ -15,7 +15,7 @@ body {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 150px);
   background-image: linear-gradient(to bottom, rgba(#fff, .5), rgba(#fff, 0) 150px);
   background-repeat: no-repeat;
-  color: #373a3c;
+  color: #444444;
   font-family: "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif;
   // font-family: -apple-system,BlinkMacSystemFont, Lora, Helvetica, "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -186,4 +186,8 @@ input[type=text] {
   &:focus {
     border-color: rgba(0, 0, 0, 0.8);
   }
+}
+
+.algolia__input {
+  max-width: 400px;
 }
