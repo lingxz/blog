@@ -9,6 +9,8 @@ def get_posts(folder='./_posts'):
         filename = filepath.split('\\')[-1]
         slug = filename[11:-3]
         post = frontmatter.load(filepath)
+        if "slug" in post.keys():
+            slug = post["slug"]
         result[slug] = post.content
     return result
 
