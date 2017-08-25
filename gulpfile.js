@@ -47,11 +47,14 @@ paths.sassFilesGlob      = paths.sassFiles + paths.sassPattern
 
 paths.jekyll =  ['index.html', '_config.yml', '_config.dev.yml', '_posts/*', '_drafts/*', '_pages/*', '_layouts/*', '_includes/*']
 
-
 /**
  * Build the Jekyll Site
  */
 gulp.task('jekyll-build', function (done) {
+    if (argv.related) {
+        // calculate related posts
+        shell.exec('python scripts/similarity.py');
+    }
     if (!argv.prod) {
         browserSync.notify(messages.jekyllBuild);
         shell.exec('bundle exec jekyll build --drafts --config _config.yml,_config.dev.yml')
@@ -59,6 +62,8 @@ gulp.task('jekyll-build', function (done) {
         // return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config.dev.yml'], {stdio: 'inherit'})
         //     .on('close', done);
     } else if (argv.prod) {
+        // calculate related posts
+        shell.exec('python scripts/similarity.py');
         shell.exec('JEKYLL_ENV=production bundle exec jekyll build')
         done();
     }

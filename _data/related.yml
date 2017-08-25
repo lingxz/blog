@@ -1,0 +1,44 @@
+- post: setting-up-jekyll
+  related:
+  - drifter-writing-interactive-fiction-with-ink
+  - git-for-noobs
+  - solving-the-24-game
+- post: drifter-writing-interactive-fiction-with-ink
+  related:
+  - solving-the-24-game
+  - setting-up-jekyll
+  - git-for-noobs
+  - easy-unit-testing-with-magicmock
+  - handy-docker-commands
+- post: git-for-noobs
+  related:
+  - drifter-writing-interactive-fiction-with-ink
+  - setting-up-jekyll
+  - solving-the-24-game
+  - handy-docker-commands
+  - easy-unit-testing-with-magicmock
+- post: solving-the-24-game
+  related:
+  - drifter-writing-interactive-fiction-with-ink
+  - extracting-recipients-information-from-email-headers-returned-from-gmail-api
+  - git-for-noobs
+  - setting-up-jekyll
+  - handy-docker-commands
+- post: extracting-recipients-information-from-email-headers-returned-from-gmail-api
+  related:
+  - solving-the-24-game
+  - drifter-writing-interactive-fiction-with-ink
+  - git-for-noobs
+  - easy-unit-testing-with-magicmock
+  - setting-up-jekyll
+- post: easy-unit-testing-with-magicmock
+  related:
+  - drifter-writing-interactive-fiction-with-ink
+  - solving-the-24-game
+  - handy-docker-commands
+- post: handy-docker-commands
+  related:
+  - solving-the-24-game
+  - git-for-noobs
+  - drifter-writing-interactive-fiction-with-ink
+  - easy-unit-testing-with-magicmock

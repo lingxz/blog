@@ -66,11 +66,19 @@ layout: default
 <section id="isso-thread" data-title="{{ page.title }}"></section>
 {% endif %}
 
+{% for item in site.data.related %}
+  {% if page.slug == item.post %}
 <nav class="read-next">
   <h3 class="read-next-label">Other posts you might enjoy</h3>
   <ul>
-    {% for post in site.related_posts limit:5 %}
-        <li><a class="read-next-title" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title | xml_escape }}">{{ post.title | xml_escape }}</a>
+    {% for pslug in item.related %}
+      {% for p in site.posts %}
+        {% if p.slug == pslug %}
+        <li><a class="read-next-title" href="{{ p.url | prepend: site.baseurl }}" title="{{ p.title | xml_escape }}">{{ p.title | xml_escape }}</a></li>
+        {% endif %}
+      {% endfor %}
     {% endfor %}
   </ul>
 </nav>
+  {% endif %}
+{% endfor %}
