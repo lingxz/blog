@@ -68,17 +68,17 @@ layout: default
 
 {% for item in site.data.related %}
   {% if page.slug == item.post %}
-<nav class="read-next">
-  <h3 class="read-next-label">Other posts you might enjoy</h3>
-  <ul>
-    {% for pslug in item.related %}
-      {% for p in site.posts %}
-        {% if p.slug == pslug %}
-        <li><a class="read-next-title" href="{{ p.url | prepend: site.baseurl }}" title="{{ p.title | xml_escape }}">{{ p.title | xml_escape }}</a></li>
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  </ul>
-</nav>
+    <nav class="read-next">
+      <h3 class="read-next-label">Other posts you might enjoy</h3>
+      <ul>
+        {% for pslug in item.related %}
+          {% for p in site.posts %}
+            {% if p.slug == pslug %}
+            <li><a class="read-next-title" href="{{ p.url | prepend: site.baseurl }}" title="{{ p.title | xml_escape }}">{{ p.title | xml_escape }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </nav>
   {% endif %}
 {% endfor %}

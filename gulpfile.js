@@ -62,8 +62,6 @@ gulp.task('jekyll-build', function (done) {
         // return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config.dev.yml'], {stdio: 'inherit'})
         //     .on('close', done);
     } else if (argv.prod) {
-        // calculate related posts
-        shell.exec('python scripts/similarity.py');
         shell.exec('JEKYLL_ENV=production bundle exec jekyll build')
         done();
     }

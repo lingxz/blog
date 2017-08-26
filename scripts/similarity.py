@@ -25,29 +25,22 @@ def cosine_sim(text1, text2, vectorizer):
     return ((tfidf * tfidf.T).A)[0, 1]
 
 
-def get_similarity(num_best=5):
+def get_similarity(num_best=3):
     vectorizer = TfidfVectorizer(tokenizer=tokenize, stop_words='english')
     posts = utils.get_posts()
     cleaned_posts = {slug: post.lower().translate(str.maketrans('', '', string.punctuation)) for slug, post in posts.items()}
+    slugs = list(cleaned_posts.keys())
+
+    tfidf = vectorizer.fit_transform(list(cleaned_posts.values()))
+    matrix = (tfidf * tfidf.T).A
 
     result = {}
-    for slug1, text1 in cleaned_posts.items():
-        similarity = {}
-        for slug2, text2 in posts.items():
-            if slug2 == slug1:
-                continue
-            score = cosine_sim(text1, text2, vectorizer)
-            similarity[slug2] = score
-        # print("===========")
-        # print(slug1)
-        # print(similarity)
-        relevant = {slug: score for slug, score in similarity.items() if score > 0.02}
-        best = sorted(relevant, key=relevant.get, reverse=True)
-        if len(best) > num_best:
-            result[slug1] = best[:num_best]
-        else:
-            result[slug1] = best
+    for i, row in enumerate(matrix):
+        indices = row.argsort()[-num_best-1:-1][::-1]
+        current_slug = slugs[i]
+        result[current_slug] = [slugs[index] for index in indices]
     utils.write_result_to_file(result)
 
 
-get_similarity()
+if __name__ == "__main__":
+    get_similarity()
