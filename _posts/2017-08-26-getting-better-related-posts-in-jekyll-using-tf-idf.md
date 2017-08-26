@@ -175,7 +175,7 @@ Inserting this data into my `post` layout was more difficult than I thought, bec
 
 Ew, 3 nested for loops. But I couldn't find a way out of it--the first loop is to find the relevant element in the list that the post corresponds to, by checking the slugs. The second to loop through the slugs, so that I can render them, however, to get the post object from the slug, the third loop is needed to loop through all the posts to see which post has a slug that matches. 
 
-Fortunately, this is only run when building the site, and doesn't slow down things on the client side. I only have a handful of posts on my blog, so it really makes no difference. The inconvenience it may bring to some people is that you would have to do the extra step of running the python file to generate `_data/related.yml` before building the site. But I use [gulp](https://gulpjs.com/) to build my site, so I just had to add an extra line in my gulpfile:
+Fortunately, this is only run when building the site, and doesn't slow down things on the client side. I only have a handful of posts on my blog, so it really makes no difference. The inconvenience it may bring to some people is that you would have to do the extra step of running the python file to generate `_data/related.yml` before building the site. But I use [gulp](https://gulpjs.com/) to build my site, so I just had to add an extra line in my [gulpfile](https://github.com/lingxz/lingxz.github.io/blob/source/gulpfile.js):
 
 ```js
 shell.exec('python scripts/similarity.py')
