@@ -1,5 +1,5 @@
 ---
-title: Easy unittesting with MagicMock
+title: Easy unit testing with MagicMock
 excerpt: MagicMock is incredibly useful for python unit testing in many ways. This is one simple use case where it is particularly convenient.
 ---
 

@@ -8,9 +8,8 @@ $( document ).ready(function() {
 		$siteNav.toggleClass('is-toggled');
 	});
 
-  $('.post-content a').not('[rel="footnote"], [rev="footnote"]').html(function(i, str) {
-      return str.replace(/ /g,'&nbsp;');
-  }).attr('target','_blank');
+  // $('.post-content a').not('[rel="footnote"], [rev="footnote"]').attr('target','_blank');
+  $('.post-content a[href^="http"]').not('a[href*=theconfused]').attr('target','_blank');
 
   $(".post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6").each(function(i, el) {
     var $el, icon, id;
