@@ -139,15 +139,13 @@ This function does some processing with the dictionary it receives and dumps it 
 - post: setting-up-jekyll
   related:
   - drifter-writing-interactive-fiction-with-ink
+  - getting-better-related-posts-in-jekyll-using-tf-idf
   - git-for-noobs
-  - solving-the-24-game
 - post: drifter-writing-interactive-fiction-with-ink
   related:
   - solving-the-24-game
   - setting-up-jekyll
   - git-for-noobs
-  - easy-unit-testing-with-magicmock
-  - handy-docker-commands
 ```
 
 Inserting this data into my `post` layout was more difficult than I thought, because I could find no way of getting the post object from the post slug. So, I ended up with this ugly code in my `_layouts/post.html`:
