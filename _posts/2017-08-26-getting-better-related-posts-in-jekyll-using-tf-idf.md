@@ -73,7 +73,7 @@ Then I create the vectorizer with the `tokenize` function, and clean the data by
 
 ```python
 vectorizer = TfidfVectorizer(tokenizer=tokenize, stop_words='english')
-posts = utils.get_posts()
+posts = get_posts()
 
 # lowercase and remove punctuation from post data
 cleaned_posts = {slug: post.lower().translate(str.maketrans('', '', string.punctuation)) for slug, post in posts.items()}
