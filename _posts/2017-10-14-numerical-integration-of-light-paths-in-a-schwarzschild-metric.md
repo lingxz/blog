@@ -19,7 +19,7 @@ We are interested in the trajectory of a light ray in such a metric. Since the m
 
 Light follows a null (lightlike) trajectory given by $$ds^2 = 0$$. In the absence of external forces, it should also travel along a geodesic. These are governed by the geodesic equations, which can be derived using Euler-Lagrange equations. Due to the symmetry of the metric, applying the Euler-Lagrange equations to the metric gives us two conserved quantities:
 
-$$f\dot{t}= E = \text{constant}$$
+$$f \dot{t} = E = \text{constant}$$
 
 $$r^2 \dot{\phi} = L = \text{constant}$$
 

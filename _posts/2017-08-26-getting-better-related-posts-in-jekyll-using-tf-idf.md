@@ -101,7 +101,7 @@ matrix = (tfidf * tfidf.T).A  # calculate cosine similarity
 
 The last calculation returns a symmetric matrix $$M$$ where the $$M_{ij}$$ is the similarity between document $$i$$ and document $$j$$. As a check, we can see that the elements on the diagonal are unity since a document's similarity with itself should be 1. 
 
-Then we just need to sort through the matrix to get the top $$n$$ most related posts. In this case, I took $$n = 3$$
+Then we just need to sort through the matrix to get the top $$n$$ most related posts. In this case, I took $$n = 3$$.
 
 ```python
 num_best = 3
