@@ -16,7 +16,8 @@ body {
   background-image: linear-gradient(to bottom, rgba(#fff, .5), rgba(#fff, 0) 150px);
   background-repeat: no-repeat;
   color: #444444;
-  font-family: "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif;
+  // font-family: "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif;
+  font-family: "Crimson Text", serif;
   // font-family: -apple-system,BlinkMacSystemFont, Lora, Helvetica, "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,6 +30,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
+  font-family: "Crimson Text", serif;
+  // letter-spacing: 0;
 }
 
 a {

@@ -11,7 +11,7 @@ I am a physics undergraduate student at Imperial College London. This is a tech/
 
 I also keep a [creative writing blog](https://writing.theconfused.me), which holds poetry, essays, and fiction I've written over the years. 
 
-You can find me on [Github](https://github.com/lingxz/) or say hello at <mailto:lingyihuu@gmail.com>.
+You can find me on [GitHub](https://github.com/lingxz/) or say hello at <mailto:lingyihuu@gmail.com>.
 
 # About this site
 
