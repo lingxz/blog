@@ -372,3 +372,46 @@ a.header-link {
   color: #aaa;
   margin-left: 5px;
 }
+
+.label {
+    display: inline-block;
+    padding: .3em .6em .4em;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    font-size: 0.8em;
+    margin-right: 6px;
+    margin-bottom: 5px;
+}
+.label a {
+    font-weight: 300 !important;
+    color: #ffffff;
+}
+.label-default {
+    background-color: #254d82;
+}
+.label-default:hover {
+    background-color: #75a0de;
+}
+.label-default a:hover {
+    color: #ffffff !important
+}
+
+#tag-cloud a {
+  font-weight: 300 !important;
+  color: #ffffff;
+  background-color: #254d82;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  font-size: 0.8em;
+  margin-right: 6px;
+  margin-bottom: 5px;
+  display: inline-block;
+  padding: .3em .6em .4em;
+  &:hover {
+    background-color: #75a0de;
+    color: #ffffff !important;
+  }
+}

@@ -6,8 +6,12 @@
   {% if page.title %}
     {% assign page_title = page.title | xml_escape %}
   {% endif %}
-
+  
+  {% if page.home %}
+  <title>{{ site_title }}</title>
+  {% else %}
   <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_title }}</title>
+  {% endif %}
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 

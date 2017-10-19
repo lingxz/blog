@@ -1,9 +1,6 @@
 ---
-title: "Drifter: Writing interactive fiction with ink"
+title: "Drifter: Writing interactive fiction with Ink"
 tags:
-    - writing
-    - ink
-    - tech
     - interactive fiction
 excerpt: First attempt at writing a text adventure using Inkle's open source scripting language. Play it <a href="https://theconfused.me/drifter">here</a>. 
 ---

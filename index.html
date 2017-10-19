@@ -1,6 +1,9 @@
 ---
 layout: default
+home: true
 redirect_from: /blog/
+pagination:
+  enabled: true
 ---
 
 {% if site.image %}
@@ -8,7 +11,7 @@ redirect_from: /blog/
 {% endif %}
 
 <div class="post-list">
-  {% for post in site.posts %}
+  {% for post in paginator.posts %}
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
         <h2 class="post-title" itemprop="headline">
@@ -25,6 +28,24 @@ redirect_from: /blog/
           <li class="post-date"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %-d, %Y" }}</time></li>
         </ul>
       </div>
+      {% for tag in post.tags %}
+        <span class="label label-default"><a href="{{ site.baseurl }}/tags/{{tag | replace: ' ','-'}}">{{ tag }}</a></span>
+      {% endfor %}
     </article>
   {% endfor %}
+
+  {% if paginator.total_pages > 1 %}
+  <div class="pager">
+      {% if paginator.previous_page %}
+      <div class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+      </div>
+      {% endif %}
+      {% if paginator.next_page %}
+      <div class="next" style="float:right;text-align:right">
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+      </div>
+      {% endif %}
+  </div>
+  {% endif %}
 </div>

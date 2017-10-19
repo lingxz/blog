@@ -2,6 +2,8 @@
 title: Numerical integration of light paths in a Schwarzschild metric
 excerpt: Solving the null geodesic differential equations in a Schwarzschild spacetime numerically and tracing out the light rays and their bend angles. 
 math: true
+tags: 
+    - physics
 ---
 
 ## Table of Contents

@@ -4,7 +4,6 @@ description: Mostly physics and code.
 
 url: "https://theconfused.me"
 baseurl: ""
-paginate_path: "blog/page:num/"
 permalink: blog/:title/
 author: Lingyi Hu
 enforce_ssl: theconfused.me
@@ -15,8 +14,17 @@ title_separator: '-'
 og_image: '/assets/img/scribble.png'
 
 markdown: kramdown
-gems: [jekyll-paginate, jekyll-feed, algoliasearch-jekyll]
-paginate: 8
+gems: [jekyll-paginate-v2, jekyll/tagging, jekyll-feed, algoliasearch-jekyll]
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "blog/page:num/"
+  sort_field: 'date'
+  sort_reverse: true
+
+tag_page_layout: tag_page
+tag_page_dir: tags
+tag_permalink_style: pretty
 
 author:
   name: Lingyi Hu

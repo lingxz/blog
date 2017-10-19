@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="page-title">Posts tagged {{ page.tag }}</h1>
+  </header>
+  <div class="page-content">
+    <div class="post-list">
+      {% for post in page.posts %}
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+          <header class="post-header">
+            <h2 class="post-title" itemprop="headline">
+              <a href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </h2>
+          </header>
+          <div class="post-excerpt" itemprop="description">
+            {{ post.excerpt }}
+          </div>
+          <div class="post-footer">
+            <ul class="x-separated-list x-separated-list-meta x-separated-list-small">
+              <li class="post-date"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %-d, %Y" }}</time></li>
+            </ul>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="tag-cloud">
+    {{ site | tag_cloud }}
+  </div>
+</article>
