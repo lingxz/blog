@@ -6,6 +6,14 @@ permalink: /about/
 ---
 
 {% xkcd 903 %}
+<figure class="xkcd-embed">
+    <a href="https://xkcd.com/903">
+        <img src="{{ '/assets/img/extended_mind.png' | absolute_url }}" title="Wikipedia trivia: if you take any article, click on the first link in the article text not in parentheses or italics, and then repeat, you will eventually end up at &quot;Philosophy&quot;." alt="https://xkcd.com/903">
+    </a>
+    <figcaption>
+        "Extended Mind" - created by <a href="http://xkcd.com">xkcd</a>
+    </figcaption>
+</figure>
 
 I am a physics undergraduate student at Imperial College London. This is a tech/physics blog where I make sense of my extended mind, and hopefully contribute to someone else's. 
 
