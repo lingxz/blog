@@ -14,8 +14,7 @@ Before anything, here's a relevant xkcd:
 
 {% xkcd 1597 %}
 
-## Table of Contents
-{:.no_toc}
+*Jump to...*
 * TOC
 {:toc}
 

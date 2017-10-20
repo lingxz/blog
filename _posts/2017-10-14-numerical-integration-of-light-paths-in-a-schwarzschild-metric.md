@@ -6,8 +6,7 @@ tags:
     - physics
 ---
 
-## Table of Contents
-{:.no_toc}
+*Jump to...*
 * TOC
 {:toc}
 
