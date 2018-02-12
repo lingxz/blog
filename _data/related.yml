@@ -17,7 +17,7 @@
   related:
   - drifter-writing-interactive-fiction-with-ink
   - extracting-recipients-information-from-email-headers-returned-from-gmail-api
-  - getting-better-related-posts-in-jekyll-using-tf-idf
+  - distances-in-schwarzschild-lensing
 - post: extracting-recipients-information-from-email-headers-returned-from-gmail-api
   related:
   - solving-the-24-game
@@ -37,4 +37,14 @@
   related:
   - setting-up-jekyll
   - drifter-writing-interactive-fiction-with-ink
+  - easy-unit-testing-with-magicmock
+- post: numerical-integration-of-light-paths-in-a-schwarzschild-metric
+  related:
+  - distances-in-schwarzschild-lensing
   - solving-the-24-game
+  - getting-better-related-posts-in-jekyll-using-tf-idf
+- post: distances-in-schwarzschild-lensing
+  related:
+  - numerical-integration-of-light-paths-in-a-schwarzschild-metric
+  - solving-the-24-game
+  - drifter-writing-interactive-fiction-with-ink
