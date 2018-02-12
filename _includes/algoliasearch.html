@@ -9,22 +9,24 @@
     {{/posted_at}}
     <div class="algolia__result-text">{{{ _highlightResult.text.value }}}</div>
   </div> -->
-  <header class="post-header">
-    <h2 class="post-title">
-      <a href="{{ full_url }}#algolia:{{ css_selector }}">
-        {{{ _highlightResult.title.value }}}
-      </a>
-    </h2>
-  </header>
-  <div class="post-excerpt">
-    {{{ _highlightResult.text.value }}}
-  </div>
-  <div class="post-footer">
-    <ul class="x-separated-list x-separated-list-meta x-separated-list-small">
-      {{#posted_at}}
-      <li class="post-date"><time>{{ posted_at_readable }}</time></li>
-      {{/posted_at}}
-    </ul>
+  <div class="post">
+    <header class="post-header">
+      <h2 class="post-title">
+        <a href="{{ full_url }}#algolia:{{ css_selector }}">
+          {{{ _highlightResult.title.value }}}
+        </a>
+      </h2>
+    </header>
+    <div class="post-excerpt">
+      {{{ _highlightResult.text.value }}}
+    </div>
+    <div class="post-footer">
+      <ul class="x-separated-list x-separated-list-meta x-separated-list-small">
+        {{#posted_at}}
+        <li class="post-date"><time>{{ posted_at_readable }}</time></li>
+        {{/posted_at}}
+      </ul>
+    </div>
   </div>
 {% endraw %}
 </script>

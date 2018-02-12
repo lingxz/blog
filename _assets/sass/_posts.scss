@@ -18,6 +18,15 @@
   .post-list &:last-child {
     margin-bottom: 0;
   }
+  a {
+    color: inherit;
+    transition: opacity .2s ease-in-out;
+    border-bottom: 2px solid #ddd;
+    &:hover {
+      // opacity: 0.7;
+      border-bottom-color: #bbb;
+    }
+  }
 }
 
 .post-header {
@@ -36,14 +45,6 @@
   font-size: 30px;
   line-height: 35px;
   margin: 0 0 7px;
-
-  a {
-    color: inherit;
-    transition: opacity .2s ease-in-out;
-    &:hover {
-      opacity: 0.7;
-    }
-  }
 
   @include breakpoint {
     font-size: 40px;
@@ -67,7 +68,7 @@
 
 .post-excerpt {
   color: #373a3c;
-  overflow: hidden;
+  // overflow: hidden;
 
   // To not hide overflowing italic text
   margin: 0 -5px;
