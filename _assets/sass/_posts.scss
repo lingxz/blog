@@ -331,6 +331,11 @@ iframe,
 
 .isso-postbox > .form-wrapper > .auth-section .post-action > input {
   color: inherit;
+  margin: 0;
+}
+
+.isso-postbox >.form-wrapper > .auth-section > .input-wrapper > input {
+  margin: 0;
 }
 
 .page-title {

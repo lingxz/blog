@@ -36,10 +36,10 @@ $$\frac{R}{r_0} = 1 + \frac{M}{R} + \frac{3}{16} \left (\frac{M}{R} \right )^2 +
 
 For example, here is a table of the second and third order coefficients for the different distance measures:
 
-|            | 1st order   | 2nd order    | 3rd order  |
-| ---------| ---- | ------------- | ----- |
-| $$M/R$$    | 4   | $$15\pi/4$$ | $$401/12$$ |
-| $$M/r_0$$  | 4 | $$-4 + 15\pi/4 $$  | $$122/3 - 15\pi/2$$  |
-| $$M/b$$    | 4   | $$15\pi/4$$    |    $$128/3$$ |
+|            | 2nd order    | 3rd order  |
+| --------- | ------------- | ----- |
+| $$M/R$$     | $$15\pi/4$$ | $$401/12$$ |
+| $$M/r_0$$  | $$-4 + 15\pi/4 $$  | $$122/3 - 15\pi/2$$  |
+| $$M/b$$    | $$15\pi/4$$    |    $$128/3$$ |
 
 [This paper](https://arxiv.org/pdf/gr-qc/0511019.pdf) contains a detailed derivation of the lensing formula up to arbitrary order.  
