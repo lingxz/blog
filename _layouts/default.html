@@ -1,51 +1,80 @@
-<!DOCTYPE html>
-<html>
-
-{% include head.html %}
-
-<body>
-
-  <header class="site-header">
-    <div class="container">
-      {% include site-nav.html %}
-      <h1 class="site-title">
-        <a href="{{ '/' | absolute_url }}">theconfused.me</a>
-      </h1>
-
-      {% if site.tagline and page.url == '/' %}
-        <div class="site-tagline">
-          {{ site.tagline }}
+{% assign is_post = page.date %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% if page.home %}
+    <meta content='{{ site.title }}' name='title' />
+    <meta content='{{ site.title }}' name='og:title' />
+    <title>{{ site.title }}</title>
+    {% else %}
+    <meta content='{{ page.title }} - {{ site.title }}' name='title' />
+    <meta content='{{ page.title }} - {{ site.title }}' name='og:title' />
+    <title>{{ page.title }} - {{ site.title }}</title>
+    {% endif %}
+    {% include head.html %}
+  </head>
+  <body class="lh-copy dark-gray pa0 f5 bg-super-white global-font">
+    <header class="tc mt4">
+      <a class="link banner f2 mid-gray" href="{{ site.url }}">theconfused.me</a>
+    </header>
+<!--     <nav class="bb b--light-gray pv3 tc" aria-label="Main">
+      {% for link in site.links %}
+        <a class="link dim highlight-color mh2 pv1"
+           href="{% unless link.external %}{{ site.url }}{% endunless %}{{ link.url }}">
+           {{ link.name }}
+         </a>
+      {% endfor %}
+    </nav> -->
+    <p class="tc f4 mt1 mid-gray ph3">mostly physics and code. <a class="link highlight-color" href="{{ site.url }}/about">about me.</a></p>
+    <div class="content-width mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <main class="tl f5 bg-white relative ph3 ph5-ns pv3 pv4-ns overflow-hidden" style="z-index:10">
+        {% if page.title and page.notitle != true %}
+          <div class="mb4">
+            <h1 class="ttu f3 mt0 lh-title cb mb2 tc">
+              {% if is_post %}
+              {% endif %}
+              {% if page.alt_title %} {{ page.alt_title }}
+              {% else %} {{ page.title }} {% endif %}
+            </h1>
+            {% if page.date %}<div class="fw600 light-silver mt1 tc">{{ page.date | date_to_string }}</div>{% endif %}
+          </div>
+        {% endif %}
+        <div class="markdown-body">
+          {{ content }}
         </div>
-      {% endif %}
+      </main>
+      {% if is_post %}{% include pagination.html %}{% endif %}
     </div>
-  </header>
 
-  <main class="container">
-    {{ content }}
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      {% include footer-links.html %}
-      &copy; {{ site.time | date: "%Y" }}
-      {{ site.author.name }}
-    </div>
-  </footer>
-
-  <!-- Add jQuery and other scripts -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>
-    if (typeof jQuery == 'undefined') {
-      {% assign jquery_fallback = '/assets/js/jquery-1.11.2.min.js' %}
-      document.write('<script src="{{ jquery_fallback | absolute_url }}"></scr' + 'ipt>');
-    }
-  </script>
-  {% include algoliasearch.html %}
-  <script src="{{ '/assets/js/plugins.min.js' | absolute_url }}"></script>
-  <script src="{{ '/assets/js/main.min.js' | absolute_url }}"></script>
-  {% if page.math %}
-    {% include katex.html %}
-  {% endif %}
-
-</body>
+    <footer class="mw7 center tc pt3 pb4 silver f6">
+      powered by <a href="https://jekyllrb.com/" class="link silver dim pv1">jekyll</a>, based on the <a href="http://github.com/muan/scribble" class="link silver dim pv1">scribble</a> theme
+    </footer>
+    <!-- Add jQuery and other scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      if (typeof jQuery == 'undefined') {
+        {% assign jquery_fallback = '/assets/js/jquery-1.11.2.min.js' %}
+        document.write('<script src="{{ jquery_fallback | absolute_url }}"></scr' + 'ipt>');
+      }
+    </script>
+    {% if page.math %}
+      <!-- Load KaTeX -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+      <script>
+        $("script[type='math/tex']").replaceWith(function() {
+            var tex = $(this).text();
+            return katex.renderToString(tex, {displayMode: false});
+        });
+        $("script[type='math/tex; mode=display']").replaceWith(function() {
+            var tex = $(this).html();
+            return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        });
+        $("script[type='math/tex;mode=display']").replaceWith(function() {
+            var tex = $(this).html();
+            return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        });
+      </script>
+    {% endif %}
+  </body>
 </html>

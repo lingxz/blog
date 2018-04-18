@@ -1,114 +1,23 @@
-title: The Confused Me
-description: Mostly physics and code. 
-# tagline: In the beginning there was nothing, which exploded.
+title:            "The Confused Me"
+description:      "mostly physics and code"
+author:           Lingyi Hu
+url:              https://theconfused.me # Site url, without a slash at the end.
+google_analytics: "UA-96137027-1" # Set tracking, remove from /javascripts/basic.js if unwanted.
 
-url: "https://theconfused.me"
-baseurl: ""
-permalink: blog/:title/
-author: Lingyi Hu
-enforce_ssl: theconfused.me
-repository: "lingxz/lingxz.github.io"
-github:
-  username: lingxz
-title_separator: '-'
-og_image: '/assets/img/scribble.png'
+gems:
+  - jekyll-paginate-v2
+  - jekyll-feed
 
-markdown: kramdown
-gems: [jekyll-paginate-v2, jekyll/tagging, jekyll-feed, algoliasearch-jekyll]
 pagination:
   enabled: true
   per_page: 10
-  permalink: "blog/page:num/"
-  sort_field: 'date'
+  permalink: '/page/:num/'
   sort_reverse: true
 
-tag_page_layout: tag_page
-tag_page_dir: tags
-tag_permalink_style: pretty
-
-author:
-  name: Lingyi Hu
-  bio: I like to think about things. 
-  avatar: /assets/img/scribble.png
-
-# highlighter: rouge
-# Markdown Processing
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  math_engine: mathjax
-  syntax_highlighter_opts:
-    disable: true
-
-comments: true
-isso: https://comments.theconfused.me
-
-# atom_feed:
-#   path                   : # blank (default) uses feed.xml
-
-google_analytics_tracking_id: "UA-96137027-1"
-
-include:
-  - _pages
-  - .travis.yml
-exclude:
-  - vendor
-  - README.md
-  - gulpfile.js
-  - node_modules
-  - package.json
-  - Gemfile
-  - package.json
-  - script
-  - _assets
-
-# Defaults
+permalink:        /blog/:title/
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      comments: true
-    # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: page
-      comments: false
+  - values:
+      layout: "default"
 
-# The links in the site footer
-footer_links:
-  - title: "Subscribe"
-    url:   "/feed.xml"
-  - title: "GitHub"
-    url:   "https://github.com/lingxz/"
-
-# Site navigation
-nav:
-  - title: "Home"
-    url:   "/"
-  - title: "About"
-    url:   "/about/"
-  # - title: "Projects"
-  #   url: "/projects/"
-  - title: "Search"
-    url: "/search/"
-
-# algolia search
-algolia:
-  application_id         : 'VN9ANUNJHO'
-  index_name             : 'blog'
-  record_css_selector    : 'p,ul'
-  read_only_api_key      : '98fde2f0c592e7705c24e8ef80f9b655'
-  lazy_update            : true
-  excluded_files:
-    - _pages/
-    - index.html
+exclude: [vendor]
+include: [.travis.yml]

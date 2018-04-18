@@ -3,6 +3,7 @@ title: Getting better related posts in Jekyll using tf-idf
 excerpt: It's no secret that Jekyll's built in related posts functionality doesn't return related posts--it only gives you the most recent posts. So I decided to use some NLP techniques to calculate document correlation and retrieve related posts instead. 
 math: true
 ---
+<p class="flex items-center justify-center pa3 bg-lightest-blue navy">Update: in my latest minimalistic revamp of my blog, I did away with related posts altogether. </p>
 
 It's no secret that Jekyll's built in related posts functionality doesn't  return related posts--it only gives you the most recent posts. So I looked around for better solutions. 
 
@@ -23,7 +24,7 @@ But before doing this, some tokenization and stemming is needed, since I wouldn'
 
 ## The code
 
-Optimally, I would use Ruby to do this since Jekyll is based on Ruby, but unfortunately my Ruby knowledge is zero and I decided to use Python for this. For people who just want to see code, the scripts can be found on my [GitHub repo](https://github.com/lingxz/lingxz.github.io/tree/source/scripts). 
+Optimally, I would use Ruby to do this since Jekyll is based on Ruby, but unfortunately my Ruby knowledge is zero and I decided to use Python for this. For people who just want to see code, the scripts can be found on my [GitHub repo](https://github.com/lingxz/lingxz.github.io/tree/0827ae2b850c3ba7288d099ea41e41becfa138e5/scripts). 
 
 First I wrote a function that processes the markdown files containing the posts: 
 
@@ -151,7 +152,7 @@ This function does some processing with the dictionary it receives and dumps it 
 Inserting this data into my `post` layout was more difficult than I thought, because I could find no way of getting the post object from the post slug. So, I ended up with this ugly code in my `_layouts/post.html`:
 
 {% raw %}
-```
+```liquid
 {% for item in site.data.related %}
   {% if page.slug == item.post %}
     <nav class="read-next">
