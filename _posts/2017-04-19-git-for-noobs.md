@@ -1,5 +1,5 @@
 ---
-title: Git for noobs
+title: "Git for noobs: an attempt at a git tutorial"
 excerpt: I was once one of them. 
 ---
 

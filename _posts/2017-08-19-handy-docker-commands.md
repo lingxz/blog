@@ -3,6 +3,8 @@ title: A few handy docker commands to setting up a server with Nginx and Let's E
 excerpt: Recently I set up my server on DigitalOcean with Docker and Nginx as a reverse proxy. This is a brief documentation of how I did it and a few Docker commands I found most useful. 
 ---
 
+Recently I set up my server on DigitalOcean with Docker and Nginx as a reverse proxy. This is a brief description of how I did it and a few Docker commands I found most useful.
+
 *Jump to...*
 * TOC
 {:toc}

@@ -3,6 +3,8 @@ title: Easy unit testing with MagicMock
 excerpt: MagicMock is incredibly useful for python unit testing in many ways. This is one simple use case where it is particularly convenient.
 ---
 
+At my internship, after writing unit tests for every tiny thing and a code review from my supervisor, I finally felt the usefulness of MagicMock.
+
 According to the documentation, [`MagicMock`](http://www.voidspace.org.uk/python/mock/magicmock.html#mock.MagicMock) is a subclass of `Mock` with default implementations of most of the magic methods. 
 
 Let's say we have a function `dosomething` whose argument is an instance of class A. That class A has an attribute which is an instance of class B, and B has an attribute containing a list of objects of class C. So the function looks something like this:
@@ -63,3 +65,5 @@ class RandomTests(unittest.TestCase):
         dosomething(a)
         # then assert on output
 ```
+
+It's just like magic!
