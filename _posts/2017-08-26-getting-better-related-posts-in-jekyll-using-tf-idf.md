@@ -3,7 +3,7 @@ title: Getting better related posts in Jekyll using tf-idf
 excerpt: It's no secret that Jekyll's built in related posts functionality doesn't return related posts--it only gives you the most recent posts. So I decided to use some NLP techniques to calculate document correlation and retrieve related posts instead. 
 math: true
 ---
-<p class="flex items-center justify-center pa3 bg-lightest-blue navy">Update: in my latest minimalistic revamp of my blog, I did away with related posts altogether. </p>
+<p class="flex items-center justify-center pa3 bg-lightest-blue navy">Update: in my latest revamp of my blog, I did away with related posts altogether. </p>
 
 It's no secret that Jekyll's built in related posts functionality doesn't  return related posts--it only gives you the most recent posts. So I looked around for better solutions. 
 
@@ -174,7 +174,7 @@ Inserting this data into my `post` layout was more difficult than I thought, bec
 
 Ew, 3 nested for loops. But I couldn't find a way out of it--the first loop is to find the relevant element in the list that the post corresponds to, by checking the slugs. The second to loop through the slugs, so that I can render them, however, to get the post object from the slug, the third loop is needed to loop through all the posts to see which post has a slug that matches. 
 
-Fortunately, this is only run when building the site, and doesn't slow down things on the client side. I only have a handful of posts on my blog, so it really makes no difference. The inconvenience it may bring to some people is that you would have to do the extra step of running the python file to generate `_data/related.yml` before building the site. But I use [gulp](https://gulpjs.com/) to build my site, so I just had to add an extra line in my [gulpfile](https://github.com/lingxz/lingxz.github.io/blob/source/gulpfile.js):
+Fortunately, this is only run when building the site, and doesn't slow down things on the client side. I only have a handful of posts on my blog, so it really makes no difference. The inconvenience it may bring to some people is that you would have to do the extra step of running the python file to generate `_data/related.yml` before building the site. But I use [gulp](https://gulpjs.com/) to build my site, so I just had to add an extra line in my [gulpfile](https://github.com/lingxz/lingxz.github.io/blob/0827ae2b850c3ba7288d099ea41e41becfa138e5/gulpfile.js):
 
 ```js
 shell.exec('python scripts/similarity.py')

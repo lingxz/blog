@@ -4,7 +4,7 @@ author:           Lingyi Hu
 url:              https://theconfused.me # Site url, without a slash at the end.
 google_analytics: "UA-96137027-1" # Set tracking, remove from /javascripts/basic.js if unwanted.
 
-gems:
+plugins:
   - jekyll-paginate-v2
   - jekyll-feed
 
