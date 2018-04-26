@@ -10,7 +10,7 @@ home: true
   <li class="mv2">
     <time class="post-entry-date silver">{{ post.date | date_to_string }} </time>
     <a href="{{ site.url }}{{ post.url }}" class="db pv1 link highlight-color dim">
-      {{ post.title }}
+      {% if post.notebook %}<code style="color: #F3DE8A">[NOTEBOOK] </code>{% endif %}{{ post.title }}
     </a>
   </li>
   {% endfor %}
