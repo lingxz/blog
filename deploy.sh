@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-cd _site
+cd public
 git init
 git remote add origin 'ssh://git@178.62.18.237/home/git/blog.git'
 git config user.name "Travis CI"

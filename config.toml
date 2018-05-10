@@ -1,0 +1,52 @@
+baseurl = "https://theconfused.me"
+title = "theconfused.me"
+author = "Lingyi Hu"
+# copyright = "© 2018 💗 Lingyi Hu"
+copyright = "© 2018 Lingyi Hu"
+canonifyurls = true
+paginate = 10
+pygmentsCodeFences = true
+pygmentsStyle = "tango"
+pygmentsCodefencesGuessSyntax = true
+googleAnalytics = "UA-96137027-1"
+theme = "er-custom"
+disableKinds = ['RSS']
+
+[blackfriday]
+fractions = false
+smartypants = false
+hrefTargetBlank = true
+
+[outputs]
+home = ["HTML", "Atom"]
+
+[outputFormats.Atom]
+mediaType = "application/atom"
+baseName = "feed"
+isPlainText = false
+
+[mediaTypes]
+[mediaTypes."application/atom"]
+suffix = "xml"
+
+[frontmatter]
+date  = [":filename", ":default"]
+
+[menu]
+  [[menu.main]]
+    identifier = "subscribe"
+    name = "Subscribe"
+    url = "/feed.xml"
+    weight = 10
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+
+[taxonomies]
+tag = "tags"
+
+[params]
+showTagCloud = false
+# tagline = "mostly physics and code"
+# mainSections = ["blog", "notebook"]

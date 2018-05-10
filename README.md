@@ -1,1 +1,0 @@
-blog v2.0, based on scribble theme. see live site [here](https://theconfused.me)

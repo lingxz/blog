@@ -1,27 +1,23 @@
-language: ruby
-rvm:
-  - 2.3.1
-branches:
-  only:
-    - source
-cache:
-  bundler: true
-env:
-  global:
-    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+language: go
 addons:
   ssh_known_hosts: 
     - 178.62.18.237
 before_install:
   - openssl aes-256-cbc -K $encrypted_42099b4af021_key -iv $encrypted_42099b4af021_iv -in deploy-key.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
+  - npm install -g clean-css-cli html-minifier imagemin-cli
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.40.1/hugo_0.40.1_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
 script:
-  - JEKYLL_ENV=production bundle exec jekyll build
-  # - bundle exec htmlproofer ./_site --disable-external
+  - hugo
+  - cleancss -o public/css/styles.css public/css/styles.css
+  - imagemin public/img/* --out-dir=public/img
+  - html-minifier --input-dir public --output-dir public --file-ext html --remove-comments --minify-css --minify-js --collapse-whitespace
 deploy:
   - provider: pages
     skip_cleanup: true
-    local_dir: _site
+    local_dir: public
     target_branch: master
     name: Travis CI
     github_token: "$GITHUB_API_KEY"
@@ -32,3 +28,6 @@ deploy:
     script: bash ./deploy.sh
     on:
       branch: source
+branches:
+  only:
+    - source
