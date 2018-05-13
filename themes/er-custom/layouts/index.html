@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
-<main class="center mv4 content-width ph3">
+<main class="center content-width ph3">
   <ul class="list pa0">
     {{ range $paginator.Pages }}
     <li class="mb2">

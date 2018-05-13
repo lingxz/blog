@@ -9,10 +9,10 @@
   </div>
 </nav> -->
 <nav class="content-width center mv4 ph3">
-  <div><a class="ttu f3 fw6 no-underline dim bg-main-color pv1 ph2 br2" href='{{ "" | relURL }}'>{{ .Site.Title }}</a></div>
-  <div class="mt3">
+  <div><a class="f3 fw6 no-underline tracked-tight bg-main-color ph1" href='{{ "" | relURL }}'>{{ .Site.Title }}</a></div>
+  <div class="mt1">
     {{ range .Site.Menus.main }}
-      <a class="link dim dark-gray f5 mr2 ttu tracked" href='{{.URL}}' title="{{ .Name }}">{{ .Name }}</a>
+      <a class="link dim dark-gray f5 mr2" href='{{.URL}}' title="{{ .Name }}">{{ .Name | lower }}</a>
     {{ end }}
   </div>
 </nav>
