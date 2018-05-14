@@ -1,7 +1,7 @@
 {{ define "main" }}
-<main class="center content-width ph3">
-  <div class="f3 fw6 heading-color heading-font post-title">{{ .Title }}</div>
-  <p class="silver f6 mt1 mb4 post-meta">
+<main class="content-width">
+  <div class="fw6 heading-color heading-font post-title">{{ .Title }}</div>
+  <p class="silver post-meta" style="margin-bottom: 2rem;">
     {{ if not .Date.IsZero }}<time>{{ .Date.Format "02 Jan 2006" }}</time> {{ end }}
     {{ if or .Params.tags .Params.categories .Params.series }} | {{ end }}
     {{ if isset .Params "categories" }}
@@ -11,7 +11,7 @@
     tags: [ {{ range .Params.tags }}<a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="link silver">{{ . }}</a> {{ end }} ]
     {{ end }}
   </p>
-  <div class="lh-copy post-content">{{ .Content }}{{ if not .Date.IsZero }}<p class="gray f6">You can email me at lingyihuu(at)gmail.com if you have any comments, suggestions, or questions. I should respond promptly, because frankly I am not famous enough to be ignoring emails yet.</p>{{ end }}</div>
+  <div class="lh-copy post-content">{{ .Content }}{{ if not .Date.IsZero }}<p class="gray small">You can email me at lingyihuu(at)gmail.com if you have any comments, suggestions, or questions. I should respond promptly, because frankly I am not famous enough to be ignoring emails yet.</p>{{ end }}</div>
 </main>
 {{ partial "table-of-contents" . }}
 {{ end }}

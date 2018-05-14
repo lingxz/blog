@@ -1,28 +1,43 @@
-html { font-size: 16px; }
+html { font-size: 16px; line-height: 1.15;}
+.border-box, a, article, aside, blockquote, body, code, dd, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], input[type=url], legend, li, main, nav, ol, p, pre, section, table, td, textarea, th, tr, ul {
+    box-sizing: border-box;
+}
 body { color: var(--body-text-color); background-color: var(--background-color);}
 .lh-copy { line-height: 1.4em;}
 .main-color { color: var(--main-color); }
 .secondary-color { color: var(--secondary-color); }
-.bg-main-color { background-color: var(--main-color); color: var(--logo-text-color); }
 .heading-font, h1, h2, h3, h4, h5 { font-family: Vidaloka, serif; }
 .global-font { font-family: Arial, Helvetica, sans-serif; }
 .heading-color { color: var(--heading-text-color); }
-.post-content a, .list-pages a, .pagination a {
+a { 
+  text-decoration: none; 
+  color: inherit;
+}
+.post-content a, .list-pages a {
   border-bottom: 1px solid rgba(0,0,0,0.4);
   text-decoration: none;
   color: inherit;
 }
 
-main a, a.toc-link {
-  text-decoration: none;
-}
+.gray { color: #777; }
+.silver { color: #999; }
 
 main a:hover, a.toc-link:hover, .list-pages a:hover, .pagination a:hover, #tag-cloud a:hover { 
   border-bottom: 1px solid var(--body-text-color);
   color: var(--body-text-color);
 }
 
-.content-width { max-width: 650px; }
+main, nav, footer {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.content-width { 
+  max-width: 650px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0px;
   font-weight: 600;
@@ -37,7 +52,68 @@ pre {
 p code {
   font-weight: bold;
 }
-#tag-cloud { max-width: 250px; }
+
+nav {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+footer {
+  font-size: .875rem;
+  margin-bottom: 2rem;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  padding-left: .25rem;
+  padding-right: .25rem;
+  background-color: var(--main-color); 
+  color: var(--logo-text-color);
+  letter-spacing: -.05em;
+}
+
+.fw6 { font-weight: bold; }
+.menu-links {
+  margin-top: .25rem;
+}
+
+.menu-links a {
+  margin-right: .5rem;
+}
+
+.link {
+  transition: color .15s ease-in;
+}
+
+.dim, .dim:focus, .dim:hover {
+  transition: opacity .15s ease-in;
+}
+
+.dim:focus, .dim:hover {
+  opacity: 0.5;
+}
+
+.posts-list {
+ list-style-type: none;
+ padding: 0; 
+}
+
+.post-list-title {
+  font-size: 1.25rem;
+}
+
+.post-meta {
+  margin-top: .25rem;
+}
+
+.post-title {
+  font-size: 1.5rem;
+}
+
+.small {
+  font-size: .875rem;
+}
+
 #contents-list>.toc-list { 
   max-width: 250px; 
   overflow: hidden;
@@ -45,17 +121,34 @@ p code {
   right: 2rem;
 }
 @media (min-width: 1200px) {
-  #contents-list>.toc-list, #tag-cloud  { 
+  #contents-list>.toc-list { 
     display: block; 
     top: 100px;
-  }
-  #tag-cloud {
-    -webkit-transition: opacity .5s, visibility .5s;
-    transition: opacity .5s, visibility .5s;
   }
 }
 @media (min-width: 1330px) { #contents-list>.toc-list { max-width: 300px; right: 3rem;}}
 #contents-list ol { list-style: none; }
+
+.pagination {
+  position: relative;
+  text-align: left;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 60em) {
+  .pagination {
+    position: fixed;
+    bottom: 0.8rem;
+    right: 1.5rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
 
 figure {
   margin: 2em 1em;
@@ -65,6 +158,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 1px 1px 2px 2px #bbb;
+  max-width: 100%;
 }
 figure.img-wide img {
     margin-left: -100px;
@@ -94,6 +188,7 @@ blockquote {
   margin-top: 0;
   margin-right: 0;
   padding-left: 1rem;
+  line-height: 1.5;
 }
 
 blockquote p {

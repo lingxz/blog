@@ -1,6 +1,6 @@
 ---
 title: A few handy docker commands to setting up a server with Nginx and Let's Encrypt
-tags: [docker, letsencrypt, nginx]
+tags: [docker, nginx]
 toc: true
 ---
 
