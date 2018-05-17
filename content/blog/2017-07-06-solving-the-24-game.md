@@ -8,23 +8,6 @@ The [24 game](https://en.wikipedia.org/wiki/24_Game) is a game I've always liked
 
 For example, given a list of numbers `[4,8,3,6]`, we can get 24 by doing `4*8*(6/3)` or `4*3*(8-6)`. What you cannot do is take, say, `4*6` and discard the rest.  
 
-<!-- ```
-4 * 8 * (6 / 3) = 24
-```
-
-or 
-
-```
-4 * 3 * (8 - 6) = 24
-```
- -->
-<!-- What you cannot do is take, say,
-
-```
-4 * 6 = 24
-```
-and discard the rest. 
- -->
 Sometimes, there are also 4-number combinations that can never make 24. One example is `[3,9,4,10]`. What usually happens in a game when we encounter such combinations is that we would stare at the cards in silence for a long period of  time, before at some point we both agree that this is an impossible combination. But this is incredibly arbitrary; we might very well pass over combinations that are actually possible but neither of us could see. 
 
 One very commonly missed one was `[1,5,5,5]`. You can have a try if you want to play along, but don't spend too long. 

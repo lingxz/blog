@@ -4,6 +4,10 @@ math: true
 tags: [physics]
 ---
 
+To find the trajectory of anything in General Relativity, usually you only need the metric tensor, from which you can obtain the geodesic equations. Nevertheless, a common problem that arises in cosmology is that as soon as we depart from the simplest homogeneous models, the task of finding solutions to the geodesic equations quickly becomes an intractable analytical problem. 
+
+In this post are some notes of how to perform numerical integration of light paths in the Schwarzschild metric. 
+
 ## Differential equations of orbit
 
 The Schwarzschild metric is one of the most famous solutions to the Einstein field equations, and the line element in this metric (in natural units $c = G = 1$) is given by:
@@ -18,7 +22,7 @@ $$f \dot{t} = E = \text{constant}$$
 
 $$r^2 \dot{\phi} = L = \text{constant}$$
 
-where an overdot refers to derivative with respect to an affine parameter. 
+where an overdot refers to derivative with respect to an affine parameter $\lambda$. 
 
 Using the null condition, we have 
 
@@ -36,13 +40,13 @@ $$\dot{p} = \frac{L^2(r - 3M)}{r^4}$$
 
 $$\dot{\phi} = \frac{L}{r^2}$$
 
-(This can of course be solved analytically in the weak gravity limit, which gives the light bending equation $\Delta \phi = 4M/R$.)
+(This can of course be solved analytically in the weak gravity limit, which gives the light bending equation $\Delta \phi = 4M/b$ where $b$ is the impact parameter.)
 
 ## Initial conditions
 
 In principle, we need the initial values of $r$, $p$, and $\phi$ to start the numerical simulation. However, if we fix the incoming velocity to be horizontal, then we would only need to specify the initial $x_0$ and $y_0$ coordinates. 
 
-The initial conditions then can be given as follows:
+We can take $\dot{t} = 1$ for convenience. The initial conditions can then be derived from the null condition and they are as follows:
 
 $$r = \sqrt{x_0^2 + b^2}$$
 
@@ -63,7 +67,7 @@ For a mass of $M = 1$ (corresponding to Schwarzschild black hole radius of 2), t
   <figcaption></figcaption>
 </figure>
 
-And they do fit quite well with the theoretical deflection angle, for large impact parameters:
+And they do fit quite well with the theoretical deflection angle $4M/b$ for large impact parameters:
 
 <figure>
   <img src="/img/deflections.png" title="Numerical deflection angle vs theoretical deflection" alt="Numerical deflection angle vs theoretical deflection">

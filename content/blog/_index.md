@@ -1,5 +1,5 @@
 ---
-title: Posts
+title: Blog Archive
 ---
 
 Mostly physics and code.
