@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>{{ partial "header.html" . }}</head>
+<body>
+<div class="main">
+  <div class="container">
+    <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
+    <div><b>Lingyi Hu</b> &mdash; Physics student</div>
+    <div class="post-content article">
+      {{ .Content }}
+    </div>
+<!--     <p class="article post-content">
+      <span><a target="_blank" href="https://github.com/lingxz">GitHub</a></span> / 
+      <span><a href="mailto:lingyihuu@gmail.com">lingyihuu@gmail.com</a></span> / 
+      <span><a href="https://writing.theconfused.me">My other (non-technical, mostly chinese, creative) writing blog</a></span>
+    </p>
+    <hr class="gap-top">
+    <blockquote class="gap-top post-content">
+      <p>How important can it be that I suffer and think? My presence in this world will disturb a few tranquil lives and will unsettle the unconscious and pleasant naiveté of others. Although I feel that my tragedy is the greatest in history—greater than the fall of empires—I am nevertheless aware of my total insignificance. I am absolutely persuaded that I am nothing in this universe; yet I feel that mine is the only real existence.</p><p></p>
+      <p><cite>Emil M. Cioran, On the Heights of Despair</cite></p>
+    </blockquote> -->
+  </div>
+</div>
+{{ partial "scripts.html" . }}
+</body>
+</html>

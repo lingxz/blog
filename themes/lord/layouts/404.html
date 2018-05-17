@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>{{ partial "header.html" . }}</head>
+<body>
+<div class="main">
+  <div class="container" class="article gap-top-container">
+    <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
+    {{ if not .Date.IsZero }} <span class="faded">{{ .Date.Format "January 02, 2006" }}</span>{{ end }}
+    <h1>404 Not Found</h1>
+    <p class="post-content article">
+      Sorry, but nothing exists here. <br>
+      Find something <a href='{{ "" | relURL }}'>interesting to read.</a>
+      <br>
+      <blockquote class="gap-top post-content">
+        <p>Death makes no sense except to people who have passionately loved life. How can one die without having something to part from? Detachment is a negation of both life and death. Whoever has overcome his fear of death has also triumphed over life. For life is nothing but another word for this fear.</p><p></p>
+        <p><cite>Emil M. Cioran, Tears and Saints</cite></p>
+      </blockquote>
+    </p>
+  </div>
+</div>
+</body>
+</html>

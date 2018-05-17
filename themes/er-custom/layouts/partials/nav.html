@@ -1,8 +1,0 @@
-<nav class="content-width">
-  <div><a class="site-title fw6" href='{{ "" | relURL }}'>{{ .Site.Title }}</a></div>
-  <div class="menu-links">
-    {{ range .Site.Menus.main }}
-      <a class="link dim" href='{{.URL}}' title="{{ .Name }}">{{ .Name | lower }}</a>
-    {{ end }}
-  </div>
-</nav>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>{{ partial "header.html" . }}</head>
+<body>
+<div class="main">
+  <div class="container">
+    <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
+    <div><b>Lingyi Hu</b> &mdash; Physics student</div>
+    <p class="article">
+      <span><a target="_blank" href="https://github.com/lingxz">GitHub</a></span> / 
+      <span><a href="mailto:lingyihuu@gmail.com">lingyihuu@gmail.com</a></span> / 
+      <span><a href='{{ "about" | relURL }}'>about</a></span> / 
+      <span><a href='{{ "feed.xml" | relURL }}'>subscribe</a></span> 
+    </p>
+    <hr class="gap-top">
+  </div>
+  <div class="gap-top post-content">
+    <!-- <h1>Blog Posts</h1> -->
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
+    {{ range $paginator.Pages }}
+    <p>
+      <a href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a>
+      <br>
+      <span>{{ .Date.Format "02 Jan 2006" }}</span>
+      {{ if or .Params.tags .Params.categories }} | {{ end }}
+      {{ if isset .Params "categories" }}
+      categories: [ {{ range .Params.categories }}<a href='{{ "/categories/" | relLangURL }}{{ . | urlize }}'>{{ . }}</a> {{ end }} ]
+      {{ end }}
+      {{ if isset .Params "tags" }}
+      tags: [ {{ range .Params.tags }}<a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>{{ . }}</a> {{ end }} ]
+      {{ end }}
+
+<!--       <span class="faded">{{ .Date.Format "02 Jan 2006" }}</span>
+      {{ if isset .Params "tags" }}
+      {{ range .Params.tags }}<a class="faded" style="margin-left: 0.5rem" href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>#{{ . }}</a> {{ end }}
+      {{ end }} -->
+    </p>
+    {{ end }}
+
+    {{ if .Paginator.HasNext }}<a class="faded" href="{{ .Paginator.Next.URL | relURL }}">older</a>{{ end }}
+    {{ if (and .Paginator.HasNext .Paginator.HasPrev) }}&nbsp; &nbsp;{{ end }}
+    {{ if .Paginator.HasPrev }}<a class="faded" href="{{ .Paginator.Prev.URL | relURL }}">newer</a>{{ end }}
+  </div>
+
+<!--   <div>
+    <h1>Blog Posts</h1>
+    {{ range first 5 (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
+    <a class="posts-list" href="{{ .Permalink }}"><span class="faded date">{{ .Date.Format "Jan 02" }}</span><strong>{{ .Title }}</strong></a>
+    {{ end }}
+    <a class="posts-list" href='{{ "blog" | relURL }}'><span class="faded date">&nbsp;</span><strong>More posts...</strong></a>
+  </div> -->
+<!--   <hr class="gap-top">
+  <div class="gap-top article">
+    <h1>Projects</h1>
+    {{ range .Site.Data.projects }}
+    <p><a href="{{ .url }}" target="_blank"><strong>{{ .name }}</strong></a> &mdash; {{ .description }}</p>
+    {{ end }}
+  </div> -->
+</div>
+{{ partial "scripts.html" . }}
+</body>
+</html>

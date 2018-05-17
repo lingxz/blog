@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>{{ partial "header.html" . }}</head>
+<body>
+<div class="main">
+  <div class="container" class="article gap-top-container">
+    <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
+    <div class="faded">
+    {{ if not .Date.IsZero }} <span class="faded">{{ .Date.Format "January 02, 2006" }}</span>{{ end }}
+    {{ if isset .Params "tags" }}
+    {{ range .Params.tags }}<a style="margin-left: 0.5rem" href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>#{{ . }}</a> {{ end }}
+    {{ end }}
+    </div>
+    <h1>{{ .Title }}</h1>
+    <div class="post-content article">
+      {{ .Content }}
+    </div>
+    <hr class="gap-top">
+    {{ if not .Date.IsZero }}
+    <div class="faded gap-top message">You can email me at lingyihuu(at)gmail.com if you have any comments, suggestions, or questions. I should respond promptly, because frankly I am not famous enough to be ignoring emails yet.</div>
+    {{ end }}
+    <div class="faded gap-top"><a href='{{ "" | relURL }}' style="margin-right: 2rem;">&larr; home</a> <a href='{{ "blog" | relURL }}'>&larr; blog archive</a></div>
+  </div>
+</div>
+
+ <!-- ignore empty links with + -->
+{{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
+<!-- at least one header to link to -->
+{{ $has_headers := ge (len $headers) 1 }}
+<!-- a post can explicitly disable Table of Contents with toc: false -->
+{{ $show_toc := and (eq .Params.toc true) (ne .Site.Params.showtoc false) }}
+{{ if and $has_headers $show_toc }}
+<div class="" id="toc"></div>
+{{ end }}
+
+{{ partial "scripts.html" . }}
+</body>
+</html>

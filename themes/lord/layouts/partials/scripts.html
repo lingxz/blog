@@ -13,10 +13,10 @@
 {{ $has_headers := ge (len $headers) 1 }}
 {{ if and $has_headers (eq .Params.toc true) }}
 <script type="text/javascript">
-if (document.getElementById("contents-list") !== null && document.getElementsByClassName("post-content").length !== 0) { 
+if (document.getElementById("toc") !== null && document.getElementsByClassName("post-content").length !== 0) { 
   tocbot.init({
     // Where to render the table of contents.
-    tocSelector: '#contents-list',
+    tocSelector: '#toc',
     // Where to grab the headings to build the table of contents.
     contentSelector: '.post-content',
     // Which headings to grab inside of the contentSelector element.

@@ -28,7 +28,7 @@ Their differences between them can be seen in the diagram below.
   <figcaption>the difference distances in Schwarzschild lensing</figcaption>
 </figure>
 
-Most papers use the impact parameter $b$ to parameterize lensing, because it is a physical, measurable quantity (though complications also arise when you throw in a cosmological constant, see [Lebedev & Lake, 2013](https://arxiv.org/pdf/1308.4931.pdf)), whereas the distance of closest approach is not so easy to determine, and $R$ is a result of a mathematical construct which (from what I understand), roughly corresponds to the distance at turning point from the black hole assuming the light ray was bent at a single point. 
+Most papers use the impact parameter $b$ to parameterize lensing, because it is a physical, measurable quantity (though complications also arise when you throw in a cosmological constant, see [Lebedev & Lake, 2013](https://arxiv.org/abs/1308.4931)), whereas the distance of closest approach is not so easy to determine, and $R$ is a result of a mathematical construct which (from what I understand), roughly corresponds to the distance at turning point from the black hole assuming the light ray was bent at a single point. 
 
 These distances are similar, but not the same. They are all equal to one another to first order. This means that to first order in $M/R$, the bending angle can be written equivalently as
 
@@ -48,4 +48,4 @@ For example, here is a table of the second and third order coefficients for the 
 | $M/r_0$  | $-4 + 15\pi/4 $  | $122/3 - 15\pi/2$  |
 | $M/b$    | $15\pi/4$    |    $128/3$ |
 
-If even higher orders are needed, [Keeton and Petters (2005)](https://arxiv.org/pdf/gr-qc/0511019.pdf) contains a detailed derivation of the lensing formula up to arbitrary order. Most of the time, though, just the first order term will suffice. But in my project I am investigating much smaller effects in gravitational lensing, and the higher order terms are important. 
+If even higher orders are needed, [Keeton and Petters (2005)](https://arxiv.org/abs/gr-qc/0511019) contains a detailed derivation of the lensing formula up to arbitrary order. Most of the time, though, just the first order term will suffice. But in my project I am investigating much smaller effects in gravitational lensing, and the higher order terms are important. 

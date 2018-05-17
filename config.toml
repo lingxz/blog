@@ -9,7 +9,7 @@ pygmentsCodeFences = true
 pygmentsStyle = "tango"
 pygmentsCodefencesGuessSyntax = true
 googleAnalytics = "UA-96137027-1"
-theme = "er-custom"
+theme = "lord"
 disableKinds = ['RSS']
 
 [blackfriday]

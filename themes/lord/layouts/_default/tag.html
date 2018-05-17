@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>{{ partial "header.html" . }}</head>
+<body>
+<div class="main">
+  <div class="container" class="article gap-top-container">
+    <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
+    <h1><span style="color: var(--secondary-color);"># </span>{{ .Data.Term }}</h1>
+    <div class="">
+      <p class="faded">{{ len .Data.Pages }} {{ if (eq (len .Data.Pages) 1 ) }}post{{ else }}posts{{ end }} across {{ len (.Data.Pages.GroupByDate "2006")}} {{ if (eq (len (.Data.Pages.GroupByDate "2006")) 1 ) }}year{{ else }}years{{ end }}</p>
+      {{ range .Data.Pages.GroupByDate "2006" }}
+      <h2>{{ .Key }}</h2>
+      {{ range .Pages }}
+      <a href="{{.Permalink}}" class="posts-list"><span class="faded date">{{ .Date.Format "02 Jan"}}</span><strong>{{ .Title }}</strong></a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ partial "scripts.html" . }}
+</body>
+</html>
