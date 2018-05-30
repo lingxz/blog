@@ -124,6 +124,11 @@ img {
   box-shadow: 1px 1px 2px 2px #bbb;
   max-width: 100%;
 }
+
+figure.no-border img {
+  box-shadow: none;
+}
+
 figure.img-wide img {
     margin-left: -100px;
     margin-right: -100px;
@@ -141,6 +146,7 @@ figure.img-wide img {
 figcaption { 
   text-align: center;
   margin-top: 0.5em;
+  color: gray;
 }
 
 /*blockquote{
