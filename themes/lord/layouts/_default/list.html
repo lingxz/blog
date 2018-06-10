@@ -6,7 +6,7 @@
   <div class="container" class="article gap-top-container">
     <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
     <h1>{{ .Title }}</h1>
-    <div class="">
+    <div>
       <p class="faded">{{ len .Data.Pages }} {{ if (eq (len .Data.Pages) 1 ) }}post{{ else }}posts{{ end }} across {{ len (.Data.Pages.GroupByDate "2006")}} {{ if (eq (len (.Data.Pages.GroupByDate "2006")) 1 ) }}year{{ else }}years{{ end }}</p>
       {{ range .Data.Pages.GroupByDate "2006" }}
       <h2>{{ .Key }}</h2>

@@ -25,6 +25,10 @@ h3, strong {
   font-size: 1rem;
 }
 
+h1:focus, h2:focus, h3:focus, h4:focus {
+  outline: none;
+}
+
 .main {
   max-width: 650px;
   margin: 0 auto;
@@ -149,14 +153,6 @@ figcaption {
   color: gray;
 }
 
-/*blockquote{
-  border-left:4px solid rgba(48,48,48,0.18);
-  padding-left:1.65rem
-}
-blockquote{
-    margin:0
-}*/
-
 blockquote {
   border-left-style: solid;
   border-left-width: 1px;
@@ -224,3 +220,7 @@ table tr th, table tr td {
 
 @media (min-width: 1330px) { #toc>.toc-list { max-width: 300px; right: 3rem;}}
 #toc ol { list-style: none; }
+.gray {
+  color: rgba(48,48,48,.4);
+  font-weight: bold;
+}

@@ -6,7 +6,7 @@
   <div class="container">
     <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
     <div><b>Lingyi Hu</b> &mdash; Physics student</div>
-    <p class="article">
+    <p class="article post-content">
       <span><a target="_blank" href="https://github.com/lingxz">GitHub</a></span> / 
       <span><a href="mailto:lingyihuu@gmail.com">lingyihuu@gmail.com</a></span> / 
       <span><a href='{{ "about" | relURL }}'>about</a></span> / 
@@ -21,14 +21,12 @@
     <p>
       <a href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a>
       <br>
-      <span>{{ .Date.Format "02 Jan 2006" }}</span>
-      {{ if or .Params.tags .Params.categories }} | {{ end }}
-      {{ if isset .Params "categories" }}
-      categories: [ {{ range .Params.categories }}<a href='{{ "/categories/" | relLangURL }}{{ . | urlize }}'>{{ . }}</a> {{ end }} ]
-      {{ end }}
+      <span class="gray">
+      {{ .Date.Format "02 Jan 2006" }}
       {{ if isset .Params "tags" }}
-      tags: [ {{ range .Params.tags }}<a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>{{ . }}</a> {{ end }} ]
+      { {{ range .Params.tags }}<a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>{{ . }}</a> {{ end }} }
       {{ end }}
+      </span>
 
 <!--       <span class="faded">{{ .Date.Format "02 Jan 2006" }}</span>
       {{ if isset .Params "tags" }}
