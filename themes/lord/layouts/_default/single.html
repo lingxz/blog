@@ -5,12 +5,12 @@
 <div class="main">
   <div class="container" class="article gap-top-container">
     <div style="margin-bottom: 1.5rem;"><a class="logo" href='{{"" | relURL }}'>theconfused.me</h1></a></div>
-    <div class="faded">
-    {{ if not .Date.IsZero }} <span class="faded">{{ .Date.Format "January 02, 2006" }}</span>{{ end }}
+    <span class="gray">
+    {{ if not .Date.IsZero }}{{ .Date.Format "02 Jan 2006" }}{{ end }}
     {{ if isset .Params "tags" }}
-    {{ range .Params.tags }}<a style="margin-left: 0.5rem" href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>#{{ . }}</a> {{ end }}
+    { {{ range .Params.tags }}<a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}'>{{ . }}</a> {{ end }} }
     {{ end }}
-    </div>
+    </span>
     <h1>{{ .Title }}</h1>
     <div class="post-content article">
       {{ .Content }}

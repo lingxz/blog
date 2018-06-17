@@ -1,7 +1,8 @@
 :root {
   --main-color: #4c4e4f;
   /*--secondary-color: #F5DD90;*/
-  --secondary-color: #2691ef;
+  /*--secondary-color: #2691ef;*/
+  --secondary-color: cornflowerblue;
   --logo-text-color: #fff;
   --heading-text-color: #4c4e4f;
   --body-text-color: #4c4e4f;
@@ -12,6 +13,7 @@ html, body {
   color: #303030;
   font-family: Helvetica, Arial,sans-serif;
   font-size: 15px;
+  letter-spacing: 0.02em;
 }
 
 .post-content, #toc {
@@ -41,14 +43,9 @@ h1:focus, h2:focus, h3:focus, h4:focus {
 
 .logo {
   font-size: 1.5rem;
-  padding-left: .25rem;
-  padding-right: .25rem;
-  background-color: var(--main-color);
-  color: var(--logo-text-color);
-  letter-spacing: -.05em;
   font-weight: 600;
+  color: var(--secondary-color);
 }
-
 
 a {
   color: inherit;
@@ -57,7 +54,7 @@ a {
 }
 
 a:hover:not(.logo) {
-  color: #2691ef;
+  color: var(--secondary-color);
 }
 
 .article a {
@@ -65,7 +62,7 @@ a:hover:not(.logo) {
 }
 
 .article a:hover {
-  border-bottom-color: #2691ef;
+  border-bottom-color: var(--secondary-color);
 }
 
 hr {
