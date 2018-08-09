@@ -1,0 +1,1147 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+    <title>theconfused.me</title>
+  
+  <link href="https://theconfused.me/index.xml" rel="self"/>
+  <link href="https://theconfused.me/"/>
+  <updated>2017-04-19T00:00:00+00:00</updated>
+  <id>https://theconfused.me/</id>
+  <generator>Hugo -- gohugo.io</generator>
+  <entry>
+    <title type="html"><![CDATA[Switching between Mac and Linux keyboards]]></title>
+    <link href="https://theconfused.me/blog/switching-between-mac-and-linux-keyboards/"/>
+    <id>https://theconfused.me/blog/switching-between-mac-and-linux-keyboards/</id>
+    <published>2018-08-09T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>At my workplace I use a mac but at home I use Linux / Windows. It will be too inefficient to switch between two different sets of keybindings, so I decided to configure my mac such that it has Windows-like keybindings.
+</p>
+
+<p>First, I changed modifier keys on the Mac. The main difference is that Mac uses the <code>cmd</code> key while Linux / Windows uses the <code>ctrl</code> key.</p>
+
+<figure class="no-border">
+  <img src="/img/mac-keybindings.png" title="Switching modifier keys on Mac" alt="Switching modifier keys on Mac">
+  <figcaption>Switching modifier keys on Mac</figcaption>
+</figure>
+
+<p>This gets back most of the familiar commands: <code>ctrl+c</code>, <code>ctrl+v</code>, etc. I didn't change the function of the original <code>cmd</code> key because I still needed my <code>alt tab</code> equivalent</p>
+
+<p>Then I created a file at <code>~/Library/KeyBindings/DefaultKeyBinding.dict</code>. This is what is in my file (modified from <a href="http://benogle.com/2010/01/18/windowslinux-developers-remap-your-mac.html" target="_blank">Ben Ogle's blog</a>):</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">/* ~/Library/KeyBindings/DefaultKeyBinding.Dict
+</span><span style="color:#8f5902;font-style:italic">This file remaps the key bindings of a single user on Mac OS X 10.5 to more closely
+</span><span style="color:#8f5902;font-style:italic">match default behavior on Windows systems.  This particular mapping assumes
+</span><span style="color:#8f5902;font-style:italic">that you have also switched the Control and Command keys already.
+</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">This key mapping is more appropriate after switching Ctrl for Command in this menu:
+</span><span style="color:#8f5902;font-style:italic">Apple-&gt;System Preferences-&gt;Keyboard &amp; Mouse-&gt;Keyboard-&gt;Modifier Keys...-&gt;
+</span><span style="color:#8f5902;font-style:italic">Change Control Key to Command
+</span><span style="color:#8f5902;font-style:italic">Change Command key to Control
+</span><span style="color:#8f5902;font-style:italic">This applies to OS X 10.5 and possibly other versions.
+</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">Here is a rough cheatsheet for syntax.
+</span><span style="color:#8f5902;font-style:italic">Key Modifiers
+</span><span style="color:#8f5902;font-style:italic">^ : Ctrl
+</span><span style="color:#8f5902;font-style:italic">$ : Shift
+</span><span style="color:#8f5902;font-style:italic">~ : Option (Alt)
+</span><span style="color:#8f5902;font-style:italic">@ : Command (Apple)
+</span><span style="color:#8f5902;font-style:italic"># : Numeric Keypad
+</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">Non-Printable Key Codes
+</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">Up Arrow:     \UF700        Backspace:    \U0008        F1:           \UF704
+</span><span style="color:#8f5902;font-style:italic">Down Arrow:   \UF701        Tab:          \U0009        F2:           \UF705
+</span><span style="color:#8f5902;font-style:italic">Left Arrow:   \UF702        Escape:       \U001B        F3:           \UF706
+</span><span style="color:#8f5902;font-style:italic">Right Arrow:  \UF703        Enter:        \U000A        ...
+</span><span style="color:#8f5902;font-style:italic">Insert:       \UF727        Page Up:      \UF72C
+</span><span style="color:#8f5902;font-style:italic">Delete:       \UF728        Page Down:    \UF72D
+</span><span style="color:#8f5902;font-style:italic">Home:         \UF729        Print Screen: \UF72E
+</span><span style="color:#8f5902;font-style:italic">End:          \UF72B        Scroll Lock:  \UF72F
+</span><span style="color:#8f5902;font-style:italic">Break:        \UF732        Pause:        \UF730
+</span><span style="color:#8f5902;font-style:italic">SysReq:       \UF731        Menu:         \UF735
+</span><span style="color:#8f5902;font-style:italic">Help:         \UF746
+</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">NOTE: typically the Windows &#39;Insert&#39; key is mapped to what Macs call &#39;Help&#39;.
+</span><span style="color:#8f5902;font-style:italic">Regular Mac keyboards don&#39;t even have the Insert key, but provide &#39;Fn&#39; instead,
+</span><span style="color:#8f5902;font-style:italic">which is completely different.
+</span><span style="color:#8f5902;font-style:italic">*/</span>
+
+<span style="color:#000;font-weight:bold">{</span>
+<span style="color:#4e9a06">&#34;\UF729&#34;</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToBeginningOfLine:&#34;</span><span style="color:#000;font-weight:bold">;</span>                       <span style="color:#8f5902;font-style:italic">/* Home         */</span>
+<span style="color:#4e9a06">&#34;@\UF729&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToBeginningOfDocument:&#34;</span><span style="color:#000;font-weight:bold">;</span>                   <span style="color:#8f5902;font-style:italic">/* Cmd  + Home  */</span>
+<span style="color:#4e9a06">&#34;$\UF729&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToBeginningOfLineAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span>     <span style="color:#8f5902;font-style:italic">/* Shift + Home */</span>
+<span style="color:#4e9a06">&#34;$@\UF729&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToBeginningOfDocumentAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">/* Shift + Cmd  + Home */</span>
+<span style="color:#4e9a06">&#34;\UF72B&#34;</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToEndOfLine:&#34;</span><span style="color:#000;font-weight:bold">;</span>                             <span style="color:#8f5902;font-style:italic">/* End          */</span>
+<span style="color:#4e9a06">&#34;@\UF72B&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToEndOfDocument:&#34;</span><span style="color:#000;font-weight:bold">;</span>                         <span style="color:#8f5902;font-style:italic">/* Cmd  + End   */</span>
+<span style="color:#4e9a06">&#34;$\UF72B&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToEndOfLineAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span>           <span style="color:#8f5902;font-style:italic">/* Shift + End  */</span>
+<span style="color:#4e9a06">&#34;$@\UF72B&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToEndOfDocumentAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span>       <span style="color:#8f5902;font-style:italic">/* Shift + Cmd  + End */</span>
+
+<span style="color:#4e9a06">&#34;^\UF702&#34;</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToBeginningOfLine:&#34;</span><span style="color:#000;font-weight:bold">;</span>                       <span style="color:#8f5902;font-style:italic">/* Home         */</span>
+<span style="color:#4e9a06">&#34;^\UF703&#34;</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToEndOfLine:&#34;</span><span style="color:#000;font-weight:bold">;</span>                             <span style="color:#8f5902;font-style:italic">/* End          */</span>
+<span style="color:#4e9a06">&#34;$^\UF703&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToEndOfLineAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span>           <span style="color:#8f5902;font-style:italic">/* Shift + End  */</span>
+<span style="color:#4e9a06">&#34;$^\UF702&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveToBeginningOfLineAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span>     <span style="color:#8f5902;font-style:italic">/* Shift + Home */</span>
+
+<span style="color:#4e9a06">&#34;\UF72C&#34;</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;pageUp:&#34;</span><span style="color:#000;font-weight:bold">;</span>                                      <span style="color:#8f5902;font-style:italic">/* PageUp       */</span>
+<span style="color:#4e9a06">&#34;\UF72D&#34;</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;pageDown:&#34;</span><span style="color:#000;font-weight:bold">;</span>                                    <span style="color:#8f5902;font-style:italic">/* PageDown     */</span>
+<span style="color:#4e9a06">&#34;@x&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;cut:&#34;</span><span style="color:#000;font-weight:bold">;</span>                                         <span style="color:#8f5902;font-style:italic">/* Shift + Del  */</span>
+<span style="color:#4e9a06">&#34;@v&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;paste:&#34;</span><span style="color:#000;font-weight:bold">;</span>                                       <span style="color:#8f5902;font-style:italic">/* Shift + Help */</span>
+<span style="color:#4e9a06">&#34;@c&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;copy:&#34;</span><span style="color:#000;font-weight:bold">;</span>                                        <span style="color:#8f5902;font-style:italic">/* Cmd  + Help (Ins) */</span>
+<span style="color:#4e9a06">&#34;@\UF702&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveWordBackward:&#34;</span><span style="color:#000;font-weight:bold">;</span>                            <span style="color:#8f5902;font-style:italic">/* Cmd  + LeftArrow */</span>
+<span style="color:#4e9a06">&#34;@\UF703&#34;</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveWordForward:&#34;</span><span style="color:#000;font-weight:bold">;</span>                             <span style="color:#8f5902;font-style:italic">/* Cmd  + RightArrow */</span>
+<span style="color:#4e9a06">&#34;$@\UF702&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveWordBackwardAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span>   <span style="color:#8f5902;font-style:italic">/* Shift + Cmd  + Leftarrow */</span>
+<span style="color:#4e9a06">&#34;$@\UF703&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;moveWordForwardAndModifySelection:&#34;</span><span style="color:#000;font-weight:bold">;</span>   <span style="color:#8f5902;font-style:italic">/* Shift + Cmd  + Rightarrow */</span>
+<span style="color:#4e9a06">&#34;@\U007f&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000">deleteWordBackward</span><span style="color:#ce5c00;font-weight:bold">:</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div>
+<p>This only works if you have changed the modifier keys mapping. And voila, it sort of works now and other than some IDE shortcut keymap customisation it hasn't been much of a hassle switching between the two computers.</p>]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Is Newton&#39;s first law merely a special case of the second?]]></title>
+    <link href="https://theconfused.me/blog/is-newtons-first-law-merely-a-special-case-of-the-second/"/>
+    <id>https://theconfused.me/blog/is-newtons-first-law-merely-a-special-case-of-the-second/</id>
+    <published>2018-05-30T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[
+
+<p>I did a survey of this question at my school about this, everyone who is familiar enough with Newton's three laws seem to agree that his first law is a subset of the second, even though some said that it has a different emphasis. I also found a <a href="https://www.quora.com/Why-is-Newtons-first-law-not-simply-a-derivative-of-the-second-law" target="_blank">Quora question</a> about this, where most people agree they are mathematically the same. A mathematics student also brought up that a set of axioms does not have to be minimal, but it has to be helpful, which I agree with. Of course, even if Newton's first law contains no new mathematical information, I don't think it is unnecessary. If anything, it summarizes one of his most important realizations and is an emphatic rebuttal to Aristotle's belief that an object will remain at rest unless acted on by an external force.</p>
+
+<p>If you want to play along, ask yourself this question: if a certain equation of motion satisfies the second law, does it necessarily satisfy the first? My first answer is yes, but after recent thought I realized it might not be.</p>
+
+<p>I recently had a conversation with a friend about this, which started because I came across an interesting artifact called <a href="https://en.wikipedia.org/wiki/Norton%27s_dome" target="_blank">Norton's Dome</a>, a thought experiment proposed by John Norton that seems to violate determinism even in Newtonian physics. Norton gives the dome a longer exposition on <a href="https://www.pitt.edu/~jdnorton/Goodies/Dome/" target="_blank">his website</a>, but the basic idea is that there is a dome described by the equation</p>
+
+<p>$$h(r) = \frac{2}{3g} r^{3/2}$$</p>
+
+<p>on which the a ball is resting, at the very top. At this point, it is at equilibrium (though unstable). Any perturbation will push it rolling down the dome, but we assume there is none.</p>
+
+<figure class="no-border">
+  <img src="/img/nortons_dome.gif" title="Norton's Dome" alt="Norton's Dome">
+  <figcaption>Norton's Dome, image taken from <a href="https://www.pitt.edu/~jdnorton/Goodies/Dome/">Norton's Web</a></figcaption>
+</figure>
+
+<p>The simplest solution is that the ball remains forever at rest. However, due to the <a href="https://www.wikiwand.com/en/Lipschitz_continuity" target="_blank">mathematical properties</a> of the dome, a second solution is admitted, and hence one can write the solution as</p>
+
+<p>$r(t) = (1/144) (t-T)^4 \text{ for } t \geq T$<br />
+$r(t) = 0 \text{ for } t &lt; T$.</p>
+
+<p>which means that at some arbitrary time $T$, the ball will start rolling for no reason at all. With all the above information, it is impossible to determine time $T$ at which it starts rolling.</p>
+
+<p>Ok, so it seems there is this seemingly nonsense mathematical solution, which is fine. It is not uncommon in physics to reject solutions that are mathematically correct and physically wrong.</p>
+
+<p>But is it physically wrong?</p>
+
+<p>The first reaction is probably that there seems to be no cause to this sudden motion. But that's not a problem. Newton's laws only describe motion, they say nothing about cause and effect.</p>
+
+<p>It agrees with Newton's second law. It also agrees with time reversal symmetry. One can imagine the time-reversed situation where the ball is propelled from bottom to top, with just the right energy to stop at the top (this is only possible for this specific dome shape, others will require an infinite time for this to happen). The ascent could happen at any time, so if you reverse time, it could also set off at any time in the future.</p>
+
+<p>Norton also claims that it agrees with the first law, and this is where it gets a bit iffy.</p>
+
+<p>The first law says:</p>
+
+<blockquote>
+<p>Every object will remain at rest or in uniform motion in a straight line unless compelled to change its state by the action of an external force.</p>
+</blockquote>
+
+<p>Norton interprets the first law as such: that in the absence of a net external force, a body is unaccelerated.</p>
+
+<p>But by only applying the law at an instant, I think he is discarding a lot of what the word &quot;remain&quot; means. &quot;Remain&quot; necessary implies a time period, and by a normal interpretation of the word, I am still not convinced Norton's solution obeys the first law. The ball is at rest with no net external force acting on it, and clearly first law states it should <em>remain</em> at rest; rolling down the hill at some arbitrary time is a direct violation of that fact.</p>
+
+<p>Which is the more right interpretation? You decide. I would say I am not quite convinced by Norton's.</p>
+
+<p>And here we have a situation where the equation of motion satisfies the second law but, based on my interpretation, does not satisfy the first. That must necessarily mean that the first law says something that the second law doesn't, what is it?</p>
+
+<p>In fact, if we look closely at the solution, we might notice where it goes wrong. At time $T$, acceleration is still zero, but the 4th order derivative, called snap / jounce, is not. This means at some arbitrary time $T$ the snap of the ball was instantaneously bumped up even though nobody touched the ball, and this &quot;caused&quot; the ball to begin its descent.</p>
+
+<p>Norton thinks this is fine, but I do think this is forbidden by Newtonian mechanics. The implication in Newton's first law must be that when there is no external force, all higher order derivatives must necessarily be zero, for the ball to <em>remain</em> at rest.</p>
+
+<p>So I think this is the important thing that Newton's first law says that the second law doesn't: while the second law talks about the second derivative of position, the first law imposes a specific condition on all higher derivatives.</p>
+
+<p>But what happens then to time reversal symmetry? I have no answer to that. What do you think? Either way, though, I doubt the ball is going anywhere.</p>
+
+<h2 id="readings">Readings</h2>
+
+<ul>
+<li><a href="https://www.pitt.edu/~jdnorton/Goodies/Dome/" target="_blank">Norton's website</a></li>
+<li><a href="https://arxiv.org/abs/1801.01719" target="_blank">A Note on Norton's Dome</a></li>
+<li><a href="https://blog.gruffdavies.com/tag/the-dome/" target="_blank">A blog post about some of the pathological things about Norton's Dome</a></li>
+<li>and many more, just <a href="https://www.google.co.uk/search?q=norton%27s+dome&amp;oq=norton%27s+dome&amp;aqs=chrome..69i57j69i60l3j0l2.1397j0j1&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">google it</a>.</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Bidding farewell to my year-long masters project]]></title>
+    <link href="https://theconfused.me/blog/bidding-farewell-to-my-year-long-masters-project/"/>
+    <id>https://theconfused.me/blog/bidding-farewell-to-my-year-long-masters-project/</id>
+    <published>2018-05-26T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>For the impatient, <a href="https://github.com/lingxz/lightbending" target="_blank">here</a> is the code, which also contains my <a href="https://github.com/lingxz/lightbending/blob/clean/report/thesis.pdf" target="_blank">final report</a>.</p>
+
+<hr />
+
+<p>This is probably long overdue, but I really want to write about my masters project while it is still fresh on my mind (masters thesis, dissertation, or final year project report, whatever you want to call it. I would like to call it a thesis since it sounds loads cooler than the rest, but unfortunately my school just calls it the <em>project report</em>). It was submitted some time ago, and it is something I am quite proud of.</p>
+
+<p>It didn't really start on a good note: the project was supposed to be done in pairs (though all assessments are separate) but my partner couldn't come back for fourth year due to personal reasons, and I had to do it alone. I sent a frantic email to my supervisor, and he told me that there is no problem doing this project alone. Though, it was also him who  said that to get started with this project, &quot;you just need to learn a <em>little</em> bit of General Relativity, shouldn't be too difficult.&quot;</p>
+
+<p>He also mentioned that two other people (a PhD student and a postdoc) have previously attempted this project, but both ran out of time before they could finish it. So I was not particularly optimistic.</p>
+
+<p>But it did end well. Here are the excerpts of the continuous assessment comments from my supervisor:</p>
+
+<blockquote>
+<p>Lingyi has done an outstanding job with this project, showing great initiative in researching the literature very well, finding more than one relevant paper that I was not aware of. The results may be publishable in a journal paper, dependent on a period of digestion and the acquisition of understanding of what they mean, since there are a number of subtleties to comprehend. She has shown a great deal of independence, critical thinking, and self-motivation, looking at new ways of tackling the problem, and requiring only a small amount of guidance, and has worked hard.</p>
+</blockquote>
+
+<p>and some comments on the viva:</p>
+
+<blockquote>
+<p>Lingyi has read all of the literature that I am aware of, and some I was not, but here in the talk she concentrated on a few key papers, and she chose exactly the right ones.</p>
+
+<p>Lingyi answered the questions with complete authority.  She has clearly mastered her topic, and all the answers were correct.</p>
+</blockquote>
+
+<p>I'm quite pleased, to say the least.</p>
+
+<p>So, what was it about? There have been some previous posts that spun off my final year project (see <a href="/blog/distances-in-schwarzschild-lensing/">Distances in Schwarzschild lensing</a> and <a href="/blog/numerical-integration-of-light-paths-in-a-schwarzschild-metric/">Numerical integration of light paths in a Schwarzschild metric</a>) that might give you an idea. The one line summary is this: we want to know if the cosmological constant affects gravitational lensing.</p>
+
+<p>This question basically splits the research into two camps: one believes yes, the other believes no. My supervisor is in the &quot;no&quot; camp.</p>
+
+<p>Of course this statement is not entirely accurate and it is more complicated than that, such as the fact that gravitational lensing in a cosmological context depends on angular diameter distance which already has a dependence on the cosmological constant, so the real question is whether the current formula is enough, and also that angle and distance measurements are not always clearly defined when space is not asymptotically flat, so we have to clearly state what we refer to when we say &quot;bending angle&quot;. But regardless, this is the essential question. Surprisingly, given how widely used gravitational lensing is and how widely accepted the cosmological constant is, there is not yet a consensus on this. We hope to answer the question numerically instead of analytically.</p>
+
+<p>Anyway, this post was not meant to be a full description of what my project is&mdash;I have <a href="https://github.com/lingxz/lightbending/blob/clean/report/thesis.pdf" target="_blank">my report</a> for that. If you're curious, our answer to whether the cosmological constant affects gravitational lensing is, as with most research questions: maybe. More specifically, due to the intricacies of our cosmological model, it is difficult to truly isolate the effect of the cosmological constant on lensing.</p>
+
+<p>I briefly considered putting a graph of my results here, but I think it is rather irresponsible to post a results graph without explaining its intricacies and nuanced implications, and it is difficult to do that in a single blog post without an exposition of the background literature.</p>
+
+<p>There is no doubt that I loved the journey, though there were multiple stressul points along the way. It has always been my dream to do astronomy-related research and I can't thank my supervisor <a href="https://www.imperial.ac.uk/people/a.heavens" target="_blank">Alan Heavens</a> enough for proposing this project that is at the same time both challenging and not undoable. The project answers a real research question and the process of doing it makes me feel like I am genuinely contributing to the pool of collective scientific knowledge.</p>
+
+<p>Of couse, self-doubt was frequent and imposter syndrome plagued me along the way...</p>
+
+<figure>
+  <a target="_blank" href="http://phdcomics.com/comics/archive.php?comicid=1976">
+    <img src="http://www.phdcomics.com/comics/archive/phd100217s.gif" title="PHD Comics: Imposter, Pt. 4" alt="PHD Comics: Imposter, Pt. 4">
+  </a>
+  <figcaption>
+    "Imposter" - created by <a href="http://phdcomics.com/">PHD Comics</a>
+  </figcaption>
+</figure>
+
+<p>But I did it! It was an amazing feeling that nearer the second half of my project, I could understand most of the research papers that I struggled with initially, and more than that, I also understood some of their problems. It's sad that perhaps this is my last contact with true physics research for a long time (or likely for good), and this project was important enough in my life that it deserves a formal goodbye.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[I gave this blog a revamp, and you don&#39;t care]]></title>
+    <link href="https://theconfused.me/blog/i-gave-this-blog-a-revamp-and-you-dont-care/"/>
+    <id>https://theconfused.me/blog/i-gave-this-blog-a-revamp-and-you-dont-care/</id>
+    <published>2018-04-18T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>In the process of switching to a new theme, I stripped out most of the bloat I once painstakingly added: search, comments, related posts, gulp pipeline. </p>
+
+<p>I feel like there is always a cycle. I find something new, fiddle with it, keep adding cool new functionality to it, and eventually I get tired of the bloat and revert to the minimalistic solution.</p>
+
+<p>And maybe someday I will get bored of this simple design and start adding things to it again. So if the version you see has any of those things listed above, you'd know that the cycle has begun once more.</p>]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Distances in Schwarzschild lensing]]></title>
+    <link href="https://theconfused.me/blog/distances-in-schwarzschild-lensing/"/>
+    <id>https://theconfused.me/blog/distances-in-schwarzschild-lensing/</id>
+    <published>2018-02-10T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>These are some notes from my final year project. I took some time to get this right in my head at the initial stages, so I thought it will be useful to note it down.</p>
+
+<p>In the project I have been dealing a lot with gravitational lensing by a Schwarzschild black hole. The famous formula for the bending angle (in units of $c = G = 1$) is</p>
+
+<p>$$\alpha = \frac{4M}{R}.$$</p>
+
+<p>This formula forms the basis for one of the key observational confirmations of Einstein's theory of General Relativity. The Newtonian prediction is only half of the GR result.</p>
+
+<p>In the formula, $M$ is the lensing mass. In the Schwarzschild spacetime, this is the mass of the black hole. But when I first started out on my project, I was a little confused about which distance $R$ was referring to.</p>
+
+<p>There are 3 distances that are typically used as length measures:</p>
+
+<ol>
+<li>$b$, the impact parameter, defined as the perpendicular distance between the light path and the black hole</li>
+<li>$r_0$, the distance of closest approach between the light path and the black hole</li>
+<li>$R$, the perpendicular distance between the unperturbed trajectory and the black hole</li>
+</ol>
+
+<p>Their differences between them can be seen in the diagram below.</p>
+
+<figure>
+  <img src="/img/schwarzschild-lensing.jpg" title="Schwarzschild lensing distances" alt="Schwarzschild lensing distances">
+  <figcaption>the difference distances in Schwarzschild lensing</figcaption>
+</figure>
+
+<p>Most papers use the impact parameter $b$ to parameterize lensing, because it is a physical, measurable quantity (though complications also arise when you throw in a cosmological constant, see <a href="https://arxiv.org/abs/1308.4931" target="_blank">Lebedev &amp; Lake, 2013</a>), whereas the distance of closest approach is not so easy to determine, and $R$ is a result of a mathematical construct which (from what I understand), roughly corresponds to the distance at turning point from the black hole assuming the light ray was bent at a single point.</p>
+
+<p>These distances are similar, but not the same. They are all equal to one another to first order. This means that to first order in $M/R$, the bending angle can be written equivalently as</p>
+
+<p>$$\alpha = \frac{4M}{R} = \frac{4M}{r_0} = \frac{4M}{b}.$$</p>
+
+<p>However, they can no longer be used interchangeably from second order onwards. It is easy to convert between them using the relationships between the three distance measures:</p>
+
+<p>$$\frac{r_0}{b} = 1 - \frac{M}{b} - \frac{3}{2}\left (\frac{M}{b} \right )^2 - 4\left (\frac{M}{b}\right )^3 + ...$$</p>
+
+<p>$$\frac{R}{r_0} = 1 + \frac{M}{R} + \frac{3}{16} \left (\frac{M}{R} \right )^2 + ...$$</p>
+
+<p>For example, here is a table of the second and third order coefficients for the different distance measures:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>2nd order</th>
+<th>3rd order</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$M/R$</td>
+<td>$15\pi/4$</td>
+<td>$401/12$</td>
+</tr>
+
+<tr>
+<td>$M/r_0$</td>
+<td>$-4 + 15\pi/4 $</td>
+<td>$122/3 - 15\pi/2$</td>
+</tr>
+
+<tr>
+<td>$M/b$</td>
+<td>$15\pi/4$</td>
+<td>$128/3$</td>
+</tr>
+</tbody>
+</table>
+
+<p>If even higher orders are needed, <a href="https://arxiv.org/abs/gr-qc/0511019" target="_blank">Keeton and Petters (2005)</a> contains a detailed derivation of the lensing formula up to arbitrary order. Most of the time, though, just the first order term will suffice. But in my project I am investigating much smaller effects in gravitational lensing, and the higher order terms are important.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Numerical integration of light paths in a Schwarzschild metric]]></title>
+    <link href="https://theconfused.me/blog/numerical-integration-of-light-paths-in-a-schwarzschild-metric/"/>
+    <id>https://theconfused.me/blog/numerical-integration-of-light-paths-in-a-schwarzschild-metric/</id>
+    <published>2017-10-14T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[
+
+<p>To find the trajectory of anything in General Relativity, usually you only need the metric tensor, from which you can obtain the geodesic equations. Nevertheless, a common problem that arises in cosmology is that as soon as we depart from the simplest homogeneous models, the task of finding solutions to the geodesic equations quickly becomes an intractable analytical problem.</p>
+
+<p>In this post are some notes of how to perform numerical integration of light paths in the Schwarzschild metric.</p>
+
+<h2 id="differential-equations-of-orbit">Differential equations of orbit</h2>
+
+<p>The Schwarzschild metric is one of the most famous solutions to the Einstein field equations, and the line element in this metric (in natural units $c = G = 1$) is given by:</p>
+
+<p>$$ds^2 = -f(r) dt^2 + \frac{dr^2}{f(r)} + r^2(d\theta^2 + \sin^2 \theta d\phi^2)$$</p>
+
+<p>We are interested in the trajectory of a light ray in such a metric. Since the metric is spherically symmetric, any light ray that starts with a certain $\theta$ must stay in the same $\theta$ plane, hence we can arbitrarily set $\theta = \pi/2$ and do away with all the $\theta$ terms.</p>
+
+<p>Light follows a null (lightlike) trajectory given by $ds^2 = 0$. In the absence of external forces, it should also travel along a geodesic. These are governed by the geodesic equations, which can be derived using Euler-Lagrange equations. Due to the symmetry of the metric, applying the Euler-Lagrange equations to the metric gives us two conserved quantities:</p>
+
+<p>$$f \dot{t} = E = \text{constant}$$</p>
+
+<p>$$r^2 \dot{\phi} = L = \text{constant}$$</p>
+
+<p>where an overdot refers to derivative with respect to an affine parameter $\lambda$.</p>
+
+<p>Using the null condition, we have</p>
+
+<p>$$f\dot{t}^2 - \frac{\dot{r}^2}{f} - r^2\dot{\phi}^2 = 0$$</p>
+
+<p>This can be expressed in terms of $\dot{r}$, and differentiating again gives the second-order differential equation for $r$:</p>
+
+<p>$$\ddot{r} = \frac{L^2(r - 3M)}{r^4}$$</p>
+
+<p>This can be easily converted into a first-order differential equation to be solved numerically by setting a variable $p = \dot{r}$. So we have these 3 differential equations to compute numerically:</p>
+
+<p>$$\dot{r} = p$$</p>
+
+<p>$$\dot{p} = \frac{L^2(r - 3M)}{r^4}$$</p>
+
+<p>$$\dot{\phi} = \frac{L}{r^2}$$</p>
+
+<p>(This can of course be solved analytically in the weak gravity limit, which gives the light bending equation $\Delta \phi = 4M/b$ where $b$ is the impact parameter.)</p>
+
+<h2 id="initial-conditions">Initial conditions</h2>
+
+<p>In principle, we need the initial values of $r$, $p$, and $\phi$ to start the numerical simulation. However, if we fix the incoming velocity to be horizontal, then we would only need to specify the initial $x_0$ and $y_0$ coordinates.</p>
+
+<p>We can take $\dot{t} = 1$ for convenience. The initial conditions can then be derived from the null condition and they are as follows:</p>
+
+<p>$$r = \sqrt{x_0^2 + b^2}$$</p>
+
+<p>$$\phi = \cos^{-1} \left ( \frac{x_0}{r} \right )$$</p>
+
+<p>$$\dot{r} = p = \cos{\phi}$$</p>
+
+<p>$$L = r^2 \dot{\phi} = r \sqrt{1 - \dot{r}^2}$$</p>
+
+<p>Then, the only free parameters to specify $b$ and $x_0$, in addition to mass.</p>
+
+<h2 id="graphs">Graphs</h2>
+
+<p>For a mass of $M = 1$ (corresponding to Schwarzschild black hole radius of 2), this is a plot of the trajectories with different impact parameters $b$:</p>
+
+<figure>
+  <img src="/img/visualization_trans.png" title="Light rays visualization" alt="Light rays visualization">
+  <figcaption></figcaption>
+</figure>
+
+<p>And they do fit quite well with the theoretical deflection angle $4M/b$ for large impact parameters:</p>
+
+<figure>
+  <img src="/img/deflections.png" title="Numerical deflection angle vs theoretical deflection" alt="Numerical deflection angle vs theoretical deflection">
+  <figcaption></figcaption>
+</figure>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Getting better related posts in Jekyll using tf-idf]]></title>
+    <link href="https://theconfused.me/blog/getting-better-related-posts-in-jekyll-using-tf-idf/"/>
+    <id>https://theconfused.me/blog/getting-better-related-posts-in-jekyll-using-tf-idf/</id>
+    <published>2017-08-26T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[
+
+<p><strong>UPDATE:</strong> In my latest revamp of my blog, I did away with related posts altogether. I'm now using Hugo for static site generation instead of Jekyll. I also decided to conscientiously tag every post anyway since it didn't take too much effort (wow, exceeding my own expectations), so much of this is useless to me now.</p>
+
+<hr />
+
+<p>It's no secret that Jekyll's built in related posts functionality doesn't  return related posts--it only gives you the most recent posts. So I looked around for better solutions.</p>
+
+<p>One <a href="https://github.com/jumanji27/related-posts-jekyll-plugin" target="_blank">popular solution</a> is to calculate related posts based on a post's tags. However, this requires one to conscientiously tag every post accurately, which seems unlikely. I wanted a much lazier solution--to calculate how related two posts are only based on their content.</p>
+
+<h2 id="calculating-document-correlation">Calculating document correlation</h2>
+
+<p>The aim is simple: to have some way of calculating similarity score between two posts, then we can rank and take the top 5 posts as the related posts.</p>
+
+<p>The common way of measuring document similarity is by transforming the set of documents into a <a href="https://en.wikipedia.org/wiki/Tf–idf" target="_blank">tf-idf</a> matrix, then computing the <a href="https://en.wikipedia.org/wiki/Cosine_similarity" target="_blank">cosine similarity</a> to get the similarity score of each document with all other documents. Tf-idf stands for term frequency-inverse document frequency, and it is composed of two parts:</p>
+
+<ul>
+<li><strong>term frequency</strong>: proportional to how often a word appears in a document. This accords importance to words that appear frequently in a document.</li>
+<li><strong>inverse document frequency</strong>: indicates how often a word appears in all documents. If it appears many times in all documents, then it is given less importance. These are the words that are going to appear frequently no matter what the post is truly about.</li>
+</ul>
+
+<p>The tf-idf matrix is a matrix where each column represents a document and each row represents a word, and each cell represents the tf-idf value of the word within the document. <a href="http://www.tfidf.com/" target="_blank">Other people</a> have explained this better than me.</p>
+
+<p>But before doing this, some tokenization and stemming is needed, since I wouldn't want words like &quot;taken&quot; and &quot;taking&quot; to be identified as two separate words. I also want to remove stop words, which are commonly-used words like &quot;the&quot;, &quot;a&quot;, &quot;of&quot;.</p>
+
+<h2 id="the-code">The code</h2>
+
+<p>Optimally, I would use Ruby to do this since Jekyll is based on Ruby, but unfortunately my Ruby knowledge is zero and I decided to use Python for this. For people who just want to see code, the scripts can be found on my <a href="https://github.com/lingxz/lingxz.github.io/tree/0827ae2b850c3ba7288d099ea41e41becfa138e5/scripts" target="_blank">GitHub repo</a>.</p>
+
+<p>First I wrote a function that processes the markdown files containing the posts:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">frontmatter</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">glob</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">get_posts</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">folder</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;./_posts&#39;</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{}</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">filepath</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">glob</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">glob</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">folder</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34;/*&#34;</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">filename</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">filepath</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;</span><span style="color:#4e9a06">\\</span><span style="color:#4e9a06">&#39;</span><span style="color:#000;font-weight:bold">)[</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#000">slug</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">filename</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">11</span><span style="color:#000;font-weight:bold">:</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#000">post</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">frontmatter</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">load</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">filepath</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#4e9a06">&#34;slug&#34;</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">post</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">keys</span><span style="color:#000;font-weight:bold">():</span>
+            <span style="color:#000">slug</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">post</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;slug&#34;</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#000">result</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">slug</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">post</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">content</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span></code></pre></div>
+<p>This just gets all the files from the <code>_posts/</code> folder, gets the post slug and content, and stores the information in a dictionary. I used the <code>python-frontmatter</code> module to deal with the yaml frontmatter.</p>
+
+<p>Then I use the <code>nltk</code> and <code>scikit-learn</code> libraries to do the text processing. <code>nltk</code> has the capabilities to do all the natural language processing shenanigans I need while <code>scikit-learn</code> has the <code>TfidVectorizer</code> to turn documents into a tf-idf vector.</p>
+
+<p>First, some standard stemming and tokenizing (where <code>nltk</code> does most of the work):</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">nltk</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">string</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sklearn.feature_extraction.text</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">TfidfVectorizer</span>
+
+<span style="color:#000">stemmer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nltk</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">stem</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">porter</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">PorterStemmer</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">nltk</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">download</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;punkt&#39;</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#8f5902;font-style:italic"># download the needed data for tokenizing</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">stem_tokens</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tokens</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">stemmer</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">stemmed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">item</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">tokens</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">stemmed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">stemmer</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">stem</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">stemmed</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">tokenize</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">text</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">tokens</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nltk</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">word_tokenize</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">text</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">stems</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">stem_tokens</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tokens</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">stemmer</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">stems</span> </code></pre></div>
+<p>Then I create the vectorizer with the <code>tokenize</code> function, and clean the data by lowercasing everything and removing punctuation, and put the data into the vectorizer.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">vectorizer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TfidfVectorizer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tokenizer</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">tokenize</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">stop_words</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;english&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">posts</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">get_posts</span><span style="color:#000;font-weight:bold">()</span>
+
+<span style="color:#8f5902;font-style:italic"># lowercase and remove punctuation from post data</span>
+<span style="color:#000">cleaned_posts</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">slug</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">post</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">lower</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">translate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">str</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">maketrans</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">punctuation</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">slug</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">post</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">posts</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">items</span><span style="color:#000;font-weight:bold">()}</span>
+<span style="color:#000">slugs</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cleaned_posts</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">keys</span><span style="color:#000;font-weight:bold">())</span>
+
+<span style="color:#000">tfidf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vectorizer</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fit_transform</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cleaned_posts</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">values</span><span style="color:#000;font-weight:bold">()))</span>
+<span style="color:#000">matrix</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">tfidf</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">tfidf</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">T</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">A</span>  <span style="color:#8f5902;font-style:italic"># calculate cosine similarity</span>
+
+<span style="color:#8f5902;font-style:italic"># example matrix:</span>
+<span style="color:#8f5902;font-style:italic"># [[ 1.          0.12274921  0.08471414  0.0465803   0.04871383  0.00808005</span>
+<span style="color:#8f5902;font-style:italic">#   0.0196523 ]</span>
+<span style="color:#8f5902;font-style:italic"># [ 0.12274921  1.          0.10744334  0.20886152  0.07531169  0.0452097</span>
+<span style="color:#8f5902;font-style:italic">#   0.04654832]</span>
+<span style="color:#8f5902;font-style:italic"># [ 0.08471414  0.10744334  1.          0.05036088  0.0453141   0.02618316</span>
+<span style="color:#8f5902;font-style:italic">#   0.04787127]</span>
+<span style="color:#8f5902;font-style:italic"># [ 0.0465803   0.20886152  0.05036088  1.          0.16894053  0.03408972</span>
+<span style="color:#8f5902;font-style:italic">#   0.03633891]</span>
+<span style="color:#8f5902;font-style:italic"># [ 0.04871383  0.07531169  0.0453141   0.16894053  1.          0.03106121</span>
+<span style="color:#8f5902;font-style:italic">#   0.03287819]</span>
+<span style="color:#8f5902;font-style:italic"># [ 0.00808005  0.0452097   0.02618316  0.03408972  0.03106121  1.</span>
+<span style="color:#8f5902;font-style:italic">#   0.02760873]</span>
+<span style="color:#8f5902;font-style:italic"># [ 0.0196523   0.04654832  0.04787127  0.03633891  0.03287819  0.02760873</span>
+<span style="color:#8f5902;font-style:italic">#   1.        ]]</span></code></pre></div>
+<p>The last calculation returns a symmetric matrix $M$ where the $M_{ij}$ is the similarity between document $i$ and document $j$. As a check, we can see that the elements on the diagonal are unity since a document's similarity with itself should be 1.</p>
+
+<p>Then we just need to sort through the matrix to get the top $n$ most related posts. In this case, I took $n = 3$.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">num_best</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">3</span>
+<span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{}</span>
+<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">matrix</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">indices</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">argsort</span><span style="color:#000;font-weight:bold">()[</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">num_best</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">][::</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000">current_slug</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">slugs</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000">result</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">current_slug</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">slugs</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">index</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">indices</span><span style="color:#000;font-weight:bold">]</span>
+<span style="color:#8f5902;font-style:italic"># related posts are now stored in the result variable</span></code></pre></div>
+<h2 id="putting-it-back-into-jekyll">Putting it back into Jekyll</h2>
+
+<p>Now, we have to find some way of inserting this result back into Jekyll. To do this, I decided to make use of <a href="https://jekyllrb.com/docs/datafiles/" target="_blank">data files</a> to be accessed by my layouts:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">write_result_to_file</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">related</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">file</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;./_data/related.yml&#39;</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">r</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">related</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">r</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#4e9a06">&#39;post&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">r</span><span style="color:#000;font-weight:bold">,</span>
+            <span style="color:#4e9a06">&#39;related&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">related</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">r</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">r</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">with</span> <span style="color:#204a87">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">file</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;w&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">f</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">yaml</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dump</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">f</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">default_flow_style</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">False</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic"># then we just have to put the previously calculated result into this function</span>
+<span style="color:#000">write_result_to_file</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<p>This function does some processing with the dictionary it receives and dumps it into <code>_data/related.yml</code>. The resulting file should look something like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#f8f8f8"> </span>post<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>setting-up-jekyll<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>related<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>-<span style="color:#f8f8f8"> </span>drifter-writing-interactive-fiction-with-ink<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>-<span style="color:#f8f8f8"> </span>getting-better-related-posts-in-jekyll-using-tf-idf<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>-<span style="color:#f8f8f8"> </span>git-for-noobs<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8"></span>-<span style="color:#f8f8f8"> </span>post<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>drifter-writing-interactive-fiction-with-ink<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>related<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>-<span style="color:#f8f8f8"> </span>solving-the-<span style="color:#0000cf;font-weight:bold">24</span>-game<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>-<span style="color:#f8f8f8"> </span>setting-up-jekyll<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>-<span style="color:#f8f8f8"> </span>git-for-noobs</code></pre></div>
+<p>Inserting this data into my <code>post</code> layout was more difficult than I thought, because I could find no way of getting the post object from the post slug. So, I ended up with this ugly code in my <code>_layouts/post.html</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-liquid" data-lang="liquid">{% for item in site.data.related %}
+  {% if page.slug == item.post %}
+    &lt;nav class=&#34;read-next&#34;&gt;
+      &lt;h3 class=&#34;read-next-label&#34;&gt;Other posts you might enjoy&lt;/h3&gt;
+      &lt;ul&gt;
+        {% for pslug in item.related %}
+          {% for p in site.posts %}
+            {% if p.slug == pslug %}
+            &lt;li&gt;&lt;a class=&#34;read-next-title&#34; href=&#34;{{ p.url | prepend: site.baseurl }}&#34; title=&#34;{{ p.title | xml_escape }}&#34;&gt;{{ p.title | xml_escape }}&lt;/a&gt;&lt;/li&gt;
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  {% endif %}
+{% endfor %}</code></pre></div>
+<p>Ew, 3 nested for loops. But I couldn't find a way out of it--the first loop is to find the relevant element in the list that the post corresponds to, by checking the slugs. The second to loop through the slugs, so that I can render them, however, to get the post object from the slug, the third loop is needed to loop through all the posts to see which post has a slug that matches.</p>
+
+<p>Fortunately, this is only run when building the site, and doesn't slow down things on the client side. I only have a handful of posts on my blog, so it really makes no difference. The inconvenience it may bring to some people is that you would have to do the extra step of running the python file to generate <code>_data/related.yml</code> before building the site. But I use <a href="https://gulpjs.com/" target="_blank">gulp</a> to build my site, so I just had to add an extra line in my <a href="https://github.com/lingxz/lingxz.github.io/blob/0827ae2b850c3ba7288d099ea41e41becfa138e5/gulpfile.js" target="_blank">gulpfile</a>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">shell</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">exec</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;python scripts/similarity.py&#39;</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div>]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[A few handy docker commands to setting up a server with Nginx and Let&#39;s Encrypt]]></title>
+    <link href="https://theconfused.me/blog/handy-docker-commands/"/>
+    <id>https://theconfused.me/blog/handy-docker-commands/</id>
+    <published>2017-08-19T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>Recently I set up my server on DigitalOcean with Docker and Nginx as a reverse proxy. This is a brief description of how I did it and a few Docker commands I found most useful.
+</p>
+
+<h2 id="setting-up-a-server">Setting up a server</h2>
+
+<p>This is roughly similar to <a href="https://cloud.google.com/community/tutorials/nginx-reverse-proxy-docker" target="_blank">this article on Google Cloud</a>, just a stripped and slightly reorganized version.</p>
+
+<h3 id="creating-certs-directory">Creating certs directory</h3>
+
+<p>To enable HTTPS, we need certificates. So first we need to create a directory to hold the certs.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#204a87">cd</span>
+mkdir certs</code></pre></div>
+<p>We use the <a href="https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion" target="_blank">Docker Let's Encrypt nginx-proxy companion</a> to automatically issue and use signed certificates. To do this, we declare volumes when running the reverse-proxy so the <code>nginx-letsencrypt</code> companion can populate them with certificates.</p>
+
+<p>However, in order for <code>nginx-proxy</code> to proxy other containers, they have to be on the same Docker network.</p>
+
+<h3 id="running-all-the-containers">Running all the containers</h3>
+
+<p>So we first create a network:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker network create --driver bridge reverse-proxy</code></pre></div>
+<p>And we run the nginx reverse proxy and the letsencrypt companion on this network, using the <code>--net reverse-proxy</code> command.</p>
+
+<p>Running the nginx reverse proxy:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -d -p <span style="color:#0000cf;font-weight:bold">80</span>:80 -p <span style="color:#0000cf;font-weight:bold">443</span>:443 --name nginx-proxy --net reverse-proxy -v <span style="color:#000">$HOME</span>/certs:/etc/nginx/certs:ro -v /etc/nginx/vhost.d -v /usr/share/nginx/html -v /var/run/docker.sock:/tmp/docker.sock:ro --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87">true</span> jwilder/nginx-proxy</code></pre></div>
+<p>Running the <code>nginx-letsencrypt</code> companion:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -d --name nginx-letsencrypt --net reverse-proxy --volumes-from nginx-proxy -v <span style="color:#000">$HOME</span>/certs:/etc/nginx/certs:rw -v /var/run/docker.sock:/var/run/docker.sock:ro jrcs/letsencrypt-nginx-proxy-companion</code></pre></div>
+<h3 id="docker-compose">docker-compose</h3>
+
+<p>We can then start all our website or other app containers using a <code>docker-compose.yml</code> file. For example, my docker-compose file looks something like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#4e9a06">&#39;2&#39;</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8"></span>services<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>blog<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>restart<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>always<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>image<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>nginx<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>container_name<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>blog<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>volumes<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span><span style="color:#4e9a06">&#34;/etc/nginx/nginx.conf:/etc/nginx/nginx.conf&#34;</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span><span style="color:#4e9a06">&#34;/var/www/blog:/etc/nginx/html&#34;</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>networks<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>reverse-proxy<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>environment<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>VIRTUAL_PORT=<span style="color:#0000cf;font-weight:bold">1234</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>VIRTUAL_HOST=theconfused.me<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>LETSENCRYPT_HOST=theconfused.me<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>LETSENCRYPT_EMAIL=lingyihuu@gmail.com<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>draggymail<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>restart<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>always<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>build<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#4e9a06">&#34;/var/www/draggymail&#34;</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>container_name<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>draggymail<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>networks<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>reverse-proxy<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>environment<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>VIRTUAL_PORT=<span style="color:#0000cf;font-weight:bold">1234</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>VIRTUAL_HOST=draggymail.theconfused.me<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>LETSENCRYPT_HOST=draggymail.theconfused.me<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>-<span style="color:#f8f8f8"> </span>LETSENCRYPT_EMAIL=lingyihuu@gmail.com<span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8"></span>networks<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">  </span>reverse-proxy<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">    </span>external<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span><span style="color:#f8f8f8">      </span>name<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span>reverse-proxy</code></pre></div>
+<p>The blog service serves up my blog, which is what you're looking at right now. It just uses the <code>nginx</code> container. You can insert the nginx configuration by mounting the appropriate configuration file. The format for mounting volumes is</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/path/on/host:/path/in/docker/container:options</code></pre></div>
+<p>The <code>options</code> field is optional, it is where you can specify what docker is allowed to do with the mounted volume. <code>ro</code> stands for readonly, and <code>rw</code> gives the docker container permission to (yup, you guessed it) read and write.</p>
+
+<p>The draggymail service builds and runs my NodeJS app. The filepath in <code>build</code> tells docker to look for the <code>Dockerfile</code> inside the folder, build the image, and run the container. This is so that I don't have to build the image separately every time.</p>
+
+<p>Then just run <code>docker-compose up -d</code> to run your containers.</p>
+
+<h2 id="handy-docker-commands">Handy Docker commands</h2>
+
+<p>A few docker commands I found myself repeatedly searching up.</p>
+
+<h4 id="building-an-image-with-a-dockerfile-in-the-current-directory">Building an image with a dockerfile in the current directory</h4>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker build -t image_name:tag_name .</code></pre></div>
+<h3 id="running-a-docker-container">Running a docker container</h3>
+
+<p>Simple command:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run image_name:tag_name</code></pre></div>
+<p>A more complicated command:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -d --name container_name -p <span style="color:#0000cf;font-weight:bold">80</span>:80 -p <span style="color:#0000cf;font-weight:bold">443</span>:443 --net network_name -v /path/of/file/in/host:/path/of/file/in/container image_name:tag_name</code></pre></div>
+<ul>
+<li><code>-d</code> detached mode</li>
+<li><code>--name</code> specify the name you want to call this container</li>
+<li><code>-p</code> ports mapping</li>
+<li><code>--net</code> network to put it on</li>
+<li><code>-v</code> volumes to mount</li>
+</ul>
+
+<h3 id="creating-a-network">Creating a network</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker network create --driver bridge network_name</code></pre></div>
+<p><code>--driver</code> driver to manage the network</p>
+
+<h3 id="start-and-go-into-interactive-mode-of-last-created-container">Start and go into interactive mode of last created container</h3>
+
+<p>(thanks to <a href="https://stackoverflow.com/a/37886136/3881923" target="_blank">this stackoverflow answer</a>)</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker start -a -i <span style="color:#4e9a06">`</span>docker ps -q -l<span style="color:#4e9a06">`</span> </code></pre></div>
+<ul>
+<li><code>docker start</code> start a container (requires name or ID)</li>
+<li><code>-a</code> attach to container</li>
+<li><code>-i</code> interactive mode</li>
+<li><code>docker ps</code> List containers</li>
+<li><code>-q</code> list only container IDs</li>
+<li><code>-l</code> list only last created container</li>
+</ul>
+
+<h3 id="start-and-go-into-interactive-mode-of-a-specific-container">Start and go into interactive mode of a specific container</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker <span style="color:#204a87">exec</span> -it container_name_or_id /bin/bash</code></pre></div>
+<h3 id="remove-dangling-images">Remove dangling images</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker rmi <span style="color:#204a87;font-weight:bold">$(</span>docker images -qa -f <span style="color:#4e9a06">&#39;dangling=true&#39;</span><span style="color:#204a87;font-weight:bold">)</span></code></pre></div>
+<p>List all containers (running and exited):</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker ps -a</code></pre></div>]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[The usefulness of MagicMock]]></title>
+    <link href="https://theconfused.me/blog/the-usefulness-of-magicmock/"/>
+    <id>https://theconfused.me/blog/the-usefulness-of-magicmock/</id>
+    <published>2017-08-11T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>At my internship, I volunteered to fix a harmless looking bug on the Jira while the bulk of my internship project code was under code review. The fix itself was indeed as simple as it looks, but everything else wasn't. </p>
+
+<p>As is the standard procedure, after figuring out the fix I went to look at the unit tests for this particular function, except there weren't any. In fact, there were no tests for this module at all, which contains multiple classes and functions.</p>
+
+<p>I was pretty sure my fix was correct, but it didn't feel right to push things without any tests and I told my manager as much. She took a look at it and said, &quot;Ah, why don't you write unit tests for this whole module then.&quot;</p>
+
+<p>Should have seen that coming.</p>
+
+<p>So I started digging into the code and began writing tests--but there were many complicated dependencies amongst the classes, and I kept adding things to be mocked. When I was finally done I sent it to my manager for code review, and she asked me, &quot;Did you know about MagicMock? That'll probably make it easier and you don't have to mock so many things.&quot;</p>
+
+<p>And it was like somebody suddenly shone a light. I had heard about <a href="http://www.voidspace.org.uk/python/mock/magicmock.html#mock.MagicMock" target="_blank">MagicMock</a> before, but I have never used it personally and while caught up in writing code it just didn't occur to me that MagicMock would be useful for what I wanted to do. I guess it just goes to show the importance of taking a step back and thinking about the problem before diving into code.</p>
+
+<hr />
+
+<p>Let's say we have a function <code>dosomething</code> whose argument is an instance of class A. That class A has an attribute which is an instance of class B, and B has an attribute containing a list of objects of class C. So the function looks something like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">dosomething</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">objA</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">alist</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">objA</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">objB</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">some_attribute</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">objC</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">alist</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">objC</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span>
+        <span style="color:#204a87;font-weight:bold">print</span> <span style="color:#000">objC</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span></code></pre></div>
+<p>To test this function, we would have to mock class A. Without MagicMock, we would need to create a mock for multiple classes, like so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">C</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">value</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">value</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">B</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">some_attribute</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span> <span style="color:#8f5902;font-style:italic"># this will be a list of instances of class C</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">A</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">objB</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">B</span><span style="color:#000;font-weight:bold">()</span></code></pre></div>
+<p>Then to use this in your unit test:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">unittest</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">RandomTests</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">unittest</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">TestCase</span><span style="color:#000;font-weight:bold">):</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">test_dosomething</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">A</span><span style="color:#000;font-weight:bold">()</span>
+        <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">objB</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">some_attribute</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">C</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;somename&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;somevalue&#39;</span><span style="color:#000;font-weight:bold">)]</span>
+        <span style="color:#000">dosomething</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#8f5902;font-style:italic"># then assert one output</span></code></pre></div>
+<p>All these just to pass the correction argument into the function <code>dosomething</code> so that it doesn't complain about attribute errors.</p>
+
+<p>But with magic mock, we don't need to manually mock all our classes, and it just becomes:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">unittest</span>
+<span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">mock</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">MagicMock</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">RandomTests</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">unittest</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">TestCase</span><span style="color:#000;font-weight:bold">):</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">test_dosomething</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">MagicMock</span><span style="color:#000;font-weight:bold">()</span>
+        <span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">objB</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">some_attribute</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">MagicMock</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;somename&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">value</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;somevalue&#39;</span><span style="color:#000;font-weight:bold">)]</span>
+        <span style="color:#000">dosomething</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#8f5902;font-style:italic"># then assert on output</span></code></pre></div>
+<p>It's just like magic!</p>]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Extracting recipients information from email headers returned from Gmail API]]></title>
+    <link href="https://theconfused.me/blog/extracting-recipients-information-from-email-headers-returned-from-gmail-api/"/>
+    <id>https://theconfused.me/blog/extracting-recipients-information-from-email-headers-returned-from-gmail-api/</id>
+    <published>2017-08-07T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>In a recent side project I needed to figure out a way to properly extract the recipients list from the Gmail API response. In the end I managed to do it with some regex and this is just a post documenting how I did it.
+</p>
+
+<p>From the <a href="https://developers.google.com/gmail/api/v1/reference/" target="_blank">Gmail API documentation</a>, when you send a get request to the Gmail API for a particular <code>userId</code> and <code>messageId</code>, it returns a <a href="https://developers.google.com/gmail/api/v1/reference/users/messages#resource" target="_blank">Users.message resource</a> which looks something like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{
+  &#34;id&#34;: string,
+  &#34;threadId&#34;: string,
+  &#34;labelIds&#34;: [
+    string
+  ],
+  &#34;snippet&#34;: string,
+  &#34;historyId&#34;: unsigned long,
+  &#34;internalDate&#34;: long,
+  &#34;payload&#34;: {
+    &#34;partId&#34;: string,
+    &#34;mimeType&#34;: string,
+    &#34;filename&#34;: string,
+    &#34;headers&#34;: [
+      {
+        &#34;name&#34;: string,
+        &#34;value&#34;: string
+      }
+    ],
+    &#34;body&#34;: users.messages.attachments Resource,
+    &#34;parts&#34;: [
+      (MessagePart)
+    ]
+  },
+  &#34;sizeEstimate&#34;: integer,
+  &#34;raw&#34;: bytes
+}</pre></div>
+<p>The recipients can be obtained from the <code>headers</code> field, by taking the value corresponding to &quot;to&quot; in the name. Usually, with multiple recipients, the value looks something like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&#34;John Miranda&#34; &lt;john@gmail.com&gt;, &#34;Doe, Emily&#34; &lt;emilydoe@gmail.com&gt;, something@example.com</pre></div>
+<p>The recipients are comma separated and for each recipient there are 2 main formats it can come in:</p>
+
+<ul>
+<li>&quot;Name&quot; &lt;email address&gt;</li>
+<li>email address</li>
+</ul>
+
+<p>There are a few things that has to be taken into account that makes the problem not so simple:</p>
+
+<ul>
+<li>if name is present, email address is enclosed in angular brackets</li>
+<li>otherwise, email address appears alone, without the angular brackets</li>
+<li>name is enclosed by quotation marks if there is a comma in the name</li>
+</ul>
+
+<p>The end goal is to extract the recipients information from this response into an array with each item of the array being a dictionary containing the name and email of the sender, if they exist. It is obvious that we cannot simply split the string by commas, since there might also be a comma in the name.</p>
+
+<p>The following javascript regex takes the above considerations into account and, as far as I've tested it, splits the string properly:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000">parseEmailRecipients</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">recipientString</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+
+  <span style="color:#8f5902;font-style:italic">// an example string:
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// const str = `&#34;John Miranda&#34; &lt;john@gmail.com&gt;, &#34;Doe, Emily&#34; &lt;emilydoe@gmail.com&gt;, something@example.com, John Doe &lt;something@gmail.com&gt;, `;
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">regex</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">/(([\w,\&#34;\s]+)\s)?&lt;?([^@&lt;\s]+@[^@\s&gt;]+)&gt;?,/g</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">recipientsArray</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[];</span>
+
+  <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#000">m</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">regex</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">exec</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">recipientString</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">!==</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#8f5902;font-style:italic">// This is necessary to avoid infinite loops with zero-width matches
+</span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#000">regex</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">lastIndex</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#000">regex</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">lastIndex</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">;</span>
+      <span style="color:#000;font-weight:bold">}</span>
+      <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
+      <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">email</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
+
+      <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">m</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#000;font-weight:bold">{</span>
+      	<span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">/,$/</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">/&#34;/g</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trim</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">// strip whitespaces and commas, and remove quotation marks
+</span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#000;font-weight:bold">};</span>
+
+      <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">m</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#000;font-weight:bold">{</span>
+      	<span style="color:#000">email</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">/,$/</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;&#39;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">trim</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">// strip whitespaces and commas from end of string
+</span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#000;font-weight:bold">}</span>
+
+      <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">item</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+      	<span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">,</span>
+      	<span style="color:#000">email</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">email</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000;font-weight:bold">};</span>
+      <span style="color:#000">recipientsArray</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">recipientsArray</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div>
+<p>The main part of the function is in this regex <code>(([\w,\&quot;\s]+)\s)?&lt;?([^@&lt;\s]+@[^@\s&gt;]+)&gt;?,</code>, which can be broken down into three main parts:</p>
+
+<ol>
+<li><code>(([\w,\&quot;\s]+)\s)?</code></li>
+<li><code>&lt;?([^@&lt;\s]+@[^@\s&gt;]+)&gt;?</code></li>
+<li><code>,</code></li>
+</ol>
+
+<p>The <strong>first part</strong> <code>(([\w,\&quot;\s]+)\s)?</code> optionally identifies the name. The outermost round brackets denote a group. Inside it, we have a square bracket that tells it to look for any of these characters in the list: <code>\w</code> (any word character, that is, any letter, digit, or understore, equivalent to <code>[a-zA-Z0-9_]</code>), <code>,</code>, <code>&quot;</code>, and <code>\s</code> (a whitespace character). The <code>+</code> tells regex to match as many of these as possible, that is, it can match any character that belongs in the list any number of times. This is followed by a space again. The question mark that follows tells it that this whole group is optional - there may be some items without names appearing in front.</p>
+
+<p>The <strong>second part</strong> <code>&lt;?([^@&lt;\s]+@[^@\s&gt;]+)&gt;?</code> identifies the email. The opening and closing angle brackets are optional, therefore they are both followed by a question mark. The expression enclosed in round brackets describes the email format, which basically says look for a bunch of adjacent characters that are not <code>@</code> or <code>\s</code>, followed by a <code>@</code> symbol, then followed by another bunch of characters that are not <code>@</code> or <code>\s</code>. This is then enclosed by optional angle brackets.</p>
+
+<p>The <strong>last comma</strong> specifies the separator. Note that I don't think the last entry ends with a trailing comma, and this which would cause the regex to skip the last recipient when parsing. However this problem can be easily circumvented by manually adding a comma to the end of the string before using the regex.</p>
+
+<p><code>regex.exec</code> then returns the groups that were identifies through the round brackets. After that, all that's left to do is to trim some residual spaces and commas from the end of the string and remove the quotation marks that sometimes encloses a name.</p>]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Solving the 24 game]]></title>
+    <link href="https://theconfused.me/blog/solving-the-24-game/"/>
+    <id>https://theconfused.me/blog/solving-the-24-game/</id>
+    <published>2017-07-06T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[
+
+<p>The <a href="https://en.wikipedia.org/wiki/24_Game" target="_blank">24 game</a> is a game I've always liked playing. The problem is this: given four numbers, one has to try to make 24 using the four basic operations and using each number once and only once.</p>
+
+<p>For example, given a list of numbers <code>[4,8,3,6]</code>, we can get 24 by doing <code>4*8*(6/3)</code> or <code>4*3*(8-6)</code>. What you cannot do is take, say, <code>4*6</code> and discard the rest.</p>
+
+<p>Sometimes, there are also 4-number combinations that can never make 24. One example is <code>[3,9,4,10]</code>. What usually happens in a game when we encounter such combinations is that we would stare at the cards in silence for a long period of  time, before at some point we both agree that this is an impossible combination. But this is incredibly arbitrary; we might very well pass over combinations that are actually possible but neither of us could see.</p>
+
+<p>One very commonly missed one was <code>[1,5,5,5]</code>. You can have a try if you want to play along, but don't spend too long.</p>
+
+<p>So I wanted to write a program to check if there is a solution to a given a set of numbers, and print the solution if it exists. I've tried this a few years back when I first started coding, but somehow just couldn't cover all the edge cases. Armed with slightly more programming knowledge and experience, I decided to give it another go.</p>
+
+<h2 id="the-instinctive-approach">The instinctive approach</h2>
+
+<p>My first instinct was to construct all possible expressions that are possible with the four numbers and check whether any of them equal 24, or any other number you choose. It is easy to permute the numbers and operations, but the main difficulty lies in the placement of brackets.</p>
+
+<p>For four numbers, the possible positions of brackets are still iterable, though just barely, and makes the code look very ugly. For example, there is a <a href="https://rosettacode.org/wiki/24_game/Solve#Python" target="_blank">solution</a> on Rosetta Code that uses this principle; it specifies all the possible bracket insertion indices in an arithmetic expression string using the following code snippet:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">brackets</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000;font-weight:bold">[()]</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span>
+                     <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">exprlen</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span>
+                     <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">y</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">exprlen</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span>
+                     <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">exprlen</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)]</span>
+             <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">7</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic"># double brackets case</span></code></pre></div>
+<p>The empty tuple is the case with no brackets, the list comprehension after that generates all possible combinations of open brackets (variable <code>x</code>) and close brackets (variable <code>y</code>), and the third list is the indices of the brackets in the double bracket case, as in <code>(5 + 3) * (1 + 2)</code>.</p>
+
+<p>The major limitation of this solution is that it only works for four numbers, where it is easy to reason about the bracket placements. To make it work for more than 4 numbers, one would have to take into account double and triple brackets, nested brackets, and many more. In retrospect it might be possible to algorithmically generate possible bracket placements, possibly with some kind of recursive algorithm, but at that point it just felt paralyzingly messy.</p>
+
+<h2 id="a-recursive-approach">A recursive approach</h2>
+
+<p>I realized that to make it work for more numbers than four, I would have to take a different approach. I am pretty good at the game, so I thought about the strategy I use when playing the game and realized my first approach was wholly mechanical and unnatural.</p>
+
+<p>I don't think about bracket placement when I play the game, neither do I try to construct all possible expressions from the four numbers and evaluate them one-by-one to see if they give the desired answer. Instead, given four numbers, what I would do mentally is this: I would try to combine pairs of numbers and reduce them, until there are two numbers remaining, and then check if there is any way these two numbers evaluate to 24.</p>
+
+<p>For example, if we started with <code>[1,2,3,4]</code>, this is roughly the thought process that occurs:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">[1,2,3,4] --&gt; [1,6,4] --&gt; [1,24] --&gt; 24 --&gt; success!</pre></div>
+<p>As such, it becomes apparent that this is a recursive solution: solving for n numbers is the same as choosing to combine 2 numbers and solving for the remaining n-1 numbers.</p>
+
+<p>Once I got this realization, writing the algorithm was not difficult. For a given list of numbers, I iterate through all possible pairs that can be generated from the list. For each pair, I go through the possible values that can be produced from the pair by using the 4 operators. For each value, I generate a list with one less element than the previous, and call the function again.</p>
+
+<p>This contains two nested for loops, and might blow up for a large input array. But practically the 24 game is usually played with 4 numbers, and the algorithm does reasonably well with a list of similar order of magnitude.</p>
+
+<p>The resulting python code looks like this, with the main solver logic in <code>solve()</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">itertools</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">solve</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">goal</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">24</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">expr</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[]):</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">expr</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">[]:</span>
+        <span style="color:#000">expr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">n</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">goal</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">False</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">answers</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">answer_exps</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">combinetwo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">])</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">answer</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">answers</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">answer</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">goal</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">convert_expr_to_string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">answer_exps</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">False</span>
+
+    <span style="color:#000">pairs</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">itertools</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">combinations</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">pair</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">pairs</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">possible_values</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">possible_expr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">combinetwo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">pair</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">counter</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">value</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">possible_values</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#000">expression</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">possible_expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">counter</span><span style="color:#000;font-weight:bold">]</span>
+            <span style="color:#000">a_index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">numbers</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pair</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">])</span>
+            <span style="color:#000">b_index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">numbers</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pair</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">])</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">a_index</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">b_index</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#000">b_index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">numbers</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pair</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">a_index</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
+
+            <span style="color:#000">expr_string</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">convert_expr_to_string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">a_index</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">b_index</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">expression</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">newlist</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">numbers</span><span style="color:#000;font-weight:bold">[:]</span>
+            <span style="color:#000">newexpr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[:]</span>
+            
+            <span style="color:#8f5902;font-style:italic"># replace the two numbers with the combined result</span>
+            <span style="color:#000">a_index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">newlist</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pair</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">])</span>
+            <span style="color:#000">newlist</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a_index</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">b_index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">newlist</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pair</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">])</span>
+            <span style="color:#000">newlist</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b_index</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">newlist</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">)</span>
+
+            <span style="color:#8f5902;font-style:italic"># order matters</span>
+            <span style="color:#000">newexpr</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a_index</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">newexpr</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b_index</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">newexpr</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">expr_string</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">solve</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">newlist</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">goal</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">newexpr</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">remove_redundant_brackets</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">continue</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">convert_expr_to_string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">expr</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">temp</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;(&#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">temp</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]])</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39;)&#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39;(&#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">temp</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]])</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39;)&#39;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">combinetwo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000">expr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;+&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;*&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)]</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">result</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">expr</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">((</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;-&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">result</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">expr</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">((</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;-&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">result</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">expr</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">((</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">result</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">expr</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">((</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">expr</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">remove_redundant_brackets</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">stack</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+    <span style="color:#8f5902;font-style:italic"># indices to be deleted</span>
+    <span style="color:#000">indices</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">ch</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">ch</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;(&#39;</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">stack</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">ch</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;)&#39;</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">last_bracket_index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">stack</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#000">enclosed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">expr</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">last_bracket_index</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">enclosed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isdigit</span><span style="color:#000;font-weight:bold">():</span>
+                <span style="color:#000">indices</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#000">indices</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">last_bracket_index</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">([</span><span style="color:#000">char</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">idx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">char</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">expr</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">idx</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">indices</span><span style="color:#000;font-weight:bold">])</span></code></pre></div>
+<p>An example usage looks like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">solve</span><span style="color:#000;font-weight:bold">([</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">goal</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">24</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#4e9a06">&#39;5*(5-(1/5))&#39;</span></code></pre></div>
+<p>Of course you can pass in any goal and a list of arbitrary length. Currently, it should return nothing if there is no solution.</p>
+
+<p>I also converted the python code above to javascript, and made a <a href="https://theconfused.me/get24" target="_blank">page</a> so that people can play around with the game.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Git for noobs: an attempt at a git tutorial]]></title>
+    <link href="https://theconfused.me/blog/git-for-noobs/"/>
+    <id>https://theconfused.me/blog/git-for-noobs/</id>
+    <published>2017-04-19T00:00:00+00:00</published>
+    <updated>0001-01-01T00:00:00+00:00</updated>
+    <content type="html"><![CDATA[<p>So this is my attempt at making a git tutorial out of the countless git tutorials already out there. Why am I doing this? I remember the time I struggled with git when I started, and I want to challenge myself to write a tutorial that answers all the questions I had and all the questions I didn't think to ask. </p>
+
+<p>I feel that's the frustrating thing about the initial stages of learning something completely new and unrelated to anything you've done before--it is often not that you cannot find answers to your questions, it is that you're struggling to <em>find the questions to ask</em>. Sometimes the novelty of something just overwhelms and you're left grasping at straws just trying find its place in your life, and when someone asks you, &quot;What don't you not understand?&quot; and you're just lost for words because it all seems right and it all seems wrong at the same time, but you don't know how to express any of it. It's as if someone put a strange object in your hand and walked away--you can see every part of it, feel every part of it, but you just don't understand--what is it doing here?</p>
+
+<p>I don't know about you, but that's sometimes how I feel when I learn something completely new (mostly in physics, most recently when I started my final year project, not so recently when I was just learning frontend development). I feel that once you are able to ask clear, pointed questions about something, it already demonstrates a certain level of familiarity with the subject. And I believe a good introductory tutorial, since it cannot and is not meant to cover everything, should point you to the right questions to ask.</p>
+
+<p>It's not that some of the tutorials are not clear in what they teach. A lot of tutorials meticulously teach you how to work with git, but personally I need a super rough, high-level conceptual understanding of the thing before I can start looking at its details.</p>
+
+<p>So this is a git tutorial tailored for the past me. I don't pretend I represent the what the general population thinks, but hopefully it helps a few other people. It will aim to give a high-level overview of sorts in as layman terms as possible before going through each set of common commands, introducing its aims, purpose, and the problems it solves.</p>
+
+<p>Before anything, here is a relevant xkcd:</p>
+
+<figure class="xkcd-embed">
+  <a href="https://xkcd.com/1597">
+    <img src="https://imgs.xkcd.com/comics/git.png" title="If that doesn't fix it, git.txt contains the phone number of a friend of mine who understands git. Just wait through a few minutes of 'It's really pretty simple, just think of branches as...' and eventually you'll learn the commands that will fix everything." alt="https://xkcd.com/1597">
+  </a>
+  <figcaption>
+    "Git" - created by <a href="http://xkcd.com">xkcd</a>
+  </figcaption>
+</figure>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>First, <strong>GitHub is not git</strong>. It is an important conceptual distinction, and the difference will be explained later. To understand how to use GitHub, one has to first understand git.</p>
+
+<h3 id="what-is-git">What is git?</h3>
+
+<p>Git is a version control system. Remember those times when you had <code>report-FINAL.docx</code> and <code>report-FINAL2.docx</code> and <code>report-REALLYFINAL.docx</code>? A version control system is a solution for that. It keeps tracks of your history in a folder so you don't have to create multiple files or folders just so that you can retain history. It takes a series of snapshots of your folder, so that you can revert to any one of those snapshots anytime.</p>
+
+<p>There are various version control systems out there, such as <a href="http://www.nongnu.org/cvs/" target="_blank">cvs</a> and <a href="https://subversion.apache.org/" target="_blank">svn</a>, and git is one of them, the most popular of them all.</p>
+
+<p>In fact, apart from retaining the history of a document, you've probably also had troubles when multiple people edit the same file, and oops, your colleague's changes overrode yours and your edits are all gone. Collaboration--that's also a problem solved by git.</p>
+
+<p>So now you can see why it might be useful. Git is mostly used for code, because code is just plain text files, as compared to Microsoft Word whose data is stored in binary, though apparently, a quick google tells me that you can make it work with certain binary files after <a href="http://blog.martinfenner.org/2014/08/25/using-microsoft-word-with-git/" target="_blank">jumping through some hoops</a>.</p>
+
+<p>In short, git is a version control system that solves these problems:</p>
+
+<ul>
+<li>keeping track of your history</li>
+<li>multiple people working on the same set of files</li>
+</ul>
+
+<p>A note about terms that might be used: folder is used interchangealy with directory, and in this context a repository refers to a version-controlled folder.</p>
+
+<h3 id="basic-git-commands-stage-and-commit">Basic git commands: stage and commit</h3>
+
+<p>With a version control system, the very basic thing you would want to do is to make changes and tell git to track those changes.</p>
+
+<p>To start off, you need to tell git to start tracking changes in your folder. If you haven't downloaded git yet, now is the time. There are plenty of guides for installing git and plenty of options for git clients, some of which include a user interface, which is useful for visualizing what's going on in git. Just choose any one. For now we'll just be working with the command line.</p>
+
+<p>Let's say we want to version control a folder called <code>flowers</code>. Navigate into <code>flowers</code> on the command line, and do</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git init</code></pre></div>
+<p>This tells git to start tracking changes in the current folder.</p>
+
+<p>Then make some changes. Create a text file or something. Now you want to tell git that you've made some changes and ask them to record your changes, in essence, make a checkpoint.</p>
+
+<p>This is called committing your changes. But before you commit, you have to stage your changes.</p>
+
+<p>Let's say you added a new file called <code>tulips.md</code>. You can stage it by doing</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git add tulips.md</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git add .</code></pre></div>
+<p>The single dot <code>.</code> tells git to stage all changes in the folder. At this point, your file <code>tulips.md</code> is staged, ready to be committed. Then you can commit your staged files by doing</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git commit -m <span style="color:#4e9a06">&#34;here is a commit message!&#34;</span></code></pre></div>
+<p>At this point, it might seem strange why there are two steps: staging then committing. Staging seems like a duplicate step, because in this case we're doing essentially the same thing in these two steps.</p>
+
+<p>However, the usefulness of staging comes in when you have made changes to many files and only want to commit a few. Perhaps you fixed a bug while implementing a feature, and you don't want them to be in the same commit. Staging allows you to do that.</p>
+
+<p>Currently, everything is saved locally--all your commits and version history. There are certainly other things that can be done, such as reverting changes, soft / hard reset, and there are plenty of tutorials out there that go in depth about git commands.</p>
+
+<p>But to see where git truly shines, we would have to look at collaboration.</p>
+
+<h2 id="collaboration-with-git">Collaboration with git</h2>
+
+<h3 id="what-is-github-and-what-has-it-got-to-do-with-git">What is GitHub and what has it got to do with git</h3>
+
+<p>To collaborate with others, we have to find a way to share whatever folder we are working on. You might have done this by email, by Dropbox, by Google Drive, or something else. The idea is that there must be a central place that holds the folder, so that everyone is looking at the same thing.</p>
+
+<p>That is what GitHub is: a web-based hosting service for git repositories. Git is the tool, and GitHub is the service for projects that use git. There are, of course, other git repository hosting services other than GitHub, such as <a href="https://about.gitlab.com/" target="_blank">Gitlab</a> and <a href="https://bitbucket.org/" target="_blank">BitBucket</a>, or you can <a href="https://www.techrepublic.com/article/how-to-set-up-a-gitlab-server-and-host-your-own-git-repositories/" target="_blank">host your own git server</a>.</p>
+
+<p>The following section talk about how to work with remote repositories hosted on a server. This server is GitHub most of the time, but it doesn't have to be. These are features of git, which means that they are not specific to GitHub.</p>
+
+<h3 id="more-git-commands-push-and-pull">More git commands: push and pull</h3>
+
+<p>Now that there is a remote repository, there are many more things you can do, most notably: push and pull.</p>
+
+<p>Before you can do that, you have to set up authentication with the remote server. First, you would need a GitHub account. Then, you can follow the instructions at <a href="https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git" target="_blank">Set up Git at GitHub</a> to set up authentication. After setting up authentication properly, you wouldn't have to type your GitHub password every time you need to access GitHub locally.</p>
+
+<p>After committing your changes locally, you have to inform your remote repository (e.g your GitHub repository) of the changes. This is known as pushing your changes.</p>
+
+<p>Before you can push, you have to tell your local folder about the remote:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add &lt;remote name&gt; &lt;remote url&gt;</code></pre></div>
+<p>On GitHub, the remote url can be found at the clone and download button, and should look something like <code>https://github.com/user/repo.git</code> (https) or <code>git@github.com:user/repo.git</code> (ssh).</p>
+
+<p>The remote name can be anything you like. In many tutorials, you'll see it named as <code>origin</code>. But it can absolutely be anything you like to call it.</p>
+
+<p>After setting up the remote, the command to push is:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git push &lt;remote name&gt; &lt;branch name&gt;</code></pre></div>
+<p>At this point, we only have one branch: the default <code>master</code> branch. Branches will be explained in the next section.</p>
+
+<p>It is only at this point that, if you're collaborating, your teammates are informed of your changes. Anything before you push is local and only visible to you.</p>
+
+<p>The equivalent reverse action is pulling other people's changes. If other people have made changes and pushed to the remote repository, you can pull their changes by doing</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git pull</code></pre></div>
+<h3 id="branching">Branching</h3>
+
+<p>Branching is a powerful feature. So far, we've been working on the default master branch. While branching is not a feature only used in collaboration, it is something whose usefulness manifests itself hugely in collaborative projects. Without branching, powerful workflows would not be possible.</p>
+
+<p>Think of it, literally, as a branch in a tree. The master is the trunk, which you can branch off, so that you can make changes to the project without affecting master. Main operations would be to:</p>
+
+<ul>
+<li>create branches</li>
+<li>switch between branches</li>
+<li>merge branches</li>
+</ul>
+
+<p>Why branching? You might want to make a feature that will necessitate multiple commits, and you don't want to pollute the master branch. Often you have different members on your team working on different things. For example, you might be fixing a bug, while your team member might be working on a feature, and another teammate is trying out with another version of the website. Branches isolate all these things in their own contexts. Many projects have some version of the production or development branch, and other feature and bugfix branches.</p>
+
+<p>By convention, the default branch is the master branch.</p>
+
+<p>To create a branch named hotfix from the current branch and switch to it:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout -b hotfix</code></pre></div>
+<p>To switch between branches that already exist, simply do</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout &lt;branch name&gt;</code></pre></div>
+<p>To merge <code>hotfix</code> back into <code>master</code>, do</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout master
+git merge hotfix</code></pre></div>
+<p>This can all be done on the command line, but a graphical user interface (GUI) can can make this part of the process much easier, especially when you have multiple branches to keep track of. Especially so when you have merge conflicts to deal with. This is optional, and here is an <a href="https://git-scm.com/downloads/guis" target="_blank">extensive list of git GUIs</a>.</p>
+
+<h3 id="contributing-to-open-source-fork-and-pull-requests">Contributing to open source: fork and pull requests</h3>
+
+<p>If you're looking to contribute to an open source project on GitHub, there are a few more steps to follow. When you are not a collaborator of the project, that is, you don't have push access, you have to first fork the project. That is easily done by pressing the fork button on GitHub. Take note that unlike previous operations, <strong>forking is a GitHub concept and not a git concept</strong>.</p>
+
+<p>After forking, the repo now lives remotely on your own GitHub account. To get a local copy of the remote repo, you would have to clone it. For example, if you want to contribute to <a href="http://www.astropy.org/" target="_blank">astropy</a>, you would first fork the repo from the astropy GitHub page, then do:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone git@github.com:&lt;your-username&gt;/astropy.git </code></pre></div>
+<p>Now, create a new branch, checkout that branch, and make some edits, commit them, push to GitHub, and now the edits live on your fork of the project. However, as you don't have push access to the project, you would have to create a pull request (PR) from your branch to the original project.</p>
+
+<p class="notice">
+<b>Aside: Why is it called a pull request and not a push request if you are essentially suggesting edits?</b> This was confusing for me when I first heard about PRs. But the reason it is called a pull request is that you are not requesting the project owners to allow you to <em>push</em> to the repository; instead, you're requesting for them to <em>pull</em> your branch, and hence it is called a pull request, not a push request. 
+</p>
+
+<p>Each repository has its own contributing guidelines. Be sure to read them before contributing.</p>
+
+<p>The <a href="http://docs.astropy.org/en/latest/development/workflow/development_workflow.html" target="_blank">Astropy developer documentation</a>, for example, provides a good guide for setting things up and provides guidelines for contributing to a large open source project. In my opinion it is incredibly well written and most things are not specific to Astropy, but overall applicable to anyone who wants to contributes to open source.</p>
+
+<p>And all that's left is to wait for the open source collaborators to review your pull request.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>There are a great many things git can do that this tutorial doesn't cover, the most prominent (I think) being <code>git stash</code> and <code>git fetch</code>. As was mentioned in the beginning, the aim is to provide a sort of high-level understanding and point you to the right questions to ask. Once you know your questions, there are tons of more detailed git documentations / tutorials out there.</p>
+
+<h2 id="some-resources-and-useful-things">Some resources and useful things</h2>
+
+<ul>
+<li><a href="https://www.git-tower.com/blog/understanding-branches-in-git/" target="_blank">Git Tower - Understanding branches in Git</a></li>
+<li><a href="https://try.github.io/" target="_blank">Try git: An interactive git tutorial</a></li>
+<li><a href="http://docs.astropy.org/en/latest/development/workflow/development_workflow.html#pull-request" target="_blank">Astropy's developer documentation</a></li>
+<li><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/" target="_blank">Gitmagic</a></li>
+<li><a href="https://matthew-brett.GitHub.io/curious-git/curious_details.html" target="_blank">Deeper inside git</a></li>
+</ul>]]></content>
+  </entry>
+</feed>
