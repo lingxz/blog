@@ -4,6 +4,8 @@ math: true
 tags: [physics]
 ---
 
+**Update**: A few people have been asking me for the code for generating these graphs, so I organized some of the old code and uploaded it here: [schwarzschild.py](https://gist.github.com/lingxz/98cb5261432e46e3edc76eaff1ef6dd0). 
+
 To find the trajectory of anything in General Relativity, usually you only need the metric tensor, from which you can obtain the geodesic equations. Nevertheless, a common problem that arises in cosmology is that as soon as we depart from the simplest homogeneous models, the task of finding solutions to the geodesic equations quickly becomes an intractable analytical problem. 
 
 In this post are some notes of how to perform numerical integration of light paths in the Schwarzschild metric. 
