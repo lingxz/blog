@@ -27,7 +27,7 @@ isPlainText = false
 
 [mediaTypes]
 [mediaTypes."application/atom"]
-suffix = "xml"
+suffixes = ["xml"]
 
 [frontmatter]
 date  = [":filename", ":default"]

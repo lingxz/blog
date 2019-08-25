@@ -16,7 +16,7 @@
   </div>
   <div class="gap-top post-content">
     <!-- <h1>Blog Posts</h1> -->
-    {{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
     {{ range $paginator.Pages }}
     <p>
       <a href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a>
