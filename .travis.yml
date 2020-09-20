@@ -1,7 +1,7 @@
 language: go
 addons:
   ssh_known_hosts: 
-    - 178.62.18.237
+    - 165.22.255.104
 before_install:
   - openssl aes-256-cbc -K $encrypted_42099b4af021_key -iv $encrypted_42099b4af021_iv -in deploy-key.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
@@ -12,7 +12,7 @@ install:
 script:
   - hugo
   # - cleancss -o public/css/styles.css public/css/styles.css
-  - imagemin public/img/* --out-dir=public/img
+  # - imagemin public/img/* --out-dir=public/img
   - html-minifier --input-dir public --output-dir public --file-ext html --remove-comments --minify-css --minify-js --collapse-whitespace
 deploy:
   - provider: pages
