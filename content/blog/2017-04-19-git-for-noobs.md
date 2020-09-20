@@ -2,6 +2,7 @@
 title: 'Git for noobs: an attempt at a git tutorial'
 tags: [git]
 toc: true
+draft: true
 ---
 
 So this is my attempt at making a git tutorial out of the countless git tutorials already out there. Why am I doing this? I remember the time I struggled with git when I started, and I want to challenge myself to write a tutorial that answers all the questions I had and all the questions I didn't think to ask. <!--more-->
