@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://theconfused.me/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/keybindings/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/switching-between-mac-and-linux-keyboards/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/is-newtons-first-law-merely-a-special-case-of-the-second/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/physics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/bidding-farewell-to-my-year-long-masters-project/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/i-gave-this-blog-a-revamp-and-you-dont-care/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/meta/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/distances-in-schwarzschild-lensing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/numerical-integration-of-light-paths-in-a-schwarzschild-metric/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/getting-better-related-posts-in-jekyll-using-tf-idf/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/jekyll/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/python/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/handy-docker-commands/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/nginx/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/testing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/the-usefulness-of-magicmock/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/extracting-recipients-information-from-email-headers-returned-from-gmail-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/gmail/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/js/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/tags/re/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/blog/solving-the-24-game/</loc>
+  </url>
+  
+  <url>
+    <loc>https://theconfused.me/about/</loc>
+  </url>
+  
+</urlset>
